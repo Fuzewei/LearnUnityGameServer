@@ -1,0 +1,52 @@
+<root>
+	<Interfaces>
+	</Interfaces>
+
+	<Properties>
+		<moveType>
+			<Type>			MOVE_TYPE	    </Type> <!-- 移动类型 -->
+			<Flags>			ALL_CLIENTS		</Flags>
+			<Default>		0			</Default>
+		</moveType>
+
+		<moveDirection>
+			<Type>			DIRECTION3D	    </Type> <!-- 移动类型 -->
+			<Flags>			ALL_CLIENTS		</Flags>
+		</moveDirection>
+
+		<moveInfo>
+			<Type>			MOVE_INFOS	    </Type> <!-- 移动类型参数 -->
+			<Flags>			ALL_CLIENTS		</Flags>
+		</moveInfo>
+
+	</Properties>
+
+	<CellMethods>
+	
+		<updatePosition>
+			<Exposed/>
+			<Arg>		FLOAT		</Arg>
+			<Arg>		POSITION3D		</Arg>
+			<Arg>		DIRECTION3D		</Arg>
+			<Arg>		DIRECTION3D		</Arg>
+		</updatePosition>
+
+		<updateAvatarMoveState>
+			<Exposed/>
+			<Arg>		FLOAT			</Arg>
+			<Arg>		MOVE_TYPE		</Arg>
+			<Arg>		POSITION3D		</Arg>
+			<Arg>		DIRECTION3D		</Arg>
+			<Arg>		DIRECTION3D		</Arg>
+			<Arg>		BOOL			</Arg>
+		</updateAvatarMoveState>
+
+	</CellMethods>
+
+	<ClientMethods>
+		<confirmMoveTimeStamp>
+			<Arg>		FLOAT		</Arg>
+		</confirmMoveTimeStamp>
+	</ClientMethods>
+</root>
+

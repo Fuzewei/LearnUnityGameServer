@@ -1,0 +1,686 @@
+  INFO [0x0000a928] [2021-08-11 21:24:47,683] - 
+  INFO [0x0000a928] [2021-08-11 21:24:47,683] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000a928] [2021-08-11 21:24:47,684] - Resmgr::initialize: KBE_ROOT=C:/Users/Admin/Desktop/kbengine-2.5.12/
+  INFO [0x0000a928] [2021-08-11 21:24:47,684] - Resmgr::initialize: KBE_RES_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/res/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/scripts/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000a928] [2021-08-11 21:24:47,684] - Resmgr::initialize: KBE_BIN_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000a928] [2021-08-11 21:24:47,696] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:53771 )
+  INFO [0x0000a928] [2021-08-11 21:24:47,697] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:53771, SOMAXCONN=511.
+  INFO [0x0000a928] [2021-08-11 21:24:47,698] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:53772 )
+  INFO [0x0000a928] [2021-08-11 21:24:47,698] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:53772, SOMAXCONN=511.
+  WARN [0x0000a928] [2021-08-11 21:24:47,698] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000a928] [2021-08-11 21:24:47,700] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 49184 ----
+  INFO [0x0000a928] [2021-08-11 21:24:47,700] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000a928] [2021-08-11 21:24:47,700] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000a928] [2021-08-11 21:24:47,701] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000a928] [2021-08-11 21:24:48,152] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000a928] [2021-08-11 21:24:48,152] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000a928] [2021-08-11 21:24:48,200] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000a928] [2021-08-11 21:24:48,200] - TelnetServer server is running on port 34000
+  INFO [0x0000a928] [2021-08-11 21:24:48,202] - ---- logger is running ----
+ DEBUG [0x0000a928] [2021-08-11 21:24:48,202] - Components::process(): Request for the process of identity...
+  INFO [0x0000a928] [2021-08-11 21:24:54,598] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53774, extaddr:nonsupport, extport:0,  from 10.68.234.85:53775/0/0/0.
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53776, extaddr:nonsupport, extport:0,  from 10.68.234.85:53778/0/0/0.
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53780, extaddr:nonsupport, extport:0,  from 10.68.234.85:53781/0/0/0.
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53784, extaddr:nonsupport, extport:0,  from 10.68.234.85:53785/0/0/0.
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x0000a928] [2021-08-11 21:24:54,599] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53786, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:53787/0/0/0.
+  INFO [0x0000a928] [2021-08-11 21:24:54,600] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000a928] [2021-08-11 21:24:55,625] - Components::process(): Found all the components!
+  INFO [0x0000a928] [2021-08-11 21:25:00,314] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53782, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:53788/0/0/0.
+  INFO [0x0000a928] [2021-08-11 21:25:00,314] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x0000a928] [2021-08-11 21:25:02,243] - Components::removeComponentByChannel: dbmgr : 4000, Normal exit!
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,321] - 
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,321] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,321] - Resmgr::initialize: KBE_ROOT=C:/Users/Admin/Desktop/kbengine-2.5.12/
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,321] - Resmgr::initialize: KBE_RES_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/res/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/res/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/scripts/
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,321] - Resmgr::initialize: KBE_BIN_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,332] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:58654 )
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,332] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:58654, SOMAXCONN=511.
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,333] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:58656 )
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,333] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:58656, SOMAXCONN=511.
+  WARN [0x0000a5a0] [2021-08-11 21:43:30,333] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,335] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 1129653375331859700. UID: 16442. PID: 37548 ----
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,335] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,335] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,336] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,536] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,536] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000a5a0] [2021-08-11 21:43:30,543] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,544] - TelnetServer server is running on port 34000
+  INFO [0x0000a5a0] [2021-08-11 21:43:30,546] - ---- logger is running ----
+ DEBUG [0x0000a5a0] [2021-08-11 21:43:30,546] - Components::process(): Request for the process of identity...
+  INFO [0x00006ac0] [2021-08-11 21:43:36,539] - 
+  INFO [0x00006ac0] [2021-08-11 21:43:36,539] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00006ac0] [2021-08-11 21:43:36,540] - Resmgr::initialize: KBE_ROOT=C:/Users/Admin/Desktop/kbengine-2.5.12/
+  INFO [0x00006ac0] [2021-08-11 21:43:36,540] - Resmgr::initialize: KBE_RES_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/res/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/scripts/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00006ac0] [2021-08-11 21:43:36,540] - Resmgr::initialize: KBE_BIN_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00006ac0] [2021-08-11 21:43:36,552] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:58666 )
+  INFO [0x00006ac0] [2021-08-11 21:43:36,552] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:58666, SOMAXCONN=511.
+  INFO [0x00006ac0] [2021-08-11 21:43:36,553] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:58667 )
+  INFO [0x00006ac0] [2021-08-11 21:43:36,553] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:58667, SOMAXCONN=511.
+  WARN [0x00006ac0] [2021-08-11 21:43:36,553] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00006ac0] [2021-08-11 21:43:36,555] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 40840 ----
+  INFO [0x00006ac0] [2021-08-11 21:43:36,558] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00006ac0] [2021-08-11 21:43:36,559] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00006ac0] [2021-08-11 21:43:36,559] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00006ac0] [2021-08-11 21:43:36,731] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00006ac0] [2021-08-11 21:43:36,731] - Script::install(): KBExtra is successfully!
+S_INFO [0x00006ac0] [2021-08-11 21:43:36,738] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00006ac0] [2021-08-11 21:43:36,738] - TelnetServer server is running on port 34000
+  INFO [0x00006ac0] [2021-08-11 21:43:36,740] - ---- logger is running ----
+ DEBUG [0x00006ac0] [2021-08-11 21:43:36,740] - Components::process(): Request for the process of identity...
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58668, extaddr:nonsupport, extport:0,  from 10.68.234.85:58669/0/0/0.
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58670, extaddr:nonsupport, extport:0,  from 10.68.234.85:58671/0/0/0.
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58674, extaddr:nonsupport, extport:0,  from 10.68.234.85:58675/0/0/0.
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58676, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:58677/0/0/0.
+  INFO [0x00006ac0] [2021-08-11 21:43:43,059] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x00006ac0] [2021-08-11 21:43:43,060] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58680, extaddr:nonsupport, extport:0,  from 10.68.234.85:58681/0/0/0.
+  INFO [0x00006ac0] [2021-08-11 21:43:43,060] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x00006ac0] [2021-08-11 21:43:43,060] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58682, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:58683/0/0/0.
+  INFO [0x00006ac0] [2021-08-11 21:43:43,060] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x00006ac0] [2021-08-11 21:43:44,092] - Components::process(): Found all the components!
+  INFO [0x00006ac0] [2021-08-11 21:43:50,084] - Components::removeComponentByChannel: dbmgr : 4000, Normal exit!
+  INFO [0x0000cb98] [2021-08-11 21:46:42,712] - 
+  INFO [0x0000cb98] [2021-08-11 21:46:42,713] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000cb98] [2021-08-11 21:46:42,713] - Resmgr::initialize: KBE_ROOT=C:/Users/Admin/Desktop/kbengine-2.5.12/
+  INFO [0x0000cb98] [2021-08-11 21:46:42,713] - Resmgr::initialize: KBE_RES_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/res/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/scripts/;C:/Users/Admin/Desktop/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000cb98] [2021-08-11 21:46:42,713] - Resmgr::initialize: KBE_BIN_PATH=C:/Users/Admin/Desktop/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000cb98] [2021-08-11 21:46:42,725] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:63817 )
+  INFO [0x0000cb98] [2021-08-11 21:46:42,725] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:63817, SOMAXCONN=511.
+  INFO [0x0000cb98] [2021-08-11 21:46:42,726] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:63818 )
+  INFO [0x0000cb98] [2021-08-11 21:46:42,726] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:63818, SOMAXCONN=511.
+  WARN [0x0000cb98] [2021-08-11 21:46:42,726] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000cb98] [2021-08-11 21:46:42,728] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 25772 ----
+  INFO [0x0000cb98] [2021-08-11 21:46:42,729] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000cb98] [2021-08-11 21:46:42,729] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000cb98] [2021-08-11 21:46:42,729] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000cb98] [2021-08-11 21:46:42,904] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000cb98] [2021-08-11 21:46:42,904] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000cb98] [2021-08-11 21:46:42,911] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000cb98] [2021-08-11 21:46:42,911] - TelnetServer server is running on port 34000
+  INFO [0x0000cb98] [2021-08-11 21:46:42,913] - ---- logger is running ----
+ DEBUG [0x0000cb98] [2021-08-11 21:46:42,913] - Components::process(): Request for the process of identity...
+  WARN [0x0000cb98] [2021-08-11 21:46:46,602] - BundleBroadcast::BundleBroadcast: Cannot bind to port 20569, errorno=10048
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:63819, extaddr:nonsupport, extport:0,  from 10.68.234.85:63820/0/0/0.
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:63821, extaddr:nonsupport, extport:0,  from 10.68.234.85:63822/0/0/0.
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:63825, extaddr:nonsupport, extport:0,  from 10.68.234.85:63826/0/0/0.
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:63827, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:63828/0/0/0.
+  INFO [0x0000cb98] [2021-08-11 21:46:49,698] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x0000cb98] [2021-08-11 21:46:49,699] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:63829, extaddr:nonsupport, extport:0,  from 10.68.234.85:63830/0/0/0.
+  INFO [0x0000cb98] [2021-08-11 21:46:49,699] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000cb98] [2021-08-11 21:46:49,699] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:63831, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:63832/0/0/0.
+  INFO [0x0000cb98] [2021-08-11 21:46:49,699] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x0000cb98] [2021-08-11 21:46:50,714] - Components::process(): Found all the components!
+  INFO [0x0000123c] [2021-08-11 21:50:50,992] - 
+  INFO [0x0000123c] [2021-08-11 21:50:50,992] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000123c] [2021-08-11 21:50:50,993] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x0000123c] [2021-08-11 21:50:50,993] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000123c] [2021-08-11 21:50:50,993] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000123c] [2021-08-11 21:50:51,005] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:60321 )
+  INFO [0x0000123c] [2021-08-11 21:50:51,005] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:60321, SOMAXCONN=511.
+  INFO [0x0000123c] [2021-08-11 21:50:51,006] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:60322 )
+  INFO [0x0000123c] [2021-08-11 21:50:51,006] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:60322, SOMAXCONN=511.
+  WARN [0x0000123c] [2021-08-11 21:50:51,007] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000123c] [2021-08-11 21:50:51,008] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 30096 ----
+  INFO [0x0000123c] [2021-08-11 21:50:51,009] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000123c] [2021-08-11 21:50:51,009] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000123c] [2021-08-11 21:50:51,009] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000123c] [2021-08-11 21:50:51,188] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000123c] [2021-08-11 21:50:51,188] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000123c] [2021-08-11 21:50:51,195] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000123c] [2021-08-11 21:50:51,195] - TelnetServer server is running on port 34000
+  INFO [0x0000123c] [2021-08-11 21:50:51,197] - ---- logger is running ----
+ DEBUG [0x0000123c] [2021-08-11 21:50:51,197] - Components::process(): Request for the process of identity...
+  INFO [0x0000123c] [2021-08-11 21:50:57,440] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60328, extaddr:nonsupport, extport:0,  from 10.68.234.85:60329/0/0/0.
+  INFO [0x0000123c] [2021-08-11 21:50:57,440] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x0000123c] [2021-08-11 21:50:57,440] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x0000123c] [2021-08-11 21:50:57,440] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60330, extaddr:nonsupport, extport:0,  from 10.68.234.85:60331/0/0/0.
+  INFO [0x0000123c] [2021-08-11 21:50:57,440] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x0000123c] [2021-08-11 21:50:57,440] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60332, extaddr:nonsupport, extport:0,  from 10.68.234.85:60333/0/0/0.
+  INFO [0x0000123c] [2021-08-11 21:50:57,441] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x0000123c] [2021-08-11 21:50:57,441] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60334, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:60335/0/0/0.
+  INFO [0x0000123c] [2021-08-11 21:50:57,441] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x0000123c] [2021-08-11 21:50:57,441] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60336, extaddr:nonsupport, extport:0,  from 10.68.234.85:60337/0/0/0.
+  INFO [0x0000123c] [2021-08-11 21:50:57,441] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000123c] [2021-08-11 21:50:57,441] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60338, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:60339/0/0/0.
+  INFO [0x0000123c] [2021-08-11 21:50:57,441] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x0000123c] [2021-08-11 21:50:58,458] - Components::process(): Found all the components!
+  INFO [0x00009094] [2021-08-11 21:51:18,169] - 
+  INFO [0x00009094] [2021-08-11 21:51:18,169] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00009094] [2021-08-11 21:51:18,169] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x00009094] [2021-08-11 21:51:18,169] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00009094] [2021-08-11 21:51:18,169] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00009094] [2021-08-11 21:51:18,181] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:60353 )
+  INFO [0x00009094] [2021-08-11 21:51:18,181] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:60353, SOMAXCONN=511.
+  INFO [0x00009094] [2021-08-11 21:51:18,182] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:60354 )
+  INFO [0x00009094] [2021-08-11 21:51:18,182] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:60354, SOMAXCONN=511.
+  WARN [0x00009094] [2021-08-11 21:51:18,182] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00009094] [2021-08-11 21:51:18,184] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 30388 ----
+  INFO [0x00009094] [2021-08-11 21:51:18,184] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00009094] [2021-08-11 21:51:18,184] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00009094] [2021-08-11 21:51:18,184] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00009094] [2021-08-11 21:51:18,348] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00009094] [2021-08-11 21:51:18,348] - Script::install(): KBExtra is successfully!
+S_INFO [0x00009094] [2021-08-11 21:51:18,355] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00009094] [2021-08-11 21:51:18,355] - TelnetServer server is running on port 34000
+  INFO [0x00009094] [2021-08-11 21:51:18,357] - ---- logger is running ----
+ DEBUG [0x00009094] [2021-08-11 21:51:18,357] - Components::process(): Request for the process of identity...
+  INFO [0x00009094] [2021-08-11 21:51:24,617] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60358, extaddr:nonsupport, extport:0,  from 10.68.234.85:60364/0/0/0.
+  INFO [0x00009094] [2021-08-11 21:51:24,618] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00009094] [2021-08-11 21:51:24,618] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00009094] [2021-08-11 21:51:24,618] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60359, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:60365/0/0/0.
+  INFO [0x00009094] [2021-08-11 21:51:24,618] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x00009094] [2021-08-11 21:51:24,618] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60361, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:60366/0/0/0.
+  INFO [0x00009094] [2021-08-11 21:51:24,618] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x00009094] [2021-08-11 21:51:25,659] - Components::process(): Found all the components!
+  INFO [0x00009094] [2021-08-11 21:51:26,438] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60357, extaddr:nonsupport, extport:0,  from 10.68.234.85:60376/0/0/0.
+  INFO [0x00009094] [2021-08-11 21:51:26,438] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x00005078] [2021-08-11 21:51:34,379] - 
+  INFO [0x00005078] [2021-08-11 21:51:34,380] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00005078] [2021-08-11 21:51:34,380] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x00005078] [2021-08-11 21:51:34,380] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00005078] [2021-08-11 21:51:34,380] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00005078] [2021-08-11 21:51:34,392] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:60383 )
+  INFO [0x00005078] [2021-08-11 21:51:34,392] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:60383, SOMAXCONN=511.
+  INFO [0x00005078] [2021-08-11 21:51:34,393] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:60384 )
+  INFO [0x00005078] [2021-08-11 21:51:34,393] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:60384, SOMAXCONN=511.
+  WARN [0x00005078] [2021-08-11 21:51:34,393] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00005078] [2021-08-11 21:51:34,395] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 29500 ----
+  INFO [0x00005078] [2021-08-11 21:51:34,395] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00005078] [2021-08-11 21:51:34,395] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00005078] [2021-08-11 21:51:34,395] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00005078] [2021-08-11 21:51:34,557] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00005078] [2021-08-11 21:51:34,557] - Script::install(): KBExtra is successfully!
+S_INFO [0x00005078] [2021-08-11 21:51:34,564] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00005078] [2021-08-11 21:51:34,564] - TelnetServer server is running on port 34000
+  INFO [0x00005078] [2021-08-11 21:51:34,566] - ---- logger is running ----
+ DEBUG [0x00005078] [2021-08-11 21:51:34,566] - Components::process(): Request for the process of identity...
+  INFO [0x00005078] [2021-08-11 21:51:40,840] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60390, extaddr:nonsupport, extport:0,  from 10.68.234.85:60391/0/0/0.
+  INFO [0x00005078] [2021-08-11 21:51:40,841] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00005078] [2021-08-11 21:51:40,841] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00005078] [2021-08-11 21:51:40,841] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60388, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:60392/0/0/0.
+  INFO [0x00005078] [2021-08-11 21:51:40,841] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x00005078] [2021-08-11 21:51:40,841] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60389, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:60393/0/0/0.
+  INFO [0x00005078] [2021-08-11 21:51:40,841] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x00005078] [2021-08-11 21:51:41,873] - Components::process(): Found all the components!
+  INFO [0x00005078] [2021-08-11 21:51:43,594] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60385, extaddr:nonsupport, extport:0,  from 10.68.234.85:60408/0/0/0.
+  INFO [0x00005078] [2021-08-11 21:51:43,595] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x00005078] [2021-08-11 21:51:43,709] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60387, extaddr:nonsupport, extport:0,  from 10.68.234.85:60409/0/0/0.
+  INFO [0x00005078] [2021-08-11 21:51:43,709] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x00005078] [2021-08-11 21:51:47,014] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:60386, extaddr:nonsupport, extport:0,  from 10.68.234.85:60413/0/0/0.
+  INFO [0x00005078] [2021-08-11 21:51:47,014] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x0000aa04] [2021-08-11 22:00:12,047] - 
+  INFO [0x0000aa04] [2021-08-11 22:00:12,048] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000aa04] [2021-08-11 22:00:12,048] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x0000aa04] [2021-08-11 22:00:12,048] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000aa04] [2021-08-11 22:00:12,048] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000aa04] [2021-08-11 22:00:12,060] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:62354 )
+  INFO [0x0000aa04] [2021-08-11 22:00:12,060] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:62354, SOMAXCONN=511.
+  INFO [0x0000aa04] [2021-08-11 22:00:12,061] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:62355 )
+  INFO [0x0000aa04] [2021-08-11 22:00:12,061] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:62355, SOMAXCONN=511.
+  WARN [0x0000aa04] [2021-08-11 22:00:12,061] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000aa04] [2021-08-11 22:00:12,063] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 49820 ----
+  INFO [0x0000aa04] [2021-08-11 22:00:12,063] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000aa04] [2021-08-11 22:00:12,063] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000aa04] [2021-08-11 22:00:12,063] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000aa04] [2021-08-11 22:00:12,227] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000aa04] [2021-08-11 22:00:12,227] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000aa04] [2021-08-11 22:00:12,234] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000aa04] [2021-08-11 22:00:12,234] - TelnetServer server is running on port 34000
+  INFO [0x0000aa04] [2021-08-11 22:00:12,236] - ---- logger is running ----
+ DEBUG [0x0000aa04] [2021-08-11 22:00:12,236] - Components::process(): Request for the process of identity...
+  INFO [0x0000aa04] [2021-08-11 22:00:18,452] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:62359, extaddr:nonsupport, extport:0,  from 10.68.234.85:62362/0/0/0.
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:62360, extaddr:nonsupport, extport:0,  from 10.68.234.85:62363/0/0/0.
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:62358, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:62364/0/0/0.
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:62361, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:62365/0/0/0.
+  INFO [0x0000aa04] [2021-08-11 22:00:18,453] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x0000aa04] [2021-08-11 22:00:19,489] - Components::process(): Found all the components!
+  INFO [0x0000aa04] [2021-08-11 22:00:20,294] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:62357, extaddr:nonsupport, extport:0,  from 10.68.234.85:62370/0/0/0.
+  INFO [0x0000aa04] [2021-08-11 22:00:20,294] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000aa04] [2021-08-11 22:00:28,821] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:62356, extaddr:nonsupport, extport:0,  from 10.68.234.85:62387/0/0/0.
+  INFO [0x0000aa04] [2021-08-11 22:00:28,821] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x0000a18c] [2021-08-12 13:00:14,662] - 
+  INFO [0x0000a18c] [2021-08-12 13:00:14,662] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000a18c] [2021-08-12 13:00:14,663] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x0000a18c] [2021-08-12 13:00:14,663] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000a18c] [2021-08-12 13:00:14,663] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000a18c] [2021-08-12 13:00:14,675] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:57267 )
+  INFO [0x0000a18c] [2021-08-12 13:00:14,675] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:57267, SOMAXCONN=511.
+  INFO [0x0000a18c] [2021-08-12 13:00:14,676] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:57268 )
+  INFO [0x0000a18c] [2021-08-12 13:00:14,676] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:57268, SOMAXCONN=511.
+  WARN [0x0000a18c] [2021-08-12 13:00:14,676] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000a18c] [2021-08-12 13:00:14,678] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 33492 ----
+  INFO [0x0000a18c] [2021-08-12 13:00:14,678] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000a18c] [2021-08-12 13:00:14,678] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000a18c] [2021-08-12 13:00:14,678] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000a18c] [2021-08-12 13:00:14,840] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000a18c] [2021-08-12 13:00:14,840] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000a18c] [2021-08-12 13:00:14,847] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000a18c] [2021-08-12 13:00:14,847] - TelnetServer server is running on port 34000
+  INFO [0x0000a18c] [2021-08-12 13:00:14,849] - ---- logger is running ----
+ DEBUG [0x0000a18c] [2021-08-12 13:00:14,849] - Components::process(): Request for the process of identity...
+  INFO [0x0000a18c] [2021-08-12 13:00:21,112] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:57273, extaddr:nonsupport, extport:0,  from 10.68.234.85:57275/0/0/0.
+  INFO [0x0000a18c] [2021-08-12 13:00:21,112] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x0000a18c] [2021-08-12 13:00:21,112] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x0000a18c] [2021-08-12 13:00:21,113] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:57272, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:57276/0/0/0.
+  INFO [0x0000a18c] [2021-08-12 13:00:21,113] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x0000a18c] [2021-08-12 13:00:21,113] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:57274, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:57277/0/0/0.
+  INFO [0x0000a18c] [2021-08-12 13:00:21,113] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x0000a18c] [2021-08-12 13:00:22,120] - Components::process(): Found all the components!
+  INFO [0x0000a18c] [2021-08-12 13:00:23,839] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:57270, extaddr:nonsupport, extport:0,  from 10.68.234.85:57292/0/0/0.
+  INFO [0x0000a18c] [2021-08-12 13:00:23,839] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x0000a18c] [2021-08-12 13:00:23,947] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:57271, extaddr:nonsupport, extport:0,  from 10.68.234.85:57294/0/0/0.
+  INFO [0x0000a18c] [2021-08-12 13:00:23,947] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,766] - 
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,766] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,767] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,767] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,767] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,805] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:54023 )
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,805] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:54023, SOMAXCONN=511.
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,806] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:54024 )
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,806] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:54024, SOMAXCONN=511.
+  WARN [0x0000cfb0] [2021-08-12 13:00:44,806] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,808] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 9756 ----
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,808] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,809] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000cfb0] [2021-08-12 13:00:44,809] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000cfb0] [2021-08-12 13:00:45,017] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000cfb0] [2021-08-12 13:00:45,017] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000cfb0] [2021-08-12 13:00:45,026] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000cfb0] [2021-08-12 13:00:45,026] - TelnetServer server is running on port 34000
+  INFO [0x0000cfb0] [2021-08-12 13:00:45,029] - ---- logger is running ----
+ DEBUG [0x0000cfb0] [2021-08-12 13:00:45,029] - Components::process(): Request for the process of identity...
+  INFO [0x0000cfb0] [2021-08-12 13:00:51,299] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:54030, extaddr:nonsupport, extport:0,  from 10.68.234.85:54031/0/0/0.
+  INFO [0x0000cfb0] [2021-08-12 13:00:51,299] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x0000cfb0] [2021-08-12 13:00:51,299] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x0000cfb0] [2021-08-12 13:00:51,299] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:54028, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:54032/0/0/0.
+  INFO [0x0000cfb0] [2021-08-12 13:00:51,299] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x0000cfb0] [2021-08-12 13:00:51,299] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:54029, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:54033/0/0/0.
+  INFO [0x0000cfb0] [2021-08-12 13:00:51,299] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x0000cfb0] [2021-08-12 13:00:52,314] - Components::process(): Found all the components!
+  INFO [0x0000cfb0] [2021-08-12 13:00:54,161] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:54026, extaddr:nonsupport, extport:0,  from 10.68.234.85:54042/0/0/0.
+  INFO [0x0000cfb0] [2021-08-12 13:00:54,161] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x0000cfb0] [2021-08-12 13:00:54,601] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:54025, extaddr:nonsupport, extport:0,  from 10.68.234.85:54043/0/0/0.
+  INFO [0x0000cfb0] [2021-08-12 13:00:54,601] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000cfb0] [2021-08-12 13:00:57,361] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:54027, extaddr:nonsupport, extport:0,  from 10.68.234.85:54046/0/0/0.
+  INFO [0x0000cfb0] [2021-08-12 13:00:57,361] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x0000895c] [2021-08-12 20:03:04,148] - 
+  INFO [0x0000895c] [2021-08-12 20:03:04,148] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000895c] [2021-08-12 20:03:04,149] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x0000895c] [2021-08-12 20:03:04,149] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000895c] [2021-08-12 20:03:04,149] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000895c] [2021-08-12 20:03:04,161] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:65359 )
+  INFO [0x0000895c] [2021-08-12 20:03:04,161] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:65359, SOMAXCONN=511.
+  INFO [0x0000895c] [2021-08-12 20:03:04,162] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:65360 )
+  INFO [0x0000895c] [2021-08-12 20:03:04,162] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:65360, SOMAXCONN=511.
+  WARN [0x0000895c] [2021-08-12 20:03:04,162] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000895c] [2021-08-12 20:03:04,164] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 48380 ----
+  INFO [0x0000895c] [2021-08-12 20:03:04,164] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000895c] [2021-08-12 20:03:04,164] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000895c] [2021-08-12 20:03:04,164] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000895c] [2021-08-12 20:03:04,341] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000895c] [2021-08-12 20:03:04,342] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000895c] [2021-08-12 20:03:04,348] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000895c] [2021-08-12 20:03:04,349] - TelnetServer server is running on port 34000
+  INFO [0x0000895c] [2021-08-12 20:03:04,350] - ---- logger is running ----
+ DEBUG [0x0000895c] [2021-08-12 20:03:04,350] - Components::process(): Request for the process of identity...
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:65366, extaddr:nonsupport, extport:0,  from 10.68.234.85:65371/0/0/0.
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:65369, extaddr:nonsupport, extport:0,  from 10.68.234.85:65372/0/0/0.
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:65367, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:65373/0/0/0.
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:65368, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:65374/0/0/0.
+  INFO [0x0000895c] [2021-08-12 20:03:10,647] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x0000895c] [2021-08-12 20:03:10,648] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:65365, extaddr:nonsupport, extport:0,  from 10.68.234.85:65375/0/0/0.
+  INFO [0x0000895c] [2021-08-12 20:03:10,648] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000895c] [2021-08-12 20:03:11,683] - Components::process(): Found all the components!
+  INFO [0x0000895c] [2021-08-12 20:03:34,707] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:65361, extaddr:nonsupport, extport:0,  from 10.68.234.85:65398/0/0/0.
+  INFO [0x0000895c] [2021-08-12 20:03:34,707] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x0000863c] [2021-08-12 20:09:05,599] - 
+  INFO [0x0000863c] [2021-08-12 20:09:05,599] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000863c] [2021-08-12 20:09:05,600] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x0000863c] [2021-08-12 20:09:05,600] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/
+  INFO [0x0000863c] [2021-08-12 20:09:05,600] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000863c] [2021-08-12 20:09:05,612] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:61033 )
+  INFO [0x0000863c] [2021-08-12 20:09:05,612] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:61033, SOMAXCONN=511.
+  INFO [0x0000863c] [2021-08-12 20:09:05,613] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:61035 )
+  INFO [0x0000863c] [2021-08-12 20:09:05,613] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:61035, SOMAXCONN=511.
+  WARN [0x0000863c] [2021-08-12 20:09:05,613] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000863c] [2021-08-12 20:09:05,614] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 1129653375331859700. UID: 16442. PID: 35936 ----
+  INFO [0x0000863c] [2021-08-12 20:09:05,615] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000863c] [2021-08-12 20:09:05,615] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000863c] [2021-08-12 20:09:05,615] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000863c] [2021-08-12 20:09:05,794] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000863c] [2021-08-12 20:09:05,795] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000863c] [2021-08-12 20:09:05,801] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000863c] [2021-08-12 20:09:05,801] - TelnetServer server is running on port 34000
+  INFO [0x0000863c] [2021-08-12 20:09:05,803] - ---- logger is running ----
+ DEBUG [0x0000863c] [2021-08-12 20:09:05,803] - Components::process(): Request for the process of identity...
+  WARN [0x0000863c] [2021-08-12 20:09:06,301] - BundleBroadcast::BundleBroadcast: Cannot bind to port 20494, errorno=10048
+  INFO [0x000088b0] [2021-08-12 20:09:11,504] - 
+  INFO [0x000088b0] [2021-08-12 20:09:11,504] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x000088b0] [2021-08-12 20:09:11,505] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x000088b0] [2021-08-12 20:09:11,505] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x000088b0] [2021-08-12 20:09:11,505] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x000088b0] [2021-08-12 20:09:11,517] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:61044 )
+  INFO [0x000088b0] [2021-08-12 20:09:11,517] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:61044, SOMAXCONN=511.
+  INFO [0x000088b0] [2021-08-12 20:09:11,518] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:61045 )
+  INFO [0x000088b0] [2021-08-12 20:09:11,518] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:61045, SOMAXCONN=511.
+  WARN [0x000088b0] [2021-08-12 20:09:11,518] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x000088b0] [2021-08-12 20:09:11,520] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 53220 ----
+  INFO [0x000088b0] [2021-08-12 20:09:11,520] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x000088b0] [2021-08-12 20:09:11,520] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x000088b0] [2021-08-12 20:09:11,520] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x000088b0] [2021-08-12 20:09:11,684] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x000088b0] [2021-08-12 20:09:11,685] - Script::install(): KBExtra is successfully!
+S_INFO [0x000088b0] [2021-08-12 20:09:11,691] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x000088b0] [2021-08-12 20:09:11,691] - TelnetServer server is running on port 34000
+  INFO [0x000088b0] [2021-08-12 20:09:11,693] - ---- logger is running ----
+ DEBUG [0x000088b0] [2021-08-12 20:09:11,693] - Components::process(): Request for the process of identity...
+  INFO [0x000088b0] [2021-08-12 20:09:17,960] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:61049, extaddr:nonsupport, extport:0,  from 10.68.234.85:61052/0/0/0.
+  INFO [0x000088b0] [2021-08-12 20:09:17,960] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x000088b0] [2021-08-12 20:09:17,961] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x000088b0] [2021-08-12 20:09:17,961] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:61051, extaddr:nonsupport, extport:0,  from 10.68.234.85:61053/0/0/0.
+  INFO [0x000088b0] [2021-08-12 20:09:17,961] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x000088b0] [2021-08-12 20:09:17,961] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:61048, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:61054/0/0/0.
+  INFO [0x000088b0] [2021-08-12 20:09:17,961] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x000088b0] [2021-08-12 20:09:17,961] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:61050, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:61055/0/0/0.
+  INFO [0x000088b0] [2021-08-12 20:09:17,961] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x000088b0] [2021-08-12 20:09:19,007] - Components::process(): Found all the components!
+  INFO [0x000088b0] [2021-08-12 20:09:21,887] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:61046, extaddr:nonsupport, extport:0,  from 10.68.234.85:54382/0/0/0.
+  INFO [0x000088b0] [2021-08-12 20:09:21,887] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x000088b0] [2021-08-12 20:09:28,909] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:61047, extaddr:nonsupport, extport:0,  from 10.68.234.85:54403/0/0/0.
+  INFO [0x000088b0] [2021-08-12 20:09:28,910] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x00008864] [2021-08-13 12:56:55,604] - 
+  INFO [0x00008864] [2021-08-13 12:56:55,604] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00008864] [2021-08-13 12:56:55,605] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x00008864] [2021-08-13 12:56:55,605] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00008864] [2021-08-13 12:56:55,605] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00008864] [2021-08-13 12:56:55,617] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:58694 )
+  INFO [0x00008864] [2021-08-13 12:56:55,617] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:58694, SOMAXCONN=511.
+  INFO [0x00008864] [2021-08-13 12:56:55,618] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:58696 )
+  INFO [0x00008864] [2021-08-13 12:56:55,618] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:58696, SOMAXCONN=511.
+  WARN [0x00008864] [2021-08-13 12:56:55,618] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00008864] [2021-08-13 12:56:55,620] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 37352 ----
+  INFO [0x00008864] [2021-08-13 12:56:55,620] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00008864] [2021-08-13 12:56:55,620] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00008864] [2021-08-13 12:56:55,620] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00008864] [2021-08-13 12:56:55,784] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00008864] [2021-08-13 12:56:55,784] - Script::install(): KBExtra is successfully!
+S_INFO [0x00008864] [2021-08-13 12:56:55,790] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00008864] [2021-08-13 12:56:55,791] - TelnetServer server is running on port 34000
+  INFO [0x00008864] [2021-08-13 12:56:55,792] - ---- logger is running ----
+ DEBUG [0x00008864] [2021-08-13 12:56:55,793] - Components::process(): Request for the process of identity...
+  INFO [0x00008864] [2021-08-13 12:57:03,201] - Components::process(): Found all the components!
+  INFO [0x00008864] [2021-08-13 12:57:03,659] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58689, extaddr:nonsupport, extport:0,  from 10.68.234.85:61111/0/0/0.
+  INFO [0x00008864] [2021-08-13 12:57:03,659] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00008864] [2021-08-13 12:57:03,659] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00008864] [2021-08-13 12:57:04,644] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58691, extaddr:nonsupport, extport:0,  from 10.68.234.85:61113/0/0/0.
+  INFO [0x00008864] [2021-08-13 12:57:04,645] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x00008864] [2021-08-13 12:57:04,987] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58692, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:61114/0/0/0.
+  INFO [0x00008864] [2021-08-13 12:57:04,987] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x00008864] [2021-08-13 12:57:05,086] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58690, extaddr:nonsupport, extport:0,  from 10.68.234.85:61115/0/0/0.
+  INFO [0x00008864] [2021-08-13 12:57:05,086] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x00008864] [2021-08-13 12:57:05,513] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58688, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:61117/0/0/0.
+  INFO [0x00008864] [2021-08-13 12:57:05,513] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x00008864] [2021-08-13 12:57:21,019] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:58693, extaddr:nonsupport, extport:0,  from 10.68.234.85:61134/0/0/0.
+  INFO [0x00008864] [2021-08-13 12:57:21,019] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x00009a4c] [2021-08-23 20:19:10,187] - 
+  INFO [0x00009a4c] [2021-08-23 20:19:10,188] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00009a4c] [2021-08-23 20:19:10,188] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x00009a4c] [2021-08-23 20:19:10,188] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00009a4c] [2021-08-23 20:19:10,188] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00009a4c] [2021-08-23 20:19:10,232] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:59353 )
+  INFO [0x00009a4c] [2021-08-23 20:19:10,232] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:59353, SOMAXCONN=511.
+  INFO [0x00009a4c] [2021-08-23 20:19:10,234] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:59354 )
+  INFO [0x00009a4c] [2021-08-23 20:19:10,234] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:59354, SOMAXCONN=511.
+  WARN [0x00009a4c] [2021-08-23 20:19:10,234] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00009a4c] [2021-08-23 20:19:10,236] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 41144 ----
+  INFO [0x00009a4c] [2021-08-23 20:19:10,236] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00009a4c] [2021-08-23 20:19:10,236] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00009a4c] [2021-08-23 20:19:10,236] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00009a4c] [2021-08-23 20:19:10,420] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00009a4c] [2021-08-23 20:19:10,420] - Script::install(): KBExtra is successfully!
+S_INFO [0x00009a4c] [2021-08-23 20:19:10,429] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00009a4c] [2021-08-23 20:19:10,429] - TelnetServer server is running on port 34000
+  INFO [0x00009a4c] [2021-08-23 20:19:10,432] - ---- logger is running ----
+ DEBUG [0x00009a4c] [2021-08-23 20:19:10,432] - Components::process(): Request for the process of identity...
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:59364, extaddr:nonsupport, extport:0,  from 10.68.234.85:59366/0/0/0.
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:59363, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:59367/0/0/0.
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:59362, extaddr:nonsupport, extport:0,  from 10.68.234.85:59368/0/0/0.
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x00009a4c] [2021-08-23 20:19:16,724] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:59365, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:59372/0/0/0.
+  INFO [0x00009a4c] [2021-08-23 20:19:16,725] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x00009a4c] [2021-08-23 20:19:17,756] - Components::process(): Found all the components!
+  INFO [0x00009a4c] [2021-08-23 20:19:19,573] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:59356, extaddr:nonsupport, extport:0,  from 10.68.234.85:57598/0/0/0.
+  INFO [0x00009a4c] [2021-08-23 20:19:19,573] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x00009a4c] [2021-08-23 20:19:36,930] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:59355, extaddr:nonsupport, extport:0,  from 10.68.234.85:57614/0/0/0.
+  INFO [0x00009a4c] [2021-08-23 20:19:36,930] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x000084d4] [2021-08-26 20:56:30,115] - 
+  INFO [0x000084d4] [2021-08-26 20:56:30,115] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x000084d4] [2021-08-26 20:56:30,115] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x000084d4] [2021-08-26 20:56:30,115] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x000084d4] [2021-08-26 20:56:30,117] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x000084d4] [2021-08-26 20:56:30,128] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:64618 )
+  INFO [0x000084d4] [2021-08-26 20:56:30,128] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:64618, SOMAXCONN=511.
+  INFO [0x000084d4] [2021-08-26 20:56:30,129] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:64619 )
+  INFO [0x000084d4] [2021-08-26 20:56:30,129] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:64619, SOMAXCONN=511.
+  WARN [0x000084d4] [2021-08-26 20:56:30,129] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x000084d4] [2021-08-26 20:56:30,131] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 43560 ----
+  INFO [0x000084d4] [2021-08-26 20:56:30,131] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x000084d4] [2021-08-26 20:56:30,131] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x000084d4] [2021-08-26 20:56:30,131] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x000084d4] [2021-08-26 20:56:30,350] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x000084d4] [2021-08-26 20:56:30,350] - Script::install(): KBExtra is successfully!
+S_INFO [0x000084d4] [2021-08-26 20:56:30,364] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x000084d4] [2021-08-26 20:56:30,365] - TelnetServer server is running on port 34000
+  INFO [0x000084d4] [2021-08-26 20:56:30,367] - ---- logger is running ----
+ DEBUG [0x000084d4] [2021-08-26 20:56:30,367] - Components::process(): Request for the process of identity...
+  INFO [0x000084d4] [2021-08-26 20:56:36,610] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:64624, extaddr:nonsupport, extport:0,  from 10.68.234.85:64627/0/0/0.
+  INFO [0x000084d4] [2021-08-26 20:56:36,611] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x000084d4] [2021-08-26 20:56:36,611] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x000084d4] [2021-08-26 20:56:36,611] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:64623, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:64628/0/0/0.
+  INFO [0x000084d4] [2021-08-26 20:56:36,611] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x000084d4] [2021-08-26 20:56:36,611] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:64625, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:64629/0/0/0.
+  INFO [0x000084d4] [2021-08-26 20:56:36,611] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x000084d4] [2021-08-26 20:56:37,639] - Components::process(): Found all the components!
+  INFO [0x000084d4] [2021-08-26 20:56:39,321] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:64621, extaddr:nonsupport, extport:0,  from 10.68.234.85:64636/0/0/0.
+  INFO [0x000084d4] [2021-08-26 20:56:39,321] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x000084d4] [2021-08-26 20:56:39,428] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:64622, extaddr:nonsupport, extport:0,  from 10.68.234.85:64637/0/0/0.
+  INFO [0x000084d4] [2021-08-26 20:56:39,428] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x000084d4] [2021-08-26 20:57:02,121] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:64620, extaddr:nonsupport, extport:0,  from 10.68.234.85:54599/0/0/0.
+  INFO [0x000084d4] [2021-08-26 20:57:02,121] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x000055e0] [2021-08-31 21:21:20,970] - 
+  INFO [0x000055e0] [2021-08-31 21:21:20,970] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x000055e0] [2021-08-31 21:21:20,971] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x000055e0] [2021-08-31 21:21:20,971] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x000055e0] [2021-08-31 21:21:20,971] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x000055e0] [2021-08-31 21:21:20,983] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:63017 )
+  INFO [0x000055e0] [2021-08-31 21:21:20,983] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:63017, SOMAXCONN=511.
+  INFO [0x000055e0] [2021-08-31 21:21:20,984] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:63018 )
+  INFO [0x000055e0] [2021-08-31 21:21:20,984] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:63018, SOMAXCONN=511.
+  WARN [0x000055e0] [2021-08-31 21:21:20,984] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x000055e0] [2021-08-31 21:21:20,986] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 40820 ----
+  INFO [0x000055e0] [2021-08-31 21:21:20,986] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x000055e0] [2021-08-31 21:21:20,987] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x000055e0] [2021-08-31 21:21:20,987] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x000055e0] [2021-08-31 21:21:21,154] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x000055e0] [2021-08-31 21:21:21,155] - Script::install(): KBExtra is successfully!
+S_INFO [0x000055e0] [2021-08-31 21:21:21,161] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x000055e0] [2021-08-31 21:21:21,162] - TelnetServer server is running on port 34000
+  INFO [0x000055e0] [2021-08-31 21:21:21,164] - ---- logger is running ----
+ DEBUG [0x000055e0] [2021-08-31 21:21:21,164] - Components::process(): Request for the process of identity...
+  INFO [0x00005e40] [2021-09-08 20:00:21,015] - 
+  INFO [0x00005e40] [2021-09-08 20:00:21,015] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00005e40] [2021-09-08 20:00:21,016] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x00005e40] [2021-09-08 20:00:21,016] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00005e40] [2021-09-08 20:00:21,016] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00005e40] [2021-09-08 20:00:21,027] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:53129 )
+  INFO [0x00005e40] [2021-09-08 20:00:21,028] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:53129, SOMAXCONN=511.
+  INFO [0x00005e40] [2021-09-08 20:00:21,028] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:53130 )
+  INFO [0x00005e40] [2021-09-08 20:00:21,028] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:53130, SOMAXCONN=511.
+  WARN [0x00005e40] [2021-09-08 20:00:21,029] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00005e40] [2021-09-08 20:00:21,030] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 43760 ----
+  INFO [0x00005e40] [2021-09-08 20:00:21,030] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00005e40] [2021-09-08 20:00:21,031] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00005e40] [2021-09-08 20:00:21,031] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00005e40] [2021-09-08 20:00:21,232] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00005e40] [2021-09-08 20:00:21,232] - Script::install(): KBExtra is successfully!
+S_INFO [0x00005e40] [2021-09-08 20:00:21,240] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00005e40] [2021-09-08 20:00:21,240] - TelnetServer server is running on port 34000
+  INFO [0x00005e40] [2021-09-08 20:00:21,243] - ---- logger is running ----
+ DEBUG [0x00005e40] [2021-09-08 20:00:21,243] - Components::process(): Request for the process of identity...
+  INFO [0x00005e40] [2021-09-08 20:00:27,609] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53140, extaddr:nonsupport, extport:0,  from 10.68.234.85:53142/0/0/0.
+  INFO [0x00005e40] [2021-09-08 20:00:27,610] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00005e40] [2021-09-08 20:00:27,610] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00005e40] [2021-09-08 20:00:27,610] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53139, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:53143/0/0/0.
+  INFO [0x00005e40] [2021-09-08 20:00:27,610] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x00005e40] [2021-09-08 20:00:27,610] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53141, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:53144/0/0/0.
+  INFO [0x00005e40] [2021-09-08 20:00:27,610] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x00005e40] [2021-09-08 20:00:28,634] - Components::process(): Found all the components!
+  INFO [0x00005e40] [2021-09-08 20:00:30,523] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53136, extaddr:nonsupport, extport:0,  from 10.68.234.85:57322/0/0/0.
+  INFO [0x00005e40] [2021-09-08 20:00:30,524] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x00005e40] [2021-09-08 20:00:30,628] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:53138, extaddr:nonsupport, extport:0,  from 10.68.234.85:57323/0/0/0.
+  INFO [0x00005e40] [2021-09-08 20:00:30,628] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x0000639c] [2021-09-10 20:04:11,872] - 
+  INFO [0x0000639c] [2021-09-10 20:04:11,872] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x0000639c] [2021-09-10 20:04:11,873] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x0000639c] [2021-09-10 20:04:11,873] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x0000639c] [2021-09-10 20:04:11,873] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x0000639c] [2021-09-10 20:04:11,884] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:56978 )
+  INFO [0x0000639c] [2021-09-10 20:04:11,884] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:56978, SOMAXCONN=511.
+  INFO [0x0000639c] [2021-09-10 20:04:11,885] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:56979 )
+  INFO [0x0000639c] [2021-09-10 20:04:11,885] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:56979, SOMAXCONN=511.
+  WARN [0x0000639c] [2021-09-10 20:04:11,885] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x0000639c] [2021-09-10 20:04:11,887] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 10736 ----
+  INFO [0x0000639c] [2021-09-10 20:04:11,887] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x0000639c] [2021-09-10 20:04:11,887] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x0000639c] [2021-09-10 20:04:11,887] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x0000639c] [2021-09-10 20:04:12,052] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x0000639c] [2021-09-10 20:04:12,052] - Script::install(): KBExtra is successfully!
+S_INFO [0x0000639c] [2021-09-10 20:04:12,059] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x0000639c] [2021-09-10 20:04:12,059] - TelnetServer server is running on port 34000
+  INFO [0x0000639c] [2021-09-10 20:04:12,061] - ---- logger is running ----
+ DEBUG [0x0000639c] [2021-09-10 20:04:12,061] - Components::process(): Request for the process of identity...
+  INFO [0x00009c78] [2021-09-27 21:15:29,828] - 
+  INFO [0x00009c78] [2021-09-27 21:15:29,828] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00009c78] [2021-09-27 21:15:29,828] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x00009c78] [2021-09-27 21:15:29,828] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00009c78] [2021-09-27 21:15:29,829] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00009c78] [2021-09-27 21:15:29,843] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:52043 )
+  INFO [0x00009c78] [2021-09-27 21:15:29,843] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:52043, SOMAXCONN=511.
+  INFO [0x00009c78] [2021-09-27 21:15:29,844] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:52044 )
+  INFO [0x00009c78] [2021-09-27 21:15:29,844] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:52044, SOMAXCONN=511.
+  WARN [0x00009c78] [2021-09-27 21:15:29,844] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00009c78] [2021-09-27 21:15:29,846] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 24724 ----
+  INFO [0x00009c78] [2021-09-27 21:15:29,846] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00009c78] [2021-09-27 21:15:29,846] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00009c78] [2021-09-27 21:15:29,846] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00009c78] [2021-09-27 21:15:30,062] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00009c78] [2021-09-27 21:15:30,062] - Script::install(): KBExtra is successfully!
+S_INFO [0x00009c78] [2021-09-27 21:15:30,076] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00009c78] [2021-09-27 21:15:30,076] - TelnetServer server is running on port 34000
+  INFO [0x00009c78] [2021-09-27 21:15:30,079] - ---- logger is running ----
+ DEBUG [0x00009c78] [2021-09-27 21:15:30,079] - Components::process(): Request for the process of identity...
+  INFO [0x00009c78] [2021-09-27 21:15:36,486] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:52053, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:52054/0/0/0.
+  INFO [0x00009c78] [2021-09-27 21:15:36,487] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00009c78] [2021-09-27 21:15:36,487] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00009c78] [2021-09-27 21:15:37,505] - Components::process(): Found all the components!
+  INFO [0x00009c78] [2021-09-27 21:15:39,216] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseappmgr, componentID:5000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:52048, extaddr:nonsupport, extport:0,  from 10.68.234.85:50633/0/0/0.
+  INFO [0x00009c78] [2021-09-27 21:15:39,216] - Components::addComponent[baseappmgr], uid=16442, componentID=5000, globalorderid=2, grouporderid=1, totalcount=1
+  INFO [0x00009c78] [2021-09-27 21:15:39,333] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellappmgr, componentID:6000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:52050, extaddr:nonsupport, extport:0,  from 10.68.234.85:50634/0/0/0.
+  INFO [0x00009c78] [2021-09-27 21:15:39,333] - Components::addComponent[cellappmgr], uid=16442, componentID=6000, globalorderid=3, grouporderid=1, totalcount=1
+  INFO [0x00009c78] [2021-09-27 21:15:39,960] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:baseapp, componentID:7001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:52051, extaddr:10.68.234.85, extport:20015,  from 10.68.234.85:50636/0/0/0.
+  INFO [0x00009c78] [2021-09-27 21:15:39,960] - Components::addComponent[baseapp], uid=16442, componentID=7001, globalorderid=4, grouporderid=1, totalcount=1
+  INFO [0x00009c78] [2021-09-27 21:15:40,486] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:cellapp, componentID:8001, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:52052, extaddr:nonsupport, extport:0,  from 10.68.234.85:50637/0/0/0.
+  INFO [0x00009c78] [2021-09-27 21:15:40,486] - Components::addComponent[cellapp], uid=16442, componentID=8001, globalorderid=5, grouporderid=1, totalcount=1
+  INFO [0x00009c78] [2021-09-27 21:15:53,355] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:dbmgr, componentID:4000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:52049, extaddr:nonsupport, extport:0,  from 10.68.234.85:62463/0/0/0.
+  INFO [0x00009c78] [2021-09-27 21:15:53,355] - Components::addComponent[dbmgr], uid=16442, componentID=4000, globalorderid=6, grouporderid=1, totalcount=1
+  INFO [0x00004a00] [2021-10-08 20:24:28,232] - 
+  INFO [0x00004a00] [2021-10-08 20:24:28,233] - -----------------------------------------------------------------------------------------
+
+
+  INFO [0x00004a00] [2021-10-08 20:24:28,233] - Resmgr::initialize: KBE_ROOT=F:/kbe/kbengine-2.5.12/
+  INFO [0x00004a00] [2021-10-08 20:24:28,233] - Resmgr::initialize: KBE_RES_PATH=F:/kbe/kbengine-2.5.12/kbe/res/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/scripts/;F:/kbe/kbengine-2.5.12/kbengine_demos_assets/res/
+  INFO [0x00004a00] [2021-10-08 20:24:28,233] - Resmgr::initialize: KBE_BIN_PATH=F:/kbe/kbengine-2.5.12/kbe/bin/server/
+  INFO [0x00004a00] [2021-10-08 20:24:28,247] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:59698 )
+  INFO [0x00004a00] [2021-10-08 20:24:28,247] - NetworkInterface::initialize(EXTERNAL-TCP): address 10.68.234.85:59698, SOMAXCONN=511.
+  INFO [0x00004a00] [2021-10-08 20:24:28,248] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 10.68.234.85 ( 10.68.234.85:59699 )
+  INFO [0x00004a00] [2021-10-08 20:24:28,248] - NetworkInterface::initialize(INTERNAL-TCP): address 10.68.234.85:59699, SOMAXCONN=511.
+  WARN [0x00004a00] [2021-10-08 20:24:28,248] - invalid UID(0) <= 0, please check UID for environment! automatically set to 16442.
+  INFO [0x00004a00] [2021-10-08 20:24:28,250] - ---- logger Version: 2.5.10. ScriptVersion: 0.1.0. Pythoncore: 3.7.3. Protocol: E869149E2D4B3C31DD72F70194697F21. Config: Debug X64. Built: 21:19:56 Aug 11 2021. AppID: 2000. UID: 16442. PID: 56124 ----
+  INFO [0x00004a00] [2021-10-08 20:24:28,250] - Server Admin: Intel(R) Core(TM) i7-10700K CPU @ 3.80GHz with 66817300kB RAM
+  INFO [0x00004a00] [2021-10-08 20:24:28,250] - ThreadPool::createThreadPool: creating  threadpool...
+  INFO [0x00004a00] [2021-10-08 20:24:28,250] - ThreadPool::createThreadPool: successfully(2), newThreadCount=1, normalMaxThreadCount=2, maxThreadCount=8
+  INFO [0x00004a00] [2021-10-08 20:24:28,457] - Script::install(): is successfully, Python=(3.7.3 (default, Aug 11 2021, 21:07:14) [MSC v.1929 64 bit (AMD64)])!
+  INFO [0x00004a00] [2021-10-08 20:24:28,457] - Script::install(): KBExtra is successfully!
+S_INFO [0x00004a00] [2021-10-08 20:24:28,470] - onLoggerAppReady: bootstrapGroupIndex=0, bootstrapGlobalIndex=0
+  INFO [0x00004a00] [2021-10-08 20:24:28,471] - TelnetServer server is running on port 34000
+  INFO [0x00004a00] [2021-10-08 20:24:28,473] - ---- logger is running ----
+ DEBUG [0x00004a00] [2021-10-08 20:24:28,473] - Components::process(): Request for the process of identity...
+  INFO [0x00004a00] [2021-10-08 20:24:34,916] - ServerApp::onRegisterNewApp: uid:16442, username:Admin, componentType:loginapp, componentID:9000, globalorderID=-1, grouporderID=-1, intaddr:10.68.234.85, intport:59705, extaddr:10.68.234.85, extport:20013,  from 10.68.234.85:59706/0/0/0.
+  INFO [0x00004a00] [2021-10-08 20:24:34,916] - Components::addComponent: reset orderLog, uid=16442!
+  INFO [0x00004a00] [2021-10-08 20:24:34,916] - Components::addComponent[loginapp], uid=16442, componentID=9000, globalorderid=1, grouporderid=1, totalcount=1
+  INFO [0x00004a00] [2021-10-08 20:24:35,959] - Components::process(): Found all the components!
