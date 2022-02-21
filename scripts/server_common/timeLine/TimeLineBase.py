@@ -6,7 +6,7 @@ class TimeLineBase():
     def __init__(self):
         self.tickTimeStamp = None
         self.nextIndex = 0
-        self.delterTimeStamp = None
+        self.delterTimeStamp = 0
         self.nodesList = []
         self.speed = 1
         self.manager = None

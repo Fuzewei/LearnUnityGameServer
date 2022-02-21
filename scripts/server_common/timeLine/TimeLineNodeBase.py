@@ -7,11 +7,11 @@ class TimeLineNodeBase:
         self.nodeId = 0
         self.owneTimeLine = None
 
-    def run():
+    def run(self):
         print("TimeLineNodeBase.run") 
 
-    def OnDestory():
+    def OnDestory(self):
         pass
 
-    def OnSetTimeLine():
+    def OnSetTimeLine(self):
         pass

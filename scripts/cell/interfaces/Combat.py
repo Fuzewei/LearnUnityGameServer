@@ -15,6 +15,7 @@ class Combat(CombatPropertys):
 		CombatPropertys.__init__(self)
 		self.inBattle = False
 		self.timeLineManager = TimeLineManager(self)
+		self.test()
 
 	def setInBattle(self, val):
 		"""
