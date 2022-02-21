@@ -2,6 +2,9 @@
 import KBEngine
 import GlobalDefine
 from KBEDebug import * 
+from timeLine.TimeLineManager import TimeLineManager 
+from timeLine.TimeLineBase import TimeLineBase 
+from timeLine.TimeLineNodeBase import TimeLineNodeBase 
 from interfaces.CombatPropertys import CombatPropertys
 
 class Combat(CombatPropertys):
@@ -11,6 +14,7 @@ class Combat(CombatPropertys):
 	def __init__(self):
 		CombatPropertys.__init__(self)
 		self.inBattle = False
+		self.timeLineManager = TimeLineManager(self)
 
 	def setInBattle(self, val):
 		"""
@@ -207,4 +211,17 @@ class Combat(CombatPropertys):
 		敌人列表空了
 		"""
 		pass
-	
+
+
+
+	#--------------------------------------------------------------------------------------------
+	#                              技能系统代码，后期在整理fzw
+	#--------------------------------------------------------------------------------------------
+
+	def test(self):
+		timeline = TimeLineBase()
+		node1 = TimeLineNodeBase(1)
+		timeline.addNode(node1)
+		node2 = TimeLineNodeBase(1.5)
+		timeline.addNode(node2)
+		self.timeLineManager.addTimeLine(1, timeline)

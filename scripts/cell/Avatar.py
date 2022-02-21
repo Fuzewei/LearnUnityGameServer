@@ -2,6 +2,7 @@
 import KBEngine
 import GlobalDefine
 from KBEDebug import *
+from TimerManager import TimerManager
 from interfaces.GameObject import GameObject
 from interfaces.Combat import Combat
 from interfaces.Spell import Spell
@@ -14,6 +15,7 @@ from interfaces.SkillBox import SkillBox
 from interfaces.MoveControl import MoveControl
 
 class Avatar(KBEngine.Entity,
+			TimerManager,
 			GameObject, 
 			Flags,
 			State,
