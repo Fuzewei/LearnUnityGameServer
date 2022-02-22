@@ -24,13 +24,14 @@ class TimeLineManager():
             if self.updateTimerId > 0 :
                 self.owner.delTimerCallBack(self.updateTimerId)
             self.nextDelterTime = timeline.getNextDelterTime()
-            self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
+            self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime, "ceshiOnTimer")
 
 
     def onTime(self, tid, *args):
+        print("TimeLine", tid, *args)
         self.updateTimerId = 0
         delete = []
-        for uuid, timeline in self.timeLines:
+        for uuid, timeline in self.timeLines.items():
             timeline.tick()
             if timeline.isFinish():
                 delete.append(uuid)
@@ -44,7 +45,7 @@ class TimeLineManager():
        
     def getNextTimer(self):
         minDelter = float('inf')
-        for _, timeline in self.timeLines:
+        for _, timeline in self.timeLines.items():
             if timeline.getNextDelterTime() < minDelter:
                 minDelter = timeline.getNextDelterTime()
         return minDelter

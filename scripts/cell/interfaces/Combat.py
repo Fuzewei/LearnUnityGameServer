@@ -225,4 +225,8 @@ class Combat(CombatPropertys):
 		timeline.addNode(node1)
 		node2 = TimeLineNodeBase(1.5)
 		timeline.addNode(node2)
+		node4 = TimeLineNodeBase(5.5)
+		timeline.addNode(node4)
+		node3 = TimeLineNodeBase(20.5)
+		timeline.addNode(node3)
 		self.timeLineManager.addTimeLine(1, timeline)

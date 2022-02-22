@@ -12,10 +12,10 @@ class CallbackHolder():
         self.args = args
 
     def __call__(self):
-        args = (self.id) +  self.args
+        args = (self.id, ) +  self.args
         self.callback(*args)
 
-class TimerManager():
+class ItimerManager():
 
     def __init__(self):
         super().__init__()
@@ -35,6 +35,7 @@ class TimerManager():
     def onTimer(self, tid, userArg):
         if SCDefine.TIMER_TYPE_CALLBACK == userArg:
             callFunc = self.id2Callback[tid]
-            callFunc()
             if callFunc.interval == 0:
                 del self.id2Callback[tid]
+                self.delTimer(tid)
+            callFunc()
