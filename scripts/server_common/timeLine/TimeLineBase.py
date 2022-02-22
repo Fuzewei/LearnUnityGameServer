@@ -22,16 +22,14 @@ class TimeLineBase():
     def tick(self):
         now = time.time()
         self.delterTimeStamp += (now - self.tickTimeStamp) * self.speed
-        print("TimeLineBase.tick", now, self.getNextTimeStamp(), self.delterTimeStamp)
-        diff = self.delterTimeStamp - self.getNextTimeStamp()
-        while not self.isFinish() and diff + 0.05 >= 0:
-            self.doTick()
-            self.nextIndex += 1
         self.tickTimeStamp = now
+        print("TimeLineBase.tick", now, self.getNextTimeStamp(), self.delterTimeStamp)
+        while not self.isFinish() and self.delterTimeStamp - self.getNextTimeStamp() + 0.05 >= 0:
+            self.doTick(self.nextIndex)
+            self.nextIndex += 1
 
-
-    def doTick(self):
-        self.nodesList[self.nextIndex].run()
+    def doTick(self, index):
+        self.nodesList[index].run()
 
     def isFinish(self):
         return len(self.nodesList) <= self.nextIndex
