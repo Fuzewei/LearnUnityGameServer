@@ -15,7 +15,7 @@ class Combat(CombatPropertys):
 		CombatPropertys.__init__(self)
 		self.inBattle = False
 		self.timeLineManager = TimeLineManager(self)
-		self.test()
+
 
 	def setInBattle(self, val):
 		"""
@@ -219,7 +219,14 @@ class Combat(CombatPropertys):
 	#                              技能系统代码，后期在整理fzw
 	#--------------------------------------------------------------------------------------------
 
-	def test(self):
+	def clientRequestUseSkill(self, exposed, uuid, skillId):
+		timeline = self.getTimeLineById(skillId)
+		self.timeLineManager.addTimeLine(uuid, timeline)
+
+	def skillNodeCall(self, exposed, uuid, nodeId, args):
+		print("skillNodeCall", uuid, nodeId)
+
+	def getTimeLineById(self, skillId):
 		timeline = TimeLineBase()
 		node1 = TimeLineNodeBase(1)
 		timeline.addNode(node1)
@@ -228,5 +235,5 @@ class Combat(CombatPropertys):
 		node4 = TimeLineNodeBase(5.5)
 		timeline.addNode(node4)
 		node3 = TimeLineNodeBase(20.5)
-		timeline.addNode(node3)
+		timeline.addNode(node3) 
 		self.timeLineManager.addTimeLine(1, timeline)

@@ -24,6 +24,19 @@
 			<Arg>	BOOL									</Arg>
 		</setInBattle>
 
+		<clientRequestUseSkill>
+			<Exposed/>
+			<Arg>	UUID									</Arg>
+			<Arg>	SKILLID									</Arg>
+		</clientRequestUseSkill>
+
+		<skillNodeCall>
+			<Exposed/>
+			<Arg>	UUID										</Arg>
+			<Arg>	SKILLNODEID									</Arg>
+			<Arg>	TABLE										</Arg>
+		</skillNodeCall>
+
 		<recvDamage>
 			<Arg>	ENTITY_ID									</Arg>
 			<Arg>	SKILLID										</Arg>
@@ -44,6 +57,13 @@
 			<Arg>	DAMAGE_TYPE									</Arg>
 			<Arg>	HP											</Arg>
 		</recvDamage>
+
+		<skillNodeCall>
+			<Arg>	UUID										</Arg>
+			<Arg>	SKILLNODEID									</Arg>
+			<Arg>	TABLE										</Arg>
+		</skillNodeCall>
+		
 	</ClientMethods>
 </root>
 

@@ -5,8 +5,10 @@
 	<EXPERIENCE>		INT32		</EXPERIENCE>
 	<ITEM_ID>			INT32		</ITEM_ID>
 	<SKILLID>			INT32		</SKILLID>
+	<SKILLNODEID>		INT32		</SKILLNODEID>
 	<QUESTID>			INT32		</QUESTID>
 	<DBID>				UINT64		</DBID>
+	<UUID>				UINT32		</UUID>
 	<UID>				UINT64		</UID>
 	<UID1>				PYTHON		</UID1>	
 	<ENTITY_ID>			INT32		</ENTITY_ID>
@@ -105,5 +107,20 @@
 			</tarPostion>	
 		</Properties>
 	</MOVE_INFOS>	
+
+	<TABLE>	FIXED_DICT
+		<implementedBy>COMMON.LUA_TABLE</implementedBy>
+		<Properties>
+			<dictOrlist>
+				<Type>	BOOL	</Type>
+			</dictOrlist>
+			<keys>
+				<Type>	ARRAY <of> UINT16 </of>	</Type>
+			</keys>
+			<values>
+				<Type>	ARRAY <of> INT32 </of>	</Type>
+			</values>	
+		</Properties>
+	</TABLE>	
 	
 </root>
