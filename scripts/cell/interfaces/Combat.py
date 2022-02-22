@@ -223,8 +223,9 @@ class Combat(CombatPropertys):
 		timeline = self.getTimeLineById(skillId)
 		self.timeLineManager.addTimeLine(uuid, timeline)
 
-	def skillNodeCall(self, exposed, uuid, nodeId, args):
-		print("skillNodeCall", uuid, nodeId)
+	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
+		print("skillNodeCallServer", uuid, nodeId, args, type(args))
+		self.allClients.skillNodeCallClient(uuid, nodeId, args)
 
 	def getTimeLineById(self, skillId):
 		timeline = TimeLineBase()
@@ -236,4 +237,4 @@ class Combat(CombatPropertys):
 		timeline.addNode(node4)
 		node3 = TimeLineNodeBase(20.5)
 		timeline.addNode(node3) 
-		self.timeLineManager.addTimeLine(1, timeline)
+		return timeline

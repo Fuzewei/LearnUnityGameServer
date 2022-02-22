@@ -30,12 +30,12 @@
 			<Arg>	SKILLID									</Arg>
 		</clientRequestUseSkill>
 
-		<skillNodeCall>
+		<skillNodeCallServer>
 			<Exposed/>
 			<Arg>	UUID										</Arg>
 			<Arg>	SKILLNODEID									</Arg>
 			<Arg>	TABLE										</Arg>
-		</skillNodeCall>
+		</skillNodeCallServer>
 
 		<recvDamage>
 			<Arg>	ENTITY_ID									</Arg>
@@ -58,12 +58,12 @@
 			<Arg>	HP											</Arg>
 		</recvDamage>
 
-		<skillNodeCall>
+		<skillNodeCallClient>
 			<Arg>	UUID										</Arg>
 			<Arg>	SKILLNODEID									</Arg>
 			<Arg>	TABLE										</Arg>
-		</skillNodeCall>
-		
+		</skillNodeCallClient>
+
 	</ClientMethods>
 </root>
 

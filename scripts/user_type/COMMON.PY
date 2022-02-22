@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from math import fabs
 import KBEngine
 import GlobalConst
 from KBEDebug import *
@@ -18,8 +19,7 @@ class LUA_TABLE:
 			for k, v in zip(keys, values):
 				contain[k] = v
 		else:
-			contain = []
-			contain = values
+			contain = list(values)
 		return contain
 
 	def getDictFromObj(self, obj):
@@ -32,8 +32,8 @@ class LUA_TABLE:
 			ans["dictOrlist"] = False
 			ans["values"] = obj
 		else:
-			assert(False)
+			assert(False, type(obj))
 		return ans
 
 	def isSameType(self, obj):
-		return isinstance(obj, LuaTable)
+		return isinstance(obj, list) or isinstance(obj, dict)
