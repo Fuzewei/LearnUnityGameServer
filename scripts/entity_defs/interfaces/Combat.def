@@ -64,6 +64,11 @@
 			<Arg>	TABLE										</Arg>
 		</skillNodeCallClient>
 
+		<serverRequestUseSkill>
+			<Arg>	UUID										</Arg>
+			<Arg>	SKILLID										</Arg>
+		</serverRequestUseSkill>
+
 	</ClientMethods>
 </root>
 

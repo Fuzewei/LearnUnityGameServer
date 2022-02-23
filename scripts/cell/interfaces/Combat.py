@@ -222,6 +222,8 @@ class Combat(CombatPropertys):
 	def clientRequestUseSkill(self, exposed, uuid, skillId):
 		timeline = self.getTimeLineById(skillId)
 		self.timeLineManager.addTimeLine(uuid, timeline)
+		self.otherClients.serverRequestUseSkill(uuid, skillId)
+
 
 	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
 		print("skillNodeCallServer", uuid, nodeId, args, type(args))
