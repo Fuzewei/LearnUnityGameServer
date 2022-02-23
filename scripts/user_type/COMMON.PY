@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from math import fabs
 import KBEngine
 import GlobalConst
 from KBEDebug import *
