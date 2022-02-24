@@ -12,20 +12,48 @@ class MoveControl:
     """
     def __init__(self):
         self.moveType = 0
+        self.clientMoveReciveTime = 0
+        self.serverMoveReciveTime = 0
         pass
+
+    def onServerMovetimer(self, tid, *args):
+        self.moveType = 0
+        print("onServerMovetimer",tid)
+        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+    
+    #服务端主动设置位置，客户端要调整
+    def setAvatarMoveState(self, moveType):
+        self.moveType = moveType
+        self.clientMoveReciveTime = self.clientMoveReciveTime + time.time() - self.serverMoveReciveTime
+        self.serverMoveReciveTime = time.time()
+        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+
+        self.addTimerCallBack(1, 0, self.onServerMovetimer)
+
 
 	# 客户端定期上传位置
     def updatePosition(self, exposed, timeStamp, position, faceDirection, moveDirection):
+        if timeStamp <=self.clientMoveReciveTime:
+            return
+        self.clientMoveReciveTime = timeStamp
+        self.serverMoveReciveTime = time.time()
         self.position = position
         self.direction = faceDirection #面朝的方向
         self.moveDirection = moveDirection  #移动方向（局部）
-        self.allClients.confirmMoveTimeStamp(timeStamp)
+        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
 
 	#移动状态改变
     def updateAvatarMoveState(self, exposed, timeStamp, moveType, position, faceDirection, moveDirection, inbattle):
+        if self.moveType == 6 and self.moveType != moveType:
+            return
+        if moveType == 6 and self.moveType != 6:
+            return
+
+        self.clientMoveReciveTime = timeStamp
+        self.serverMoveReciveTime = time.time()
         self.moveType = moveType
         self.position = position
         self.direction = faceDirection
         self.moveDirection = moveDirection  #移动方向（局部）
         self.setInBattle(inbattle)
-        self.allClients.confirmMoveTimeStamp(timeStamp)
+        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
