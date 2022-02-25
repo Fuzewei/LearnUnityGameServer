@@ -42,6 +42,25 @@ class MoveControl:
         self.moveDirection = moveDirection  #移动方向（局部）
         self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
 
+    def setPostionAndRotation(self, exposed, position, faceDirection, moveDirection):
+        self.position = position
+        self.direction = faceDirection
+        self.moveDirection = moveDirection  #移动方向（局部）
+       
+
+    def updateMovetype(self, exposed, timeStamp, moveType):
+        self.clientMoveReciveTime = timeStamp
+        self.serverMoveReciveTime = time.time()
+        self.moveType = moveType
+        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+
+    def setInBattle(self, exposed, timeStamp, inbattle):
+        self.clientMoveReciveTime = timeStamp
+        self.serverMoveReciveTime = time.time()
+        self.inbattle = inbattle
+        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+
+
 	#移动状态改变
     def updateAvatarMoveState(self, exposed, timeStamp, moveType, position, faceDirection, moveDirection, inbattle):
         if self.moveType == 6 and self.moveType != moveType:

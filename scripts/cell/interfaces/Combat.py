@@ -16,13 +16,6 @@ class Combat(CombatPropertys):
 		self.inBattle = False
 		self.timeLineManager = TimeLineManager(self)
 
-
-	def setInBattle(self, val):
-		"""
-		defined.
-		"""
-		self.inBattle = val
-		
 	def canUpgrade(self):
 		"""
 		virtual method.

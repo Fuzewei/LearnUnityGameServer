@@ -31,6 +31,25 @@
 			<Arg>		DIRECTION3D		</Arg>
 		</updatePosition>
 
+		<setPostionAndRotation>
+			<Exposed/>
+			<Arg>		POSITION3D		</Arg>
+			<Arg>		DIRECTION3D		</Arg>
+			<Arg>		DIRECTION3D		</Arg>
+		</setPostionAndRotation>
+
+		<updateMovetype>
+			<Exposed/>
+			<Arg>		FLOAT		</Arg>
+			<Arg>		MOVE_TYPE	</Arg>
+		</updateMovetype>
+
+		<setInBattle>
+			<Exposed/>
+			<Arg>		FLOAT			</Arg>
+			<Arg>		BOOL			</Arg>
+		</setInBattle>
+
 		<updateAvatarMoveState>
 			<Exposed/>
 			<Arg>		FLOAT			</Arg>

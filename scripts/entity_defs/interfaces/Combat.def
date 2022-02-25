@@ -19,11 +19,6 @@
 
 	<CellMethods>
 
-		<setInBattle>
-			<Exposed/>
-			<Arg>	BOOL									</Arg>
-		</setInBattle>
-
 		<clientRequestUseSkill>
 			<Exposed/>
 			<Arg>	UUID									</Arg>
