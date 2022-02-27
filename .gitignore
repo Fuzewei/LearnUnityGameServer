@@ -1,5 +1,6 @@
 #log file
 *.log
 logs
+kbengine_unity3d_plugins
 #---------os------
 *.pyc
