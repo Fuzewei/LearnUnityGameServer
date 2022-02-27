@@ -57,9 +57,9 @@ class MoveControl:
     def setInBattle(self, exposed, timeStamp, inbattle):
         self.clientMoveReciveTime = timeStamp
         self.serverMoveReciveTime = time.time()
-        self.inbattle = inbattle
+        print("setInBattle",inbattle)
+        self.inBattle = inbattle
         self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
-
 
 	#移动状态改变
     def updateAvatarMoveState(self, exposed, timeStamp, moveType, position, faceDirection, moveDirection, inbattle):
