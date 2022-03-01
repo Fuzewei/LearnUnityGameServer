@@ -219,7 +219,7 @@ class Combat(CombatPropertys):
 
 	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
 		print("skillNodeCallServer", uuid, nodeId, args, type(args))
-		entityId = args[0]
+		entityId = int(args[0])
 		entity = KBEngine.entities.get(entityId)
 		entity.setAvatarMoveState(6) #移动状态变为服务端驱动
 		self.allClients.skillNodeCallClient(uuid, nodeId, args)

@@ -118,7 +118,7 @@
 				<Type>	ARRAY <of> UINT16 </of>	</Type>
 			</keys>
 			<values>
-				<Type>	ARRAY <of> INT32 </of>	</Type>
+				<Type>	ARRAY <of> FLOAT </of>	</Type>
 			</values>	
 		</Properties>
 	</TABLE>	
