@@ -25,6 +25,16 @@
 			<Arg>	SKILLID									</Arg>
 		</clientRequestUseSkill>
 
+		<clientSkillFinish>
+			<Exposed/>
+			<Arg>	SKILLID									</Arg>
+		</clientSkillFinish>
+
+		<clientTimeLineFinish>
+			<Exposed/>
+			<Arg>	UUID									</Arg>
+		</clientTimeLineFinish>
+
 		<skillNodeCallServer>
 			<Exposed/>
 			<Arg>	UUID										</Arg>
@@ -63,6 +73,14 @@
 			<Arg>	UUID										</Arg>
 			<Arg>	SKILLID										</Arg>
 		</serverRequestUseSkill>
+
+		<serverSkillFinish>
+			<Arg>	SKILLID										</Arg>
+		</serverSkillFinish>
+
+		<serverTimeLineFinish>
+			<Arg>	UUID										</Arg>
+		</serverTimeLineFinish>
 
 	</ClientMethods>
 </root>

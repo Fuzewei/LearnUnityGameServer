@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from uuid import uuid1
 import KBEngine
 import GlobalDefine
 from KBEDebug import * 
@@ -216,14 +217,23 @@ class Combat(CombatPropertys):
 		timeline = self.getTimeLineById(skillId)
 		self.timeLineManager.addTimeLine(uuid, timeline)
 		self.otherClients.serverRequestUseSkill(uuid, skillId)
+	
+
+	def clientSkillFinish(self, exposed, skillId):
+		self.allClients.serverSkillFinish(skillId)
+
+	def clientTimeLineFinish(self, exposed, uuid):
+		self.allClients.serverTimeLineFinish(uuid)
+
 
 	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
 		print("skillNodeCallServer", uuid, nodeId, args, type(args))
-		entityId = int(args[0])
-		entity = KBEngine.entities.get(entityId)
-		entity.setAvatarMoveState(6) #移动状态变为服务端驱动
+		if nodeId == 1:	
+			entityId = int(args[0])
+			entity = KBEngine.entities.get(entityId)
+			entity.setAvatarMoveState(6) #移动状态变为服务端驱动
 		self.allClients.skillNodeCallClient(uuid, nodeId, args)
-	
+
 
 	def getTimeLineById(self, skillId):
 		timeline = TimeLineBase()
