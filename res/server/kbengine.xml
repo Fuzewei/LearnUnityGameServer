@@ -60,6 +60,7 @@
 			<default>
 				<host> 1.117.144.54 </host>
 				<databaseName> kbe_f </databaseName>
+				<type> mysql </type>											<!-- Type: String -->
 				<auth>  
 					<username> fzw </username>									<!-- Type: String -->
 					<password> 123456789 </password>							<!-- Type: String -->
