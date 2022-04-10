@@ -47,5 +47,9 @@ class Teleport:
 		
 		KBEngine.globalData["Spaces"].loginToSpace(self, self.spaceUTypeB, {})
 
+	
+	def testTelport(self):
+		self.getSpaces().teleportSpace(self, 4, (62.0, 0.2, 38), (0.0, 0.0, 1), False)
+
 
 

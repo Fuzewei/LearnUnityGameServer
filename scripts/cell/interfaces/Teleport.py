@@ -43,6 +43,7 @@ class Teleport:
 		DEBUG_MSG("Teleport::onTeleportSuccess: %s" % (nearbyEntity))
 		self.getCurrSpaceBase().onEnter(self.base)
 		self.spaceUType = self.getCurrSpace().spaceUType
+		self.client.setPositionRotation(self.spaceUType, self.position, self.direction)
 		
 	def onDestroy(self):
 		"""

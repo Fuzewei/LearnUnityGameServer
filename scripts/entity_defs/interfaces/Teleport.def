@@ -23,5 +23,13 @@
 			<Arg>		PYTHON			</Arg>
 		</teleportSpace>
 	</CellMethods>
+
+	<ClientMethods>
+		<setPositionRotation>
+			<Arg>		UINT32			</Arg>
+			<Arg>		POSITION3D		</Arg>
+			<Arg>		DIRECTION3D		</Arg>
+		</setPositionRotation>
+	</ClientMethods>
 </root>
 
