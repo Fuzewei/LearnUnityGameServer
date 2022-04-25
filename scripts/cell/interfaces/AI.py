@@ -6,10 +6,11 @@ import random
 import GlobalDefine
 from KBEDebug import * 
 from skillbases.SCObject import SCObject
+from Const.MoveState import AI_RESULT 
 
 import d_entities
 
-__TERRITORY_AREA__ = 30.0
+__TERRITORY_AREA__ = 60
 
 class AI:
 	def __init__(self):
@@ -61,7 +62,9 @@ class AI:
 		"""
 		self.heartBeatTimerID = \
 		self.addTimer(random.randint(0, 1), 1, SCDefine.TIMER_TYPE_HEARDBEAT)				# 心跳timer, 每1秒一次
-		
+		self.initAiController("EasyMonster")
+
+
 	def disable(self):
 		"""
 		禁止这个entity做任何行为
@@ -106,7 +109,58 @@ class AI:
 		"""
 		entity的心跳
 		"""
-		self.think()
+		self.updateAiController()
+		#self.think()
+
+	#行为树调用函数0=BT_INVALID,1=BT_SUCCESS,2=BT_FAILURE,3=BT_RUNNING
+	def onBhCallFunc(self, funcName, *args):
+		INFO_MSG("onBhCallFunc = %s." % (funcName, ))
+		func = getattr(self, funcName)
+		if callable(func):
+			return func(*args)
+		return AI_RESULT.BT_INVALID
+		
+
+	#行为树叶子节点调用函数begin(先这么写)
+
+	def randomWalk(self, radius):
+		"""
+		entity在周边随机走动
+		"""
+		INFO_MSG("randomWalk = %s." % (radius, ))
+		if self.territoryControllerID <= 0:
+			self.addTerritory()
+		return self._randomWalk(self.position, radius)
+
+
+	def canSkillAttack(self, *args):
+		INFO_MSG("canSkillAttack = %s" % (args, ))
+		return AI_RESULT.BT_SUCCESS
+
+
+	def useSkill(self, entityId):
+		INFO_MSG("useSkill = %s." % (entityId, ))
+		
+		return AI_RESULT.BT_SUCCESS
+
+	def getEnemyInfo(self, *none):
+		return (self.targetID, 0) 
+
+	#寻找敌人
+	def findEnemys(self, *args):
+		self.checkEnemys()
+		return AI_RESULT.BT_SUCCESS
+
+	#行为树叶子节点调用函数end
+
+
+
+
+
+
+
+
+
 		
 	def onTargetChanged(self):
 		"""
@@ -136,7 +190,7 @@ class AI:
 		if self.territoryControllerID <= 0:
 			self.addTerritory()
 		
-		self.randomWalk(self.spawnPos)
+		self._randomWalk(self.spawnPos, 30.0)
 
 	def onThinkFight(self):
 		"""
@@ -218,14 +272,13 @@ class AI:
 		KBEngine method.
 		有entity进入trap
 		"""
-		if controllerID != self.territoryControllerID:
-			return
-		
+		DEBUG_MSG("::onEnterTrap:%i and %i and %s" % (controllerID, self.territoryControllerID, entityEntering.getScriptName()))
+		# if controllerID != self.territoryControllerID:
+		# 	return
+		DEBUG_MSG("::onEnterTrap:111")
 		if entityEntering.isDestroyed or entityEntering.getScriptName() != "Avatar" or entityEntering.isDead():
 			return
 		
-		if not self.isState(GlobalDefine.ENTITY_STATE_FREE):
-			return
 			
 		DEBUG_MSG("%s::onEnterTrap: %i entityEntering=(%s)%i, range_xz=%s, range_y=%s, controllerID=%i, userarg=%i" % \
 						(self.getScriptName(), self.id, entityEntering.getScriptName(), entityEntering.id, \
@@ -288,7 +341,7 @@ class AI:
 		if not self.isState(GlobalDefine.ENTITY_STATE_FREE):
 			self.changeState(GlobalDefine.ENTITY_STATE_FREE)
 			
-		self.backSpawnPos()
+		#self.backSpawnPos()
 		
 	def onTimer(self, tid, userArg):
 		"""

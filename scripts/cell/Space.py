@@ -22,6 +22,8 @@ class Space(KBEngine.Entity, GameObject):
 		DEBUG_MSG('created space[%d] entityID = %i, res = %s.' % (self.spaceUType, self.id, resPath))
 		
 		KBEngine.globalData["space_%i" % self.spaceID] = self.base
+
+		
 	
 	#--------------------------------------------------------------------------------------------
 	#                              Callbacks
@@ -38,9 +40,10 @@ class Space(KBEngine.Entity, GameObject):
 		defined method.
 		进入场景
 		"""
+		#KBEngine.createEntity("Monster", self.spaceID, (59.0, 0.1, 36), (0.0,0.0,1.0), {"spawnPos" : (61.8, 3.39, 166.3), "uid": 1003}) #有人进入场景后生成一个怪物
 		DEBUG_MSG('Space::onEnter space[%d] entityID = %i.' % (self.spaceUType, entityCall.id))
 
-		KBEngine.createEntity("Monster", self.spaceID, (59.0, 0.1, 36), (0.0,0.0,1.0), {"spawnPos" : (61.8, 3.39, 166.3), "uid": 1003}) #有人进入场景后生成一个怪物
+		
 		
 	def onLeave(self, entityID):
 		"""

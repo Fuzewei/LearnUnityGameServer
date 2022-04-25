@@ -26,6 +26,10 @@
 		 -->
 		<script_version> 0.1.0 </script_version>
 	</publish>
+	<!-- 行为树导出目录
+			(Script layer released version number)
+		 -->
+	<behaviac_export_path>AiExport</behaviac_export_path>
 	
 	<!-- defined => kbe/res/server/kbengine_defs.xml -->
 	<dbmgr>

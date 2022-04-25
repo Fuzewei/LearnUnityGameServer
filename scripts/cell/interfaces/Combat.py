@@ -116,20 +116,13 @@ class Combat(CombatPropertys):
 		if len(self.enemyLog) == 0:
 			self.onEnemyEmpty()
 
-	def checkInTerritory(self):
-		"""
-		virtual method.
-		检查自己是否在可活动领地中
-		"""
-		return True
-
 	def checkEnemyDist(self, entity):
 		"""
 		virtual method.
 		检查敌人距离
 		"""
 		dist = entity.position.distTo(self.position)
-		if dist > 30.0:
+		if dist > 30:
 			INFO_MSG("%s::checkEnemyDist: %i id=%i, dist=%f." % (self.getScriptName(), self.id, entity.id, dist))
 			return False
 		
@@ -141,9 +134,9 @@ class Combat(CombatPropertys):
 		"""
 		for idx in range(len(self.enemyLog) - 1, -1, -1):
 			entity = KBEngine.entities.get(self.enemyLog[idx])
-			if entity is None or entity.isDestroyed or entity.isDead() or \
-				not self.checkInTerritory() or not self.checkEnemyDist(entity):
+			if entity is None or entity.isDestroyed or entity.isDead() or not self.checkEnemyDist(entity):
 				self.removeEnemy(self.enemyLog[idx])
+
 
 	#--------------------------------------------------------------------------------------------
 	#                              Callbacks
