@@ -2,7 +2,6 @@
 import KBEngine
 import GlobalDefine
 from KBEDebug import *
-from TimerManager import ItimerManager
 from interfaces.GameObject import GameObject
 from interfaces.Combat import Combat
 from interfaces.Spell import Spell
@@ -15,7 +14,6 @@ from interfaces.SkillBox import SkillBox
 from interfaces.MoveControl import MoveControl
 
 class Avatar(KBEngine.Entity,
-			ItimerManager,
 			GameObject, 
 			Flags,
 			State,
@@ -27,7 +25,6 @@ class Avatar(KBEngine.Entity,
 			Dialog, MoveControl):
 	def __init__(self):
 		KBEngine.Entity.__init__(self)
-		ItimerManager.__init__(self)
 		GameObject.__init__(self) 
 		Flags.__init__(self) 
 		State.__init__(self) 
@@ -72,7 +69,6 @@ class Avatar(KBEngine.Entity,
 		#DEBUG_MSG("%s::onTimer: %i, tid:%i, arg:%i" % (self.getScriptName(), self.id, tid, userArg))
 		GameObject.onTimer(self, tid, userArg)
 		Spell.onTimer(self, tid, userArg)
-		ItimerManager.onTimer(self, tid, userArg)
 		
 	def onGetWitness(self):
 		"""

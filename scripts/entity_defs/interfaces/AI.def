@@ -26,6 +26,9 @@
 	</CellMethods>
 
 	<ClientMethods>
+		<randomWalk>
+			<Arg> PATH_POINTS </Arg>
+		</randomWalk>
 	</ClientMethods>
 </root>
 

@@ -340,8 +340,7 @@ class AI:
 
 		if not self.isState(GlobalDefine.ENTITY_STATE_FREE):
 			self.changeState(GlobalDefine.ENTITY_STATE_FREE)
-			
-		#self.backSpawnPos()
+
 		
 	def onTimer(self, tid, userArg):
 		"""

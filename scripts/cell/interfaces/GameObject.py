@@ -7,13 +7,14 @@ from KBEDebug import *
 
 import d_entities
 import d_avatar_inittab
+from TimerManager import ItimerManager
 
-class GameObject:
+class GameObject(ItimerManager):
 	"""
 	服务端游戏对象的基础接口类
 	"""
 	def __init__(self):
-		pass
+		ItimerManager.__init__(self)
 
 	def initEntity(self):
 		"""
@@ -88,6 +89,7 @@ class GameObject:
 		#DEBUG_MSG("%s::onTimer: %i, tid:%i, arg:%i" % (self.getScriptName(), self.id, tid, userArg))
 		if SCDefine.TIMER_TYPE_DESTROY == userArg:
 			self.onDestroyEntityTimer()
+		ItimerManager.onTimer(self, tid, userArg)
 			
 	def onStateChanged_(self, oldstate, newstate):
 		"""

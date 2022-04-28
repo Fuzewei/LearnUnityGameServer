@@ -13,6 +13,7 @@ IDLE = 0
 class SERVER_MOVING_STAGE:
     IDLE = 0
     RANDOM_MOVE = 1 
+    ROOTMOTION = 2
 
 class AI_RESULT:
     BT_INVALID = 0
