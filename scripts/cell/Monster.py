@@ -12,6 +12,7 @@ from interfaces.State import State
 from interfaces.Flags import Flags
 from interfaces.AI import AI
 from interfaces.NPCObject import NPCObject
+from interfaces.MoveControl import MoveControl
 
 class Monster(KBEngine.Entity,
 			NPCObject, 
@@ -20,7 +21,8 @@ class Monster(KBEngine.Entity,
 			Motion, 
 			Combat, 
 			Spell, 
-			AI):
+			AI,
+			MoveControl):
 	def __init__(self):
 		KBEngine.Entity.__init__(self)
 		NPCObject.__init__(self)
@@ -29,7 +31,8 @@ class Monster(KBEngine.Entity,
 		Motion.__init__(self) 
 		Combat.__init__(self) 
 		Spell.__init__(self) 
-		AI.__init__(self) 
+		AI.__init__(self)
+		MoveControl.__init__(self)  
 		
 		# entity所在的层，可以设置多个不同的navmesh层来寻路, 这里20002001是warring-demo中在天上的飞龙，
 		# 第0层是地面，第1层是忽略建筑物的寻路层

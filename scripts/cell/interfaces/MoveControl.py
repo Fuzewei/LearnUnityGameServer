@@ -14,7 +14,6 @@ class MoveControl:
         self.moveType = 0
         self.clientMoveReciveTime = 0
         self.serverMoveReciveTime = 0
-        pass
 
     def onServerMovetimer(self, tid, *args):
         self.moveType = 0

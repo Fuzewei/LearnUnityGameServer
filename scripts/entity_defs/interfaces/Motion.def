@@ -3,28 +3,6 @@
 	</Interfaces>
 
 	<Properties>
-		<moveSpeed>
-			<Type>			FLOAT			</Type> <!-- 移动速度 -->
-			<Flags>			ALL_CLIENTS		</Flags>
-			<Default>		0			</Default>
-		</moveSpeed>
-
-		<isMoving>
-			<Type>			BOOL			</Type>
-			<Flags>			CELL_PRIVATE		</Flags>
-			<Default>		0			</Default>
-		</isMoving>
-
-		<nextMoveTime>
-			<Type>			UINT32			</Type>
-			<Flags>			CELL_PRIVATE		</Flags>
-			<Default>		0			</Default>
-		</nextMoveTime>
-
-		<T_direction>
-			<Type>			DIRECTION3D			</Type>
-			<Flags>			ALL_CLIENTS		</Flags>
-		</T_direction>
 
 	</Properties>
 

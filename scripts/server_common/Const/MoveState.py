@@ -21,3 +21,7 @@ class AI_RESULT:
     BT_FAILURE = 2
     BT_RUNNING = 3 
 #行为树调用函数0=BT_INVALID,1=BT_SUCCESS,2=BT_FAILURE,3=BT_RUNNING
+
+class CLIENT_MOVE_CONST:
+    Idel = 0
+    Walk = 1 

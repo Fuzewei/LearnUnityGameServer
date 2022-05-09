@@ -69,11 +69,11 @@ class MoveControllersBase(object):
 
     @property
     def direction(self):
-        return self.owner.T_direction
+        return self.owner.direction
     
     @direction.setter
     def direction(self, value):
-        self.owner.T_direction = value
+        self.owner.direction = value
 
     
     def reset(self):

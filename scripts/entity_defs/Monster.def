@@ -16,6 +16,7 @@
 		<Interface>			Combat			</Interface>
 		<Interface>			Spell			</Interface>
 		<Interface>			AI				</Interface>
+		<Interface>			MoveControl		</Interface>
 	</Interfaces>
 
 	<Properties>
