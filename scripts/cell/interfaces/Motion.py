@@ -15,25 +15,29 @@ class Motion:
 	移动相关的封装
 	"""
 	def __init__(self):
+		self.baseTime = time.time()
 		self.moveTickTimer = 0
 		self.direction = Math.Vector3(0, 0, 1) #(全局移动方向)只给怪物用，后面再改
 		self.moveDirection = Math.Vector3(0, 0, 1)  #（面朝方向全局）
 		self.switchMoveStage(SERVER_MOVING_STAGE.IDLE)
+
+	def serverTime():
+		return time.time() - self.baseTime
 	
 
 	def switchMoveStage(self, newStage):
 		if newStage == SERVER_MOVING_STAGE.IDLE:
-			self.movingType = SERVER_MOVING_STAGE.IDLE#移动类型
+			self.aiMovingType = SERVER_MOVING_STAGE.IDLE#服务端的移动类型
 			self.moveType = CLIENT_MOVE_CONST.Idel #客户端用的
 			self.movingInfo = {}#移动信息
 			self.moveControllers = Controllers.NormalIdleControler(self) #移动控制器
 		elif newStage == SERVER_MOVING_STAGE.RANDOM_MOVE:
-			self.movingType = SERVER_MOVING_STAGE.RANDOM_MOVE
+			self.aiMovingType = SERVER_MOVING_STAGE.RANDOM_MOVE
 			self.moveType = CLIENT_MOVE_CONST.Walk #客户端用的
 			self.movingInfo = {}
 			self.moveControllers = Controllers.NormalWalkControler(self)
 		elif newStage == SERVER_MOVING_STAGE.ROOTMOTION:
-			self.movingType = SERVER_MOVING_STAGE.ROOTMOTION
+			self.aiMovingType = SERVER_MOVING_STAGE.ROOTMOTION
 			self.moveType = CLIENT_MOVE_CONST.Walk #客户端用的
 			self.movingInfo = {}
 			self.moveControllers = Controllers.RootMotionControler(self)
@@ -55,7 +59,7 @@ class Motion:
 		随机移动entity
 		"""
 		#当前已经在随机移动了
-		if self.movingType == SERVER_MOVING_STAGE.RANDOM_MOVE:
+		if self.aiMovingType == SERVER_MOVING_STAGE.RANDOM_MOVE:
 			if self.position.distTo(self.movingInfo["destPos"]) < 0.5:
 				self.stopMotion()
 				return AI_RESULT.BT_SUCCESS
@@ -77,7 +81,7 @@ class Motion:
 		self.startTick()
 		self.isMoving = True
 		self.allClients.randomWalk(self.movingInfo["path"])
-		self.allClients.confirmMoveTimeStamp(time.time())
+		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
 
 		return AI_RESULT.BT_RUNNING
 
@@ -85,7 +89,7 @@ class Motion:
 		"""
 		rootMotion移动
 		"""
-		if self.movingType == SERVER_MOVING_STAGE.ROOTMOTION:
+		if self.aiMovingType == SERVER_MOVING_STAGE.ROOTMOTION:
 			if self.moveControllers.isEnd():
 				self.stopMotion()
 				return AI_RESULT.BT_SUCCESS
@@ -138,7 +142,7 @@ class Motion:
 		self.moveControllers.tick()
 		self.moveControllers.calcuteDelterPosition()  #返回相当于移动朝向的相对位移(vector3)
 		self.moveControllers.UpdateMoveSpeed()
-		self.allClients.confirmMoveTimeStamp(time.time())
+		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
 	
 	def getStopPoint(self, yaw = None, rayLength = 100.0):
 		"""
