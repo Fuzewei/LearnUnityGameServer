@@ -2,11 +2,13 @@
 import KBEngine
 import SCDefine
 import time
+import traceback
 import random
 import GlobalDefine
 from KBEDebug import * 
 from skillbases.SCObject import SCObject
 from Const.MoveState import AI_RESULT 
+from Const.MoveState import SERVER_MOVING_STAGE
 
 import d_entities
 
@@ -116,9 +118,15 @@ class AI:
 	def onBhCallFunc(self, funcName, *args):
 		INFO_MSG("onBhCallFunc = %s." % (funcName, ))
 		func = getattr(self, funcName)
+		result = AI_RESULT.BT_INVALID
 		if callable(func):
-			return func(*args)
-		return AI_RESULT.BT_INVALID
+			try:
+				result = func(*args)
+			except Exception as e:
+				print("error", e)
+				traceback.print_exc()
+				
+		return result
 		
 
 	#行为树叶子节点调用函数begin(先这么写)
@@ -133,14 +141,36 @@ class AI:
 		return self._randomWalk(self.position, radius)
 
 
+	#跑步移动到指定id的entitiy
+	def chaseTarget(self, *args):
+		"""
+		entity移动到entity
+		"""
+		entityId = self.targetID
+		INFO_MSG("moveToEntity = %s." % (entityId, ))
+
+		if self.territoryControllerID <= 0:
+			self.addTerritory()
+		return self._gotoEntity(entityId, 0.5)
+
+	#能否使用指定技能id
 	def canSkillAttack(self, *args):
 		INFO_MSG("canSkillAttack = %s" % (args, ))
-		return AI_RESULT.BT_SUCCESS
+		skillId = args[0]
+		enemy = KBEngine.entities.get(self.targetID)
+		if not enemy :
+			return AI_RESULT.BT_FAILURE
+		if self.position.distTo(enemy.position) < 10 :
+			return AI_RESULT.BT_SUCCESS
+		return AI_RESULT.BT_FAILURE
 
-
-	def useSkill(self, entityId):
+	def useSkill(self, *args):
+		entityId = args[0][0]
+		skillId = args[0][1]
 		INFO_MSG("useSkill = %s." % (entityId, ))
-		
+		self.switchMoveStage(SERVER_MOVING_STAGE.USING_SKILL)
+		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.useSkill(entityId, skillId)
 		return AI_RESULT.BT_SUCCESS
 
 	def getEnemyInfo(self, *none):
@@ -150,6 +180,16 @@ class AI:
 	def findEnemys(self, *args):
 		self.checkEnemys()
 		return AI_RESULT.BT_SUCCESS
+
+	#行为树设置进入战斗状态
+	def aiSetInBattle(self, *args):
+		_inbattle = args[0]
+		if self.inBattle != _inbattle:
+			self.inBattle = _inbattle
+			self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		return AI_RESULT.BT_SUCCESS 
+
+
 
 	#行为树叶子节点调用函数end
 

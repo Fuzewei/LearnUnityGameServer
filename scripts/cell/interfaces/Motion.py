@@ -41,8 +41,17 @@ class Motion:
 			self.moveType = CLIENT_MOVE_CONST.Walk #客户端用的
 			self.movingInfo = {}
 			self.moveControllers = Controllers.RootMotionControler(self)
+		elif newStage == SERVER_MOVING_STAGE.CHAST_RUN:
+			self.aiMovingType = SERVER_MOVING_STAGE.CHAST_RUN
+			self.moveType = CLIENT_MOVE_CONST.Run #客户端用的
+			self.movingInfo = {}
+			self.moveControllers = Controllers.NormalRunControler(self)
+		elif newStage == SERVER_MOVING_STAGE.USING_SKILL:
+			self.aiMovingType = SERVER_MOVING_STAGE.USING_SKILL
+			self.moveType = CLIENT_MOVE_CONST.Idel #客户端用的
+			self.movingInfo = {}
+			self.moveControllers = Controllers.NormalIdleControler(self)
 		self.moveControllers.reset()
-	
 	
 	def stopMotion(self):
 		"""
@@ -52,13 +61,16 @@ class Motion:
 			INFO_MSG("%i stop motion." % self.id)
 			#self.cancelController("Movement")
 			self.isMoving = False
-			self.switchMoveStage(SERVER_MOVING_STAGE.IDLE)	
+			self.switchMoveStage(SERVER_MOVING_STAGE.IDLE)
+			self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+			self.allClients.stopMotion()
 
 	def _randomWalk(self, basePos, radius):
 		"""
 		随机移动entity
 		"""
 		#当前已经在随机移动了
+
 		if self.aiMovingType == SERVER_MOVING_STAGE.RANDOM_MOVE:
 			if self.position.distTo(self.movingInfo["destPos"]) < 0.5:
 				self.stopMotion()
@@ -80,8 +92,8 @@ class Motion:
 		
 		self.startTick()
 		self.isMoving = True
-		self.allClients.randomWalk(self.movingInfo["path"])
 		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.randomWalk(self.movingInfo["path"])
 
 		return AI_RESULT.BT_RUNNING
 
@@ -100,33 +112,35 @@ class Motion:
 		self.startTick()
 		self.isMoving = True
 		return AI_RESULT.BT_RUNNING
-
-
-
-	# def resetSpeed(self):
-	# 	walkSpeed = self.getDatas()["moveSpeed"]
-	# 	if walkSpeed != self.moveSpeed:
-	# 		self.moveSpeed = walkSpeed
-
 	
-	def gotoEntity(self, targetID, dist = 0.0):
+	def _gotoEntity(self, targetID, dist = 1):
 		"""
-		virtual method.
 		移动到entity位置
 		"""
-		if self.isMoving:
-			self.stopMotion()
-		
-		entity = KBEngine.entities.get(targetID)
-		if entity is None:
-			DEBUG_MSG("%s::gotoEntity: not found targetID=%i" % (targetID))
-			return
-			
-		if entity.position.distTo(self.position) <= dist:
-			return
+		INFO_MSG("_gotoEntity = %s. %s" % (targetID, type(targetID)))
 
+		target = KBEngine.entities.get(targetID)
+		if self.position.distTo(target.position) < dist:
+			self.stopMotion()
+			return AI_RESULT.BT_SUCCESS
+
+		if self.canNavigate():
+			self.movingInfo["destPos"] = target.position
+			self.movingInfo["path"] = self.navigatePathPoints(target.position, 200, 0)
+			self.movingInfo["nextId"] = 0
+		else:
+			assert(False)
+
+		if self.aiMovingType == SERVER_MOVING_STAGE.CHAST_RUN:
+			return AI_RESULT.BT_RUNNING
+
+		self.switchMoveStage(SERVER_MOVING_STAGE.CHAST_RUN)
+			
+		self.startTick()
 		self.isMoving = True
-		self.moveToEntity(targetID, self.moveSpeed * 0.1, dist, None, True, False)
+		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.chaseTarget(targetID)
+		return AI_RESULT.BT_RUNNING
 
 	
 	def startTick(self):
@@ -137,6 +151,8 @@ class Motion:
 		
 		if self.moveTickTimer == 0:
 			self.moveTickTimer = self.addTimerCallBack(0, 0.1, self.moveTickCallBack)
+
+
 
 	def moveTickCallBack(self, tid, *args):
 		self.moveControllers.tick()

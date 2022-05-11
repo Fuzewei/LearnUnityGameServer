@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
-<agents version="1" signature="2156017499">
-  <agent type="behaviac::Monster" base="behaviac::KbeAgentBase" signature="3786478542">
+<agents version="1" signature="4005079766">
+  <agent type="behaviac::Monster" base="behaviac::KbeAgentBase" signature="3795859791">
     <properties>
       <property name="enemyInfo" type="behaviac::EnemyInfo" member="false" static="false" defaultvalue="{entityId=-1;dis=0;}" />
     </properties>

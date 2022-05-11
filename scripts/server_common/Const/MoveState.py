@@ -4,16 +4,13 @@ import GlobalConst
 from KBEDebug import * 
 
 
-# 移动状态定义
-
-IDLE = 0
-
-
 # 服务端移动模式
 class SERVER_MOVING_STAGE:
     IDLE = 0
     RANDOM_MOVE = 1 
     ROOTMOTION = 2
+    CHAST_RUN = 3
+    USING_SKILL = 4
 
 class AI_RESULT:
     BT_INVALID = 0
@@ -25,3 +22,4 @@ class AI_RESULT:
 class CLIENT_MOVE_CONST:
     Idel = 0
     Walk = 1 
+    Run = 2

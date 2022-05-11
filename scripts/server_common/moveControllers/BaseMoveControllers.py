@@ -99,7 +99,7 @@ class NormalIdleControler(MoveControllersBase):
 
     def UpdateMoveSpeed(self):
         self.xzMoveSpeed = self.xzMoveSpeed - self.acc * self.deltaTime
-        self.xzMoveSpeed = max(self.xzMoveSpeed, 0)
+        self.xzMoveSpeed = max(self.xzMoveSpeed, 0.0)
        
     def calcuteDelterPosition(self):
         accTime = abs(self.xzMoveSpeed) / self.acc
@@ -172,11 +172,22 @@ class NormalWalkControler(MoveControllersBase):
         self.direction = _direction
         return  Math.Vector3(0, 0, moveLen)
 
+class NormalRunControler(NormalWalkControler):
+
+    def __init__(self, owner):
+        super(NormalRunControler, self).__init__(owner)
+        self.acc =  10.8
+        self.maxForwardSpeed = 5.05
+
+    def UpdateMoveSpeed(self):
+        if self.xzMoveSpeed <= self.maxForwardSpeed:
+            self.xzMoveSpeed = min(self.xzMoveSpeed + self.acc, self.maxForwardSpeed)
+
 class RootMotionControler(MoveControllersBase):
 
     def __init__(self, owner):
         super(RootMotionControler, self).__init__(owner)
-        self.cycle =  False
+       
 
     def setClip(self, clipName):
         self.aniClipName = clipName

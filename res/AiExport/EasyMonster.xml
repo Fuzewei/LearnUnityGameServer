@@ -17,6 +17,10 @@
         <property Opr="const int 0" />
       </node>
       <node class="Sequence" id="5">
+        <node class="Action" id="17">
+          <property Method="Self.behaviac::Monster::setInBattle(false)" />
+          <property ResultOption="BT_SUCCESS" />
+        </node>
         <node class="Action" id="6">
           <property Method="Self.behaviac::Monster::randomWalk(10)" />
           <property ResultOption="BT_INVALID" />
@@ -35,10 +39,14 @@
           <property Opl="behaviac::EnemyInfo Self.behaviac::Monster::enemyInfo" />
           <property Opr="Self.behaviac::Monster::getEnemyInfo()" />
         </node>
+        <node class="Action" id="16">
+          <property Method="Self.behaviac::Monster::setInBattle(true)" />
+          <property ResultOption="BT_SUCCESS" />
+        </node>
         <node class="Selector" id="9">
           <node class="Sequence" id="10">
             <node class="Action" id="12">
-              <property Method="Self.behaviac::Monster::canSkillAttack(1)" />
+              <property Method="Self.behaviac::Monster::canSkillAttack(0)" />
               <property ResultOption="BT_INVALID" />
             </node>
             <node class="Action" id="13">
@@ -49,7 +57,7 @@
           <node class="Sequence" id="11">
             <node class="Action" id="14">
               <property Method="Self.behaviac::Monster::chaseTarget(0)" />
-              <property ResultOption="BT_RUNNING" />
+              <property ResultOption="BT_SUCCESS" />
             </node>
           </node>
         </node>

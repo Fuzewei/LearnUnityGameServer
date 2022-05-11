@@ -35,6 +35,18 @@
 		<randomWalk>
 			<Arg> PATH_POINTS </Arg>
 		</randomWalk>
+
+		<chaseTarget>
+			<Arg> ENTITY_ID </Arg>
+		</chaseTarget>
+
+		<useSkill>
+			<Arg> ENTITY_ID </Arg>
+			<Arg> SKILLID </Arg>
+		</useSkill>
+
+		<stopMotion>
+		</stopMotion>
 	</ClientMethods>
 </root>
 
