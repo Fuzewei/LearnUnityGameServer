@@ -4,27 +4,31 @@ import time
 
 class TimeLineBase():
     def __init__(self):
+        self.uuid = None
         self.tickTimeStamp = None
         self.nextIndex = 0
-        self.delterTimeStamp = 0
+        self.delterTimeStamp = None
         self.nodesList = []
         self.speed = 1
         self.manager = None
 
-    def setManager(self, manager):
+    def reset(self, manager, uuid):
         self.manager = manager
+        self.uuid = uuid
+        self.delterTimeStamp = 0
 
     def start(self):
         self.tickTimeStamp = time.time()
         self.setSpeed(1)
-        self.tick()
+        if self.getNextDelterTime() == 0:
+            self.tick()
 
     def tick(self):
         now = time.time()
         self.delterTimeStamp += (now - self.tickTimeStamp) * self.speed
         self.tickTimeStamp = now
-        print("TimeLineBase.tick", now, self.getNextTimeStamp(), self.delterTimeStamp)
-        while not self.isFinish() and self.delterTimeStamp - self.getNextTimeStamp() + 0.05 >= 0:
+        print("TimeLineBase.tick", now)
+        if not self.isFinish():
             self.doTick(self.nextIndex)
             self.nextIndex += 1
 
@@ -37,12 +41,11 @@ class TimeLineBase():
     def setSpeed(self, newspeed):
         self.speed = newspeed
 
-    def getNextTimeStamp(self):
-        return self.nodesList[self.nextIndex].runTimeStamp
+   
 
     #下一次tick到当前时间的时间差
     def getNextDelterTime(self):
-        _t = self.getNextTimeStamp() - self.delterTimeStamp
+        _t = self.__getNextTimeStamp() - self.delterTimeStamp
         return _t/self.speed
 
 
@@ -60,3 +63,6 @@ class TimeLineBase():
                 i += 1
         self.nodesList.insert(i, node)
 
+
+    def __getNextTimeStamp(self):
+        return self.nodesList[self.nextIndex].runTimeStamp

@@ -8,6 +8,7 @@ class TimeLineManager():
         self.nodeUUid = 0
         self.timeLines = {}
         self.nextDelterTime = float('inf')
+        self.nextTimeLineUuid = None #下次触发的uuid
         self.updateTimerId = 0
 
     
@@ -17,38 +18,45 @@ class TimeLineManager():
         return a 
 
     def addTimeLine(self, uuid, timeline):
-        timeline.setManager(self)
+        timeline.reset(self, uuid)
         timeline.start()
+        if timeline.isFinish():
+            return
         self.timeLines[uuid] = timeline
         if timeline.getNextDelterTime() < self.nextDelterTime:
             if self.updateTimerId > 0 :
                 self.owner.delTimerCallBack(self.updateTimerId)
             self.nextDelterTime = timeline.getNextDelterTime()
-            self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime, "ceshiOnTimer")
+            self.nextTimeLineUuid = timeline.uuid
+            self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
 
 
     def onTime(self, tid, *args):
-        print("TimeLine", tid, *args)
+        print("TimeLine", self.nextDelterTime, self.nextTimeLineUuid)
         self.updateTimerId = 0
-        delete = []
-        for uuid, timeline in self.timeLines.items():
-            timeline.tick()
-            if timeline.isFinish():
-                delete.append(uuid)
-        for uuid in delete:
+        deleteUUids = []
+        tickTimeLine = self.timeLines[self.nextTimeLineUuid]
+        tickTimeLine.tick()
+        if tickTimeLine.isFinish():
+            deleteUUids.append(tickTimeLine.uuid)
+        for uuid in deleteUUids:
             self.timeLines[uuid].onEnd()
             del self.timeLines[uuid]
-        self.nextDelterTime = self.getNextTimer()
+    
+
+        self.nextDelterTime, self.nextTimeLineUuid = self.getNextTimeLine()
         if self.nextDelterTime < float('inf'):
             self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
 
        
-    def getNextTimer(self):
+    def getNextTimeLine(self):
         minDelter = float('inf')
+        timeLineUUid = None
         for _, timeline in self.timeLines.items():
             if timeline.getNextDelterTime() < minDelter:
                 minDelter = timeline.getNextDelterTime()
-        return minDelter
+                timeLineUUid = timeline.uuid
+        return minDelter, timeLineUUid
 
 
 
