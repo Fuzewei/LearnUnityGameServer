@@ -6,6 +6,7 @@ class SkillNodeBase(TimeLineNodeBase):
         TimeLineNodeBase.__init__(self, timeStamp)
         self.nodeType = 1
 
+    #Node到运行的时间点了
     def run(self):
         TimeLineNodeBase.run(self)
 
