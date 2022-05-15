@@ -41,16 +41,16 @@ class TimeLineBase():
     def setSpeed(self, newspeed):
         self.speed = newspeed
 
-   
-
     #下一次tick到当前时间的时间差
     def getNextDelterTime(self):
         _t = self.__getNextTimeStamp() - self.delterTimeStamp
         return _t/self.speed
 
-
     def onEnd(self):
         print("TimeLineBase.onEnd")
+        for node in self.nodesList:
+            node.OnDestory()
+        self.nodesList = []
     
     def addNode(self, node):
         node.owneTimeLine = self
@@ -61,8 +61,8 @@ class TimeLineBase():
                 break
             else:   
                 i += 1
+        node.nodeId = i
         self.nodesList.insert(i, node)
-
 
     def __getNextTimeStamp(self):
         return self.nodesList[self.nextIndex].runTimeStamp

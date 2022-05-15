@@ -11,7 +11,7 @@ class TimeLineNodeBase:
         print("TimeLineNodeBase.run") 
 
     def OnDestory(self):
-        pass
+        self.owneTimeLine = None
 
     def OnSetTimeLine(self):
         pass
