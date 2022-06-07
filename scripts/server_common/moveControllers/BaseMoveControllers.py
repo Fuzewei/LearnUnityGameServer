@@ -91,6 +91,10 @@ class MoveControllersBase(object):
     def calcuteDelterPosition(self):
         pass
 
+    #要切换了
+    def onSwitch(self):
+        pass
+
 class NormalIdleControler(MoveControllersBase):
 
     def __init__(self, owner):
@@ -188,11 +192,11 @@ class RootMotionControler(MoveControllersBase):
     def __init__(self, owner):
         super(RootMotionControler, self).__init__(owner)
        
-
     def setClip(self, clipName):
         self.aniClipName = clipName
         self.timeStamp = 0
         self.curve = MotionCurve.MotionCurve(getRootMotion()[clipName])
+        self.reset()
 
     def reset(self):
         MoveControllersBase.reset(self)
@@ -203,6 +207,7 @@ class RootMotionControler(MoveControllersBase):
 
     def calcuteDelterPosition(self):
         if self.isEnd():
+            
             return
         _deltaV = self.curve.delterPosition(self.timeStamp, self.timeStamp + self.deltaTime)
         deltaV = Math3D.rotationVector(self.direction, _deltaV)
@@ -211,3 +216,6 @@ class RootMotionControler(MoveControllersBase):
 
     def isEnd(self):
         return self.curve.isEnd(self.timeStamp)
+
+    def onSwitch(self):
+        pass

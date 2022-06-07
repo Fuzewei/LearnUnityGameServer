@@ -51,6 +51,7 @@ class TimeLineBase():
         for node in self.nodesList:
             node.OnDestory()
         self.nodesList = []
+        self.manager = None
     
     def addNode(self, node):
         node.owneTimeLine = self

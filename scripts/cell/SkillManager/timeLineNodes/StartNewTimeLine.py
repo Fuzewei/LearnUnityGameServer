@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from SkillManager.timeLineNodes import SkillNodeBase 
+from SkillManager.timeLineNodes.SkillNodeBase import SkillNodeBase 
 
 class StartNewTimeLine(SkillNodeBase):
     def __init__(self, timeStamp):
@@ -7,8 +7,8 @@ class StartNewTimeLine(SkillNodeBase):
 
     
     #客户端发来的信息
-    def clientCall(self, args):
-        pass
+    def clientCall(self, exposed, args):
+        self.owneTimeLine.callAllClient(args)
     
     #Node到运行的时间点了
     def run(self):

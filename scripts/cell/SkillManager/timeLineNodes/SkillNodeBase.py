@@ -4,11 +4,11 @@ from timeLine.TimeLineNodeBase import TimeLineNodeBase
 class SkillNodeBase(TimeLineNodeBase):
     def __init__(self, timeStamp):
         TimeLineNodeBase.__init__(self, timeStamp)
-        self.nodeType = 1
+        self.nodeType = "Monster"
 
-    #Node到运行的时间点了
-    def run(self):
-        TimeLineNodeBase.run(self)
+    @property
+    def avatarOwner(self):
+        return self.owneTimeLine.manager
 
     def OnDestory(self):
         TimeLineNodeBase.OnDestory(self)
@@ -17,5 +17,9 @@ class SkillNodeBase(TimeLineNodeBase):
         pass
 
     #客户端发来的信息
-    def clientCall(self, args):
+    def clientCall(self, exposed, args):
         pass
+
+    #Node到运行的时间点了
+    def run(self):
+        TimeLineNodeBase.run(self)

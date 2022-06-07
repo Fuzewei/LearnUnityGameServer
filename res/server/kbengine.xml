@@ -62,7 +62,7 @@
 		
 		<databaseInterfaces>
 			<default>
-				<host> 1.117.144.54 </host>
+				<host> 150.158.150.230 </host>
 				<databaseName> kbe_f </databaseName>
 				<type> mysql </type>											<!-- Type: String -->
 				<auth>  

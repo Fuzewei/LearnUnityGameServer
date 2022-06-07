@@ -19,6 +19,7 @@ class Motion:
 		self.moveTickTimer = 0
 		self.direction = Math.Vector3(0, 0, 1) #(全局移动方向)只给怪物用，后面再改
 		self.moveDirection = Math.Vector3(0, 0, 1)  #（面朝方向全局）
+		self.aiMovingType = None
 		self.switchMoveStage(SERVER_MOVING_STAGE.IDLE)
 
 	def serverTime():
@@ -26,6 +27,8 @@ class Motion:
 	
 
 	def switchMoveStage(self, newStage):
+		if	self.aiMovingType and self.aiMovingType != newStage:
+			self.moveControllers.onSwitch()
 		if newStage == SERVER_MOVING_STAGE.IDLE:
 			self.aiMovingType = SERVER_MOVING_STAGE.IDLE#服务端的移动类型
 			self.moveType = CLIENT_MOVE_CONST.Idel #客户端用的
@@ -48,7 +51,7 @@ class Motion:
 			self.moveControllers = Controllers.NormalRunControler(self)
 		elif newStage == SERVER_MOVING_STAGE.USING_SKILL:
 			self.aiMovingType = SERVER_MOVING_STAGE.USING_SKILL
-			self.moveType = CLIENT_MOVE_CONST.Idel #客户端用的
+			self.moveType = CLIENT_MOVE_CONST.Idel #先注销
 			self.movingInfo = {}
 			self.moveControllers = Controllers.NormalIdleControler(self)
 		self.moveControllers.reset()
@@ -97,7 +100,7 @@ class Motion:
 
 		return AI_RESULT.BT_RUNNING
 
-	def _rootMotionMove(self, clipName = "GreatSword_Attack01"):
+	def _rootMotionMove(self, clipName, callBackFunc = None):
 		"""
 		rootMotion移动
 		"""
@@ -155,6 +158,8 @@ class Motion:
 
 
 	def moveTickCallBack(self, tid, *args):
+		if self.moveType == CLIENT_MOVE_CONST.ServerMove:  #放技能的时候先不同步位置
+			return
 		self.moveControllers.tick()
 		self.moveControllers.calcuteDelterPosition()  #返回相当于移动朝向的相对位移(vector3)
 		self.moveControllers.UpdateMoveSpeed()

@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from uuid import uuid1
 import KBEngine
 import GlobalDefine
 from KBEDebug import * 
@@ -7,6 +6,7 @@ from timeLine.TimeLineManager import TimeLineManager
 from timeLine.TimeLineBase import TimeLineBase 
 from timeLine.TimeLineNodeBase import TimeLineNodeBase 
 from interfaces.CombatPropertys import CombatPropertys
+from SkillManager.SkillFactory import SkillFactory
 
 class Combat(CombatPropertys):
 	"""
@@ -16,6 +16,7 @@ class Combat(CombatPropertys):
 		CombatPropertys.__init__(self)
 		self.inBattle = False
 		self.timeLineManager = TimeLineManager(self)
+		self.skillFactory = SkillFactory()
 
 	def canUpgrade(self):
 		"""
@@ -221,21 +222,8 @@ class Combat(CombatPropertys):
 
 	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
 		print("skillNodeCallServer", uuid, nodeId, args, type(args))
-		if nodeId == 1:	
-			entityId = int(args[0])
-			entity = KBEngine.entities.get(entityId)
-			entity.setAvatarMoveState(6) #移动状态变为服务端驱动
 		self.allClients.skillNodeCallClient(uuid, nodeId, args)
 
 
 	def getTimeLineById(self, skillId):
-		timeline = TimeLineBase()
-		node1 = TimeLineNodeBase(1)
-		timeline.addNode(node1)
-		node2 = TimeLineNodeBase(1.5)
-		timeline.addNode(node2)
-		node4 = TimeLineNodeBase(5.5)
-		timeline.addNode(node4)
-		node3 = TimeLineNodeBase(20.5)
-		timeline.addNode(node3) 
-		return timeline
+		return self.skillFactory.getSkillBeginTimeLine(skillId)

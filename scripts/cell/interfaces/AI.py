@@ -9,6 +9,7 @@ from KBEDebug import *
 from skillbases.SCObject import SCObject
 from Const.MoveState import AI_RESULT 
 from Const.MoveState import SERVER_MOVING_STAGE
+from Const.MoveState import CLIENT_MOVE_CONST
 
 import d_entities
 
@@ -160,6 +161,10 @@ class AI:
 		enemy = KBEngine.entities.get(self.targetID)
 		if not enemy :
 			return AI_RESULT.BT_FAILURE
+
+		if self.moveType == CLIENT_MOVE_CONST.ServerMove:#p3移动，表示被击退
+			return AI_RESULT.BT_FAILURE
+
 		if self.position.distTo(enemy.position) < 10 :
 			return AI_RESULT.BT_SUCCESS
 		return AI_RESULT.BT_FAILURE
