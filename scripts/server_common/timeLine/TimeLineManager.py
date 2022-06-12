@@ -17,6 +17,9 @@ class TimeLineManager():
         self.nodeUUid += 1
         return a 
 
+    def getTimeLine(self, uuid):
+        return  self.timeLines[uuid]
+
     def addTimeLine(self, uuid, timeline):
         timeline.reset(self, uuid)
         timeline.start()
@@ -57,7 +60,6 @@ class TimeLineManager():
                 minDelter = timeline.getNextDelterTime()
                 timeLineUUid = timeline.uuid
         return minDelter, timeLineUUid
-
 
 
 

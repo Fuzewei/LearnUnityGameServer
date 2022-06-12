@@ -18,7 +18,7 @@ class CommonAttackNode(SkillNodeBase):
         entityId = int(args[0])
         entity = KBEngine.entities.get(entityId)
         entity.startP3ClientMove(self.avatarOwner.id, 1)
-        self.owneTimeLine.callAllClient(args)
+        self.owneTimeLine.callAllClient(self.nodeId, args)
 
 
     #命中的客户端上传信息

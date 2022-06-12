@@ -8,7 +8,7 @@ class SkillNodeBase(TimeLineNodeBase):
 
     @property
     def avatarOwner(self):
-        return self.owneTimeLine.manager
+        return self.owneTimeLine.avatarOwner
 
     def OnDestory(self):
         TimeLineNodeBase.OnDestory(self)

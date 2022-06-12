@@ -8,7 +8,7 @@ class SkillTimeLine(TimeLineBase):
 
     @property
     def avatarOwner(self):
-        return self.manager
+        return self.manager.owner
     
     def onEnd(self):
         TimeLineBase.onEnd(self)
@@ -19,10 +19,10 @@ class SkillTimeLine(TimeLineBase):
         node.clientCall(expose, arg)
 
     def callAllClient(self, nodeId, arg): #arg is TABLE
-        self.allClients.skillNodeCallClient(self.uuid, nodeId, arg)
+        self.avatarOwner.allClients.skillNodeCallClient(self.uuid, nodeId, arg)
 
     def callHostClient(self, nodeId, arg): #arg is TABLE
-        self.client.skillNodeCallClient(self.uuid, nodeId, arg)
+        self.avatarOwner.client.skillNodeCallClient(self.uuid, nodeId, arg)
 
     def callOthersClient(self, nodeId, arg): #arg is TABLE
-        self.otherClients.skillNodeCallClient(self.uuid, nodeId, arg)
+        self.avatarOwner.otherClients.skillNodeCallClient(self.uuid, nodeId, arg)
