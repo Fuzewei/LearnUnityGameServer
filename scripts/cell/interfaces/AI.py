@@ -154,6 +154,15 @@ class AI:
 			self.addTerritory()
 		return self._gotoEntity(entityId, 0.5)
 
+	#原地静止
+	def idle(self, *args):
+		"""
+		entity原地静止
+		"""
+		INFO_MSG("idle = ")
+		self.stopMotion()	
+		return AI_RESULT.BT_RUNNING
+
 	#能否使用指定技能id
 	def canSkillAttack(self, *args):
 		INFO_MSG("canSkillAttack = %s" % (args, ))
@@ -162,24 +171,23 @@ class AI:
 		if not enemy :
 			return AI_RESULT.BT_FAILURE
 
-		if self.moveType == CLIENT_MOVE_CONST.ServerMove:#p3移动，表示被击退
+		if self.isBeStrikefly() or self.isUseSkill(): #被击退或正在使用技能
 			return AI_RESULT.BT_FAILURE
 
-		if self.position.distTo(enemy.position) < 10 :
-			return AI_RESULT.BT_SUCCESS
-		return AI_RESULT.BT_FAILURE
+		return AI_RESULT.BT_SUCCESS
 
 	def useSkill(self, *args):
 		entityId = args[0][0]
 		skillId = args[0][1]
 		INFO_MSG("useSkill = %s." % (entityId, ))
-		self.switchMoveStage(SERVER_MOVING_STAGE.USING_SKILL)
-		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.switch2InSkill()
 		self.allClients.useSkill(entityId, skillId)
 		return AI_RESULT.BT_SUCCESS
 
+	#返回敌人的信息，行为树使用
 	def getEnemyInfo(self, *none):
-		return (self.targetID, 0) 
+		enemy = KBEngine.entities.get(self.targetID)
+		return (self.targetID, self.position.distTo(enemy.position)) 
 
 	#寻找敌人
 	def findEnemys(self, *args):
@@ -192,8 +200,13 @@ class AI:
 		if self.inBattle != _inbattle:
 			self.inBattle = _inbattle
 			self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+			if	self.inBattle:
+				self.startP3ClientMove(self.getBestClient())
+			else:
+				self.stopP3ClientMove()
 		return AI_RESULT.BT_SUCCESS 
 
+		
 
 
 	#行为树叶子节点调用函数end

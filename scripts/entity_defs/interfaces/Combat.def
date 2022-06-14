@@ -9,7 +9,6 @@
 			<Flags>			ALL_CLIENTS		</Flags>
 			<Default>		0				</Default>
 		</inBattle>
-
 		<enemyLog>
 			<Type>			ENTITYID_LIST		</Type>
 			<Flags>			CELL_PRIVATE		</Flags>

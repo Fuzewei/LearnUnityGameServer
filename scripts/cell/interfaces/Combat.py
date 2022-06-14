@@ -14,7 +14,7 @@ class Combat(CombatPropertys):
 	"""
 	def __init__(self):
 		CombatPropertys.__init__(self)
-		self.inBattle = False
+		self.inBattle = False #在战斗中
 		self.timeLineManager = TimeLineManager(self)
 		self.skillFactory = SkillFactory()
 
@@ -208,10 +208,9 @@ class Combat(CombatPropertys):
 	#--------------------------------------------------------------------------------------------
 
 	def clientRequestUseSkill(self, exposed, uuid, skillId):
-		timeline = self.getTimeLineById(skillId)
+		timeline = self.skillFactory.getSkillBeginTimeLine(skillId)
 		self.timeLineManager.addTimeLine(uuid, timeline)
 		self.otherClients.serverRequestUseSkill(uuid, skillId)
-	
 
 	def clientSkillFinish(self, exposed, skillId):
 		self.allClients.serverSkillFinish(skillId)
@@ -219,13 +218,8 @@ class Combat(CombatPropertys):
 	def clientTimeLineFinish(self, exposed, uuid):
 		self.allClients.serverTimeLineFinish(uuid)
 
-
 	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
 		print("skillNodeCallServer", uuid, nodeId, args, type(args))
 		timeline = self.timeLineManager.getTimeLine(uuid)
 		timeline.callFromClient(exposed, nodeId, args)
 		#self.allClients.skillNodeCallClient(uuid, nodeId, args)
-
-
-	def getTimeLineById(self, skillId):
-		return self.skillFactory.getSkillBeginTimeLine(skillId)

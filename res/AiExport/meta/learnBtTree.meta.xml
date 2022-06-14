@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--EXPORTED BY TOOL, DON'T MODIFY IT!-->
-<agents version="1" signature="4005079766">
-  <agent type="behaviac::Monster" base="behaviac::KbeAgentBase" signature="3795859791">
+<agents version="1" signature="1573300920">
+  <agent type="behaviac::Monster" base="behaviac::KbeAgentBase" signature="861136291">
     <properties>
       <property name="enemyInfo" type="behaviac::EnemyInfo" member="false" static="false" defaultvalue="{entityId=-1;dis=0;}" />
+      <property name="useingSkillId" type="int" member="false" static="false" defaultvalue="0" />
     </properties>
   </agent>
 </agents>
