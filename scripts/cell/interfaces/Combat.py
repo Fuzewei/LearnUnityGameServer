@@ -221,7 +221,6 @@ class Combat(CombatPropertys):
 	def doUseSkill(self, uuid, skillId):
 		if self.usingSkills.get(skillId):
 			assert(False)
-		INFO_MSG("doUseSkill = %s." % (skillId, ))
 		skill = Skill(skillId, self)
 		self.usingSkills[skillId] = skill
 		skill.startTimeLine(skill.initTimeLineId, uuid)
@@ -235,7 +234,6 @@ class Combat(CombatPropertys):
 	#技能结束的回调
 	def onSkillFinish(self, skillId):
 		del self.usingSkills[skillId]
-		INFO_MSG("onSkillFinish = %s." % (skillId, ))
 		self.allClients.serverSkillFinish(skillId)
 
 

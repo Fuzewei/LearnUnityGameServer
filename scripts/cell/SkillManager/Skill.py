@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from KBEDebug import * 
 import time
 from timeLine.TimeLineBase import TimeLineBase 
 
@@ -9,6 +10,7 @@ class Skill:
        self.skillId = _id
        self.initTimeLineId = _id
        self.avatar = _avatar
+       self.beginTime = time.time()
 
     def startTimeLine(self, timeLineId, uuid):
         timeline = self.avatar.skillFactory.getSkillBeginTimeLine(timeLineId)
@@ -33,6 +35,7 @@ class Skill:
     def onFininsh(self):
         self.avatar.onSkillFinish(self.skillId)
         self.avatar = None
+        INFO_MSG("onSkillFinish = %s. delterTime = %s" % (self.skillId, time.time() - self.beginTime))
 
     
 
