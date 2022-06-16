@@ -5,12 +5,18 @@ from timeLine.TimeLineBase import TimeLineBase
 class SkillTimeLine(TimeLineBase):
     def __init__(self):
        TimeLineBase.__init__(self)
+       self.skill = None
+
+    def setBelongSkil(self, _skill):
+        self.skill = _skill
 
     @property
     def avatarOwner(self):
         return self.manager.owner
     
     def onEnd(self):
+        self.skill.onTimeLineFinish(self.uuid)
+        self.skill = None
         TimeLineBase.onEnd(self)
 
     def callFromClient(self, expose, nodeId, arg): #arg is TABLE

@@ -181,6 +181,7 @@ class AI:
 		skillId = args[0][1]
 		INFO_MSG("useSkill = %s." % (entityId, ))
 		self.switch2InSkill()
+		self.serverRequestUseSkill(skillId)
 		self.allClients.useSkill(entityId, skillId)
 		return AI_RESULT.BT_SUCCESS
 

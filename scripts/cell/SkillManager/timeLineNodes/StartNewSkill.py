@@ -1,9 +1,11 @@
 # -*- coding: utf-8 -*-
 from SkillManager.timeLineNodes.SkillNodeBase import SkillNodeBase 
 
-class StartNewTimeLine(SkillNodeBase):
-    def __init__(self, timeStamp):
+class StartNewSkill(SkillNodeBase):
+    def __init__(self, timeStamp, _durationTime, _newSkillId):
         SkillNodeBase.__init__(self, timeStamp)
+        self.durationTime = _durationTime
+        self.newSkillId = _newSkillId
 
     
     #客户端发来的信息

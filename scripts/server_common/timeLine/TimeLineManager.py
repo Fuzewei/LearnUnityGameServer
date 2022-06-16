@@ -5,7 +5,7 @@ import KBEngine
 class TimeLineManager():
     def __init__(self, owner):
         self.owner = owner
-        self.nodeUUid = 0
+        self.nodeUUid = 100000
         self.timeLines = {}
         self.nextDelterTime = float('inf')
         self.nextTimeLineUuid = None #下次触发的uuid
@@ -32,6 +32,19 @@ class TimeLineManager():
             self.nextDelterTime = timeline.getNextDelterTime()
             self.nextTimeLineUuid = timeline.uuid
             self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
+
+    def delTimeLine(self, uuid, timeline):
+        tickTimeLine = self.timeLines[uuid]
+        if not tickTimeLine:
+            return
+        tickTimeLine.onEnd()
+        del self.timeLines[uuid]
+        if uuid == self.nextTimeLineUuid:
+            self.owner.delTimerCallBack(self.updateTimerId)
+            self.updateTimerId = 0
+            self.nextDelterTime, self.nextTimeLineUuid = self.getNextTimeLine()
+            if self.nextDelterTime < float('inf'):
+                self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
 
 
     def onTime(self, tid, *args):

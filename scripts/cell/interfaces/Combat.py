@@ -7,6 +7,7 @@ from timeLine.TimeLineBase import TimeLineBase
 from timeLine.TimeLineNodeBase import TimeLineNodeBase 
 from interfaces.CombatPropertys import CombatPropertys
 from SkillManager.SkillFactory import SkillFactory
+from SkillManager.Skill import Skill
 
 class Combat(CombatPropertys):
 	"""
@@ -17,6 +18,7 @@ class Combat(CombatPropertys):
 		self.inBattle = False #在战斗中
 		self.timeLineManager = TimeLineManager(self)
 		self.skillFactory = SkillFactory()
+		self.usingSkills = {}
 
 	def canUpgrade(self):
 		"""
@@ -207,19 +209,41 @@ class Combat(CombatPropertys):
 	#                              技能系统代码，后期在整理fzw
 	#--------------------------------------------------------------------------------------------
 
+	def serverRequestUseSkill(self, skillId):
+		uuid = self.timeLineManager.getUUid()
+		self.doUseSkill(uuid, skillId)
+		self.allClients.serverRequestUseSkill(uuid, skillId)
+
 	def clientRequestUseSkill(self, exposed, uuid, skillId):
-		timeline = self.skillFactory.getSkillBeginTimeLine(skillId)
-		self.timeLineManager.addTimeLine(uuid, timeline)
+		self.doUseSkill(uuid, skillId)
 		self.otherClients.serverRequestUseSkill(uuid, skillId)
 
-	def clientSkillFinish(self, exposed, skillId):
+	def doUseSkill(self, uuid, skillId):
+		if self.usingSkills.get(skillId):
+			assert(False)
+		INFO_MSG("doUseSkill = %s." % (skillId, ))
+		skill = Skill(skillId, self)
+		self.usingSkills[skillId] = skill
+		skill.startTimeLine(skill.initTimeLineId, uuid)
+
+	#打断技能
+	def interruptSkill(self, skillId):
+		skill = self.usingSkills.get(skillId)
+		if skill:
+			skill.interrupt()
+
+	#技能结束的回调
+	def onSkillFinish(self, skillId):
+		del self.usingSkills[skillId]
+		INFO_MSG("onSkillFinish = %s." % (skillId, ))
 		self.allClients.serverSkillFinish(skillId)
 
-	def clientTimeLineFinish(self, exposed, uuid):
-		self.allClients.serverTimeLineFinish(uuid)
 
 	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
 		print("skillNodeCallServer", uuid, nodeId, args, type(args))
 		timeline = self.timeLineManager.getTimeLine(uuid)
 		timeline.callFromClient(exposed, nodeId, args)
 		#self.allClients.skillNodeCallClient(uuid, nodeId, args)
+
+
+		
