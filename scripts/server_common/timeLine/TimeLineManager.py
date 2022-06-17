@@ -3,8 +3,8 @@ import time
 import KBEngine
 
 class TimeLineManager():
-    def __init__(self, owner):
-        self.owner = owner
+    def __init__(self, avatar):
+        self.avatar = avatar
         self.nodeUUid = 100000
         self.timeLines = {}
         self.nextDelterTime = float('inf')
@@ -28,27 +28,27 @@ class TimeLineManager():
         self.timeLines[uuid] = timeline
         if timeline.getNextDelterTime() < self.nextDelterTime:
             if self.updateTimerId > 0 :
-                self.owner.delTimerCallBack(self.updateTimerId)
+                self.avatar.delTimerCallBack(self.updateTimerId)
             self.nextDelterTime = timeline.getNextDelterTime()
             self.nextTimeLineUuid = timeline.uuid
-            self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
+            self.updateTimerId = self.avatar.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
 
-    def delTimeLine(self, uuid, timeline):
-        tickTimeLine = self.timeLines[uuid]
+    def delTimeLine(self, uuid):
+        tickTimeLine = self.timeLines.get(uuid)
         if not tickTimeLine:
             return
         tickTimeLine.onEnd()
         del self.timeLines[uuid]
         if uuid == self.nextTimeLineUuid:
-            self.owner.delTimerCallBack(self.updateTimerId)
+            self.avatar.delTimerCallBack(self.updateTimerId)
             self.updateTimerId = 0
             self.nextDelterTime, self.nextTimeLineUuid = self.getNextTimeLine()
             if self.nextDelterTime < float('inf'):
-                self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
+                self.updateTimerId = self.avatar.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
 
 
     def onTime(self, tid, *args):
-        print("TimeLine", self.nextDelterTime, self.nextTimeLineUuid)
+        print("TimeLine：onTime", self.nextDelterTime, self.nextTimeLineUuid)
         self.updateTimerId = 0
         deleteUUids = []
         tickTimeLine = self.timeLines[self.nextTimeLineUuid]
@@ -62,7 +62,7 @@ class TimeLineManager():
 
         self.nextDelterTime, self.nextTimeLineUuid = self.getNextTimeLine()
         if self.nextDelterTime < float('inf'):
-            self.updateTimerId = self.owner.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
+            self.updateTimerId = self.avatar.addTimerCallBack(self.nextDelterTime, 0, self.onTime)
 
        
     def getNextTimeLine(self):

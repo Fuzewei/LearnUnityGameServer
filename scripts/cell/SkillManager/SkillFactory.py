@@ -19,7 +19,7 @@ class SkillFactory:
             timeLine.addNode(node2)
             node4 = StartNewSkill(1.0, 0.4, 2)
             timeLine.addNode(node4)
-            node3 = TimeLineEndNode(1.5)
+            node3 = TimeLineEndNode(2.0)
             timeLine.addNode(node3)
         elif timeLineId == 2:
             node1 = PlayerAnimationNode(0, "123")
@@ -28,13 +28,13 @@ class SkillFactory:
             timeLine.addNode(node2)
             node4 = StartNewSkill(0.8, 0.4, 3)
             timeLine.addNode(node4)
-            node3 = TimeLineEndNode(1.5)
+            node3 = TimeLineEndNode(2.0)
             timeLine.addNode(node3)
         elif timeLineId == 3:
             node1 = PlayerAnimationNode(0, "123")
             timeLine.addNode(node1)
             node2 = CommonAttackNode(0.6)
             timeLine.addNode(node2)
-            node3 = TimeLineEndNode(1.5)
+            node3 = TimeLineEndNode(2.0)
             timeLine.addNode(node3)
         return timeLine

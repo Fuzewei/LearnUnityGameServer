@@ -12,7 +12,7 @@ class SkillTimeLine(TimeLineBase):
 
     @property
     def avatarOwner(self):
-        return self.manager.owner
+        return self.manager.avatar
     
     def onEnd(self):
         self.skill.onTimeLineFinish(self.uuid)

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from ast import If
 import time
 
 
@@ -7,7 +8,7 @@ class TimeLineBase():
         self.uuid = None
         self.tickTimeStamp = None
         self.nextIndex = 0
-        self.delterTimeStamp = None
+        self.delterTimeStamp = 0
         self.nodesList = []
         self.speed = 1
         self.manager = None
@@ -43,7 +44,7 @@ class TimeLineBase():
 
     #下一次tick到当前时间的时间差
     def getNextDelterTime(self):
-        _t = self.__getNextTimeStamp() - self.delterTimeStamp
+        _t = self.__getNextTimeStamp()
         return _t/self.speed
 
     def onEnd(self):
@@ -66,4 +67,5 @@ class TimeLineBase():
         self.nodesList.insert(i, node)
 
     def __getNextTimeStamp(self):
-        return self.nodesList[self.nextIndex].runTimeStamp
+        realTime = self.nodesList[self.nextIndex].runTimeStamp - self.delterTimeStamp + self.tickTimeStamp
+        return max(realTime - time.time(), 0)
