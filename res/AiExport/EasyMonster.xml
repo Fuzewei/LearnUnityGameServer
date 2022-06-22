@@ -57,7 +57,7 @@
                 <property Opr="const double 10" />
               </node>
               <node class="Action" id="12">
-                <property Method="Self.behaviac::Monster::canSkillAttack(0)" />
+                <property Method="Self.behaviac::Monster::canSkillAttack(1)" />
                 <property ResultOption="BT_INVALID" />
               </node>
             </node>
@@ -71,7 +71,58 @@
               <property Opr="const int 1" />
             </node>
             <node class="Wait" id="20">
-              <property Time="const float 2" />
+              <property Time="const float 1.1" />
+            </node>
+            <node class="SelectorProbability" id="26">
+              <node class="DecoratorWeight" id="27">
+                <property DecorateWhenChildEnds="false" />
+                <property Weight="const int 50" />
+                <node class="Sequence" id="32">
+                  <node class="Action" id="28">
+                    <property Method="Self.behaviac::Monster::useSkill(2)" />
+                    <property ResultOption="BT_SUCCESS" />
+                  </node>
+                  <node class="Assignment" id="35">
+                    <property CastRight="false" />
+                    <property Opl="int Self.behaviac::Monster::useingSkillId" />
+                    <property Opr="const int 2" />
+                  </node>
+                  <node class="Wait" id="33">
+                    <property Time="const float 1" />
+                  </node>
+                  <node class="Action" id="34">
+                    <property Method="Self.behaviac::Monster::useSkill(3)" />
+                    <property ResultOption="BT_SUCCESS" />
+                  </node>
+                  <node class="Assignment" id="31">
+                    <property CastRight="false" />
+                    <property Opl="int Self.behaviac::Monster::useingSkillId" />
+                    <property Opr="const int 3" />
+                  </node>
+                  <node class="Wait" id="36">
+                    <property Time="const float 2.5" />
+                  </node>
+                </node>
+              </node>
+              <node class="DecoratorWeight" id="29">
+                <property DecorateWhenChildEnds="false" />
+                <property Weight="const int 50" />
+                <node class="Sequence" id="38">
+                  <node class="Wait" id="39">
+                    <property Time="const float 1" />
+                  </node>
+                  <node class="True" id="30" />
+                </node>
+              </node>
+            </node>
+            <node class="Assignment" id="40">
+              <property CastRight="false" />
+              <property Opl="int Self.behaviac::Monster::useingSkillId" />
+              <property Opr="const int 0" />
+            </node>
+            <node class="Action" id="37">
+              <property Method="Self.behaviac::Monster::idle()" />
+              <property ResultOption="BT_SUCCESS" />
             </node>
           </node>
           <node class="Sequence" id="11">
@@ -81,7 +132,7 @@
               <property Opr="const double 20" />
             </node>
             <node class="Action" id="14">
-              <property Method="Self.behaviac::Monster::chaseTarget(0)" />
+              <property Method="Self.behaviac::Monster::chaseTarget(int Self.behaviac::Monster::targetID)" />
               <property ResultOption="BT_SUCCESS" />
             </node>
           </node>

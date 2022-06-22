@@ -22,54 +22,54 @@ class Motion:
 		self.aiMovingType = 0
 		self.switch2Idle()
 
-	def serverTime():
-		return time.time() - self.baseTime
+	def serverTime(self):
+		self.confirmTime = time.time() - self.baseTime
+		return self.confirmTime
 		
 	def switch2Idle(self):
 		self.aiMovingType = SERVER_MOVING_STAGE.IDLE#服务端的移动类型
 		self.moveType = CLIENT_MOVE_CONST.Idel #客户端用的
 		self.movingInfo = {}#移动信息
 		self.moveControllers = Controllers.NormalIdleControler(self) #移动控制器
-		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 
 	def switch2RandomMove(self):
 		self.aiMovingType = SERVER_MOVING_STAGE.RANDOM_MOVE#服务端的移动类型
 		self.moveType = CLIENT_MOVE_CONST.Walk #客户端用的
 		self.movingInfo = {}#移动信息
 		self.moveControllers = Controllers.NormalWalkControler(self) #移动控制器
-		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 
 	def switch2ChastRun(self):
 		self.aiMovingType = SERVER_MOVING_STAGE.CHAST_RUN
 		self.moveType = CLIENT_MOVE_CONST.Run #客户端用的
 		self.movingInfo = {}
 		self.moveControllers = Controllers.NormalRunControler(self)
-		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 
 	def switch2InSkill(self):
 		self.aiMovingType = SERVER_MOVING_STAGE.USING_SKILL
 		self.moveType = CLIENT_MOVE_CONST.Skill
 		self.movingInfo = {}
 		self.moveControllers = Controllers.NormalIdleControler(self)
-		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
-		#self.startP3ClientMove(controlId)
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 
 	def switch2BeStrikefly(self, controlId):
 		self.aiMovingType = SERVER_MOVING_STAGE.BE_ATTACK
 		self.moveType = CLIENT_MOVE_CONST.beStrikefly
 		self.movingInfo = {}
 		self.moveControllers = Controllers.NormalIdleControler(self)
-		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 
 
 	def stopMotion(self):
 		"""
 		停止移动
 		"""
-		if self.isMoving:
-			INFO_MSG("%i stop motion." % self.id)
-			#self.cancelController("Movement")
-			self.isMoving = False
+		
+		INFO_MSG("%i stop motion." % self.id)
+		#self.cancelController("Movement")
+		if self.moveType != CLIENT_MOVE_CONST.Idel: #客户端用的
 			self.switch2Idle()
 			self.allClients.stopMotion()
 
@@ -148,7 +148,7 @@ class Motion:
 		self.moveControllers.tick()
 		self.moveControllers.calcuteDelterPosition()  #返回相当于移动朝向的相对位移(vector3)
 		self.moveControllers.UpdateMoveSpeed()
-		self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 	
 	def getStopPoint(self, yaw = None, rayLength = 100.0):
 		"""

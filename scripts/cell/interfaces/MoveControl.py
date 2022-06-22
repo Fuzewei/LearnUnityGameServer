@@ -14,8 +14,8 @@ class MoveControl:
     """
     def __init__(self):
         self.moveType = 0
-        self.clientMoveReciveTime = 0 #客户端移动接收时间
-        self.updatePositionClientId = self.id #接受上传位置的客户端id
+        self.confirmTime = self.serverTime() #移动同步的时间
+        self.controlId = self.id #接受上传位置的客户端id
       
     def getBestClient(self):
         minLenth = float('inf')
@@ -29,60 +29,62 @@ class MoveControl:
         return ans
 
     #开启p3控制的移动(怪物放技能，怪物击退，人物击退)也就是设置按照某一端的位置同步所有的客户端
-    def startP3ClientMove(self, controlId = None):
-        if controlId is None:
-            controlId = self.getBestClient()
-        if  controlId != self.updatePositionClientId :
-            self.updatePositionClientId = controlId
-            self.allClients.startP3ClientMove(time.time() - self.baseTime, controlId)
+    def startP3ClientMove(self, _controlId = None):
+        if _controlId is None:
+            _controlId = self.getBestClient()
+        if  _controlId != self.controlId :
+            self.controlId = _controlId
+            self.allClients.startP3ClientMove(self.serverTime())
         
 
     #结束p3控制的移动(怪物放技能，怪物击退，人物击退)也就是设置按照某一端的位置同步所有的客户端
     def stopP3ClientMove(self):
-        if self.updatePositionClientId != self.id:
-            self.updatePositionClientId = self.id
-            self.allClients.stopP3ClientMove(time.time() - self.baseTime)
+        if self.controlId != self.id:
+            self.controlId = self.id
+            self.allClients.stopP3ClientMove(self.serverTime())
         
 
     # p3户端tick上传位置
     def p3UpdatePosition(self, exposed, timeStamp, position, faceDirection, moveDirection):
-        if exposed != self.updatePositionClientId:
+        if exposed != self.controlId:
             return
-        self.clientMoveReciveTime = timeStamp
+        DEBUG_MSG("confirmTime :%s p3UpdatePosition: %i controllerId =%i, userarg=%s" % \
+						(self.confirmTime, tuple(faceDirection)[0], tuple(faceDirection)[1], tuple(faceDirection)[2]))
+        self.confirmTime = timeStamp
         self.position = position
         self.direction = faceDirection #面朝的方向
         self.moveDirection = moveDirection  #移动方向（局部）
-        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+        self.allClients.confirmMoveTimeStamp(self.confirmTime)
 
 
 	# 主客户端上传位置
     def updatePosition(self, exposed, timeStamp, position, faceDirection, moveDirection):
-        if exposed != self.updatePositionClientId:
+        if exposed != self.controlId:
             return
-        self.clientMoveReciveTime = timeStamp
+        self.confirmTime = timeStamp
         self.position = position
         self.direction = faceDirection #面朝的方向
         self.moveDirection = moveDirection  #移动方向（局部）
-        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+        self.allClients.confirmMoveTimeStamp(self.confirmTime)
 
     # 客户端上传怪物的位置
     def setPostionAndRotation(self, exposed, position, faceDirection, moveDirection):
         self.position = position
         self.direction = faceDirection
         self.moveDirection = moveDirection  #移动方向（局部）
-        self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+        self.allClients.confirmMoveTimeStamp(self.serverTime())
        
 
     def updateMovetype(self, exposed, timeStamp, moveType):
-        self.clientMoveReciveTime = timeStamp
+        self.confirmTime = timeStamp
         self.moveType = moveType
-        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+        self.allClients.confirmMoveTimeStamp(self.confirmTime)
 
     def setInBattle(self, exposed, timeStamp, inbattle):
-        self.clientMoveReciveTime = timeStamp 
+        self.confirmTime = timeStamp 
         print("setInBattle",inbattle)
         self.inBattle = inbattle
-        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+        self.allClients.confirmMoveTimeStamp(self.confirmTime)
 
 	#移动状态改变
     def updateAvatarMoveState(self, exposed, timeStamp, moveType, position, faceDirection, moveDirection, inbattle):
@@ -91,13 +93,13 @@ class MoveControl:
         if moveType == 6 and self.moveType != 6:
             return
 
-        self.clientMoveReciveTime = timeStamp
+        self.confirmTime = timeStamp
         self.moveType = moveType
         self.position = position
         self.direction = faceDirection
         self.moveDirection = moveDirection  #移动方向（局部）
         self.setInBattle(inbattle)
-        self.allClients.confirmMoveTimeStamp(self.clientMoveReciveTime)
+        self.allClients.confirmMoveTimeStamp(self.confirmTime)
 
     def isBeStrikefly(self):
         return self.moveType == CLIENT_MOVE_CONST.beStrikefly
@@ -107,4 +109,4 @@ class MoveControl:
 
     
     def isClientMove(self):
-        return self.updatePositionClientId != self.id
+        return self.controlId != self.id

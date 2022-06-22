@@ -41,6 +41,10 @@ def getRootMotion():
         __rootMotion[name] = infos
     return __rootMotion
 
+def u3dRotation2Server(direction):
+    
+    pass
+
  
 class MoveControllersBase(object):
 
@@ -74,6 +78,14 @@ class MoveControllersBase(object):
     @direction.setter
     def direction(self, value):
         self.owner.direction = value
+        
+    @property
+    def moveDirection(self):
+        return self.owner.moveDirection
+    
+    @direction.setter
+    def moveDirection(self, value):
+        self.owner.moveDirection = value
 
     
     def reset(self):
@@ -172,8 +184,10 @@ class NormalWalkControler(MoveControllersBase):
                 self.position = self.position + _direction * moveLen
             else:
                 self.position = nextPoint
-
-        self.direction = _direction
+        rotateAngle = math.atan2(_direction.x, _direction.z)
+        self.direction = Math.Vector3(0, rotateAngle, 0)
+        INFO_MSG("calcuteDelterPosition = %s" % (rotateAngle,))
+        self.moveDirection = _direction
         return  Math.Vector3(0, 0, moveLen)
 
 class NormalRunControler(NormalWalkControler):

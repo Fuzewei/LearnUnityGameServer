@@ -147,7 +147,7 @@ class AI:
 		"""
 		entity移动到entity
 		"""
-		entityId = self.targetID
+		entityId = args[0]
 		INFO_MSG("moveToEntity = %s." % (entityId, ))
 
 		if self.territoryControllerID <= 0:
@@ -179,7 +179,7 @@ class AI:
 	def useSkill(self, *args):
 		entityId = args[0][0]
 		skillId = args[0][1]
-		INFO_MSG("useSkill = %s." % (entityId, ))
+		INFO_MSG("entityId %s useSkill = %s." % (entityId, skillId))
 		self.switch2InSkill()
 		self.serverRequestUseSkill(skillId)
 		self.allClients.useSkill(entityId, skillId)
@@ -200,7 +200,7 @@ class AI:
 		_inbattle = args[0]
 		if self.inBattle != _inbattle:
 			self.inBattle = _inbattle
-			self.allClients.confirmMoveTimeStamp(time.time() - self.baseTime)
+			self.allClients.confirmMoveTimeStamp(self.serverTime())
 			if	self.inBattle:
 				self.startP3ClientMove(self.getBestClient())
 			else:
@@ -211,9 +211,6 @@ class AI:
 
 
 	#行为树叶子节点调用函数end
-
-
-
 
 
 

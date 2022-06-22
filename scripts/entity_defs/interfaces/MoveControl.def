@@ -25,6 +25,18 @@
 			<Default>		0			</Default>
 		</moveSpeed>
 
+		<confirmTime>
+			<Type>			FLOAT			</Type> <!-- 位移同步时间 -->
+			<Flags>			ALL_CLIENTS		</Flags>
+			<Default>		0			</Default>
+		</confirmTime>
+
+		<controlId>
+			<Type>			ENTITY_ID	</Type> <!-- 上传位置的id -->
+			<Flags>			ALL_CLIENTS	</Flags>
+			<Default>		0			</Default>
+		</controlId>
+
 		<isMoving>
 			<Type>			BOOL			</Type>
 			<Flags>			CELL_PRIVATE		</Flags>
@@ -95,7 +107,6 @@
 
 		<startP3ClientMove>
 			<Arg>		FLOAT		</Arg>
-			<Arg>		ENTITY_ID		</Arg>
 		</startP3ClientMove>
 
 		<stopP3ClientMove>
