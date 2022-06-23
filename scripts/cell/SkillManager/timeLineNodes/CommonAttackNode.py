@@ -18,6 +18,7 @@ class CommonAttackNode(SkillNodeBase):
         #entity.startP3ClientMove(self.avatarOwner.id)
         self.owneTimeLine.callAllClient(self.nodeId, args)
         self.avatarOwner.addTimerCallBack(1, 0, self.onTimeBeStrikefly, entityId)
+        print("CommonAttackNode:clientCall", exposed, self.avatarOwner.id, args)
           
     #Node到运行的时间点了
     def run(self):
