@@ -1,29 +1,38 @@
 # -*- coding: utf-8 -*-
 import KBEngine
 import SCDefine
-import time
+import Math
 import traceback
 import random
 import GlobalDefine
 from KBEDebug import * 
-from skillbases.SCObject import SCObject
 from Const.MoveState import AI_RESULT 
 from Const.MoveState import SERVER_MOVING_STAGE
 from Const.MoveState import CLIENT_MOVE_CONST
-
-import d_entities
+from AICls.AiSkillUseInfoDecision import AiSkillUseDecision
+from AICls.AiMoveDecision import AiMoveDecision
 
 __TERRITORY_AREA__ = 60
 
 class AI:
 	def __init__(self):
-		self.enable()
-	
-	def initEntity(self):
+		self.aiSkillUseBrain = {}
+		self.aiMoveDecision = AiMoveDecision(self.id)
+		self.addTimerCallBack(0.1, 0, self.initAi)
+  
+	def initAi(self, tid, *args):
 		"""
-		virtual method.
+		初始化ai
 		"""
-		pass
+		self.addTerritory()
+		self.initAiController("EasyMonster")
+		self.heartBeatTimerID = self.addTimerCallBack(random.randint(0, 1), 1, self.onHeartTick)
+
+	def onHeartTick(self, tid, *args):
+		"""
+		entity的心跳
+		"""
+		self.updateAiController() #c++行为树tick
 
 	def checkInTerritory(self):
 		"""
@@ -41,7 +50,7 @@ class AI:
 		添加领地
 		进入领地范围的某些entity将视为敌人
 		"""
-		assert self.territoryControllerID == 0 and "territoryControllerID != 0"
+		assert self.territoryControllerID == 0
 		trange = __TERRITORY_AREA__ / 2.0
 		self.territoryControllerID = self.addProximity(trange, 0, 0)
 		
@@ -52,20 +61,12 @@ class AI:
 			
 	def delTerritory(self):
 		"""
-		删除领地
+		删除领地(暂无)
 		"""
 		if self.territoryControllerID > 0:
 			self.cancelController(self.territoryControllerID)
 			self.territoryControllerID = 0
 			INFO_MSG("%s::delTerritory: %i" % (self.getScriptName(), self.id))
-			
-	def enable(self):
-		"""
-		激活entity
-		"""
-		self.heartBeatTimerID = \
-		self.addTimer(random.randint(0, 1), 1, SCDefine.TIMER_TYPE_HEARDBEAT)				# 心跳timer, 每1秒一次
-		self.initAiController("EasyMonster")
 
 
 	def disable(self):
@@ -74,29 +75,6 @@ class AI:
 		"""
 		self.delTimer(self.heartBeatTimerID)
 		self.heartBeatTimerID = 0
-	
-	def think(self):
-		"""
-		virtual method.
-		"""
-		if self.isState(GlobalDefine.ENTITY_STATE_FREE):
-			self.onThinkFree()
-		elif self.isState(GlobalDefine.ENTITY_STATE_FIGHT):
-			self.onThinkFight()
-		else:
-			self.onThinkOther()
-		
-		if not self.isWitnessed:
-			self.disable()
-		
-	def choiceTarget(self):
-		"""
-		从仇恨表选择一个敌人
-		"""
-		if len(self.enemyLog) > 0:
-			self.targetID = self.enemyLog[0]
-		else:
-			self.targetID = 0
 	
 	def setTarget(self, entityID):
 		"""
@@ -108,21 +86,15 @@ class AI:
 	#--------------------------------------------------------------------------------------------
 	#                              Callbacks
 	#--------------------------------------------------------------------------------------------
-	def onHeardTimer(self):
-		"""
-		entity的心跳
-		"""
-		self.updateAiController()
-		#self.think()
 
 	#行为树调用函数0=BT_INVALID,1=BT_SUCCESS,2=BT_FAILURE,3=BT_RUNNING
-	def onBhCallFunc(self, funcName, *args):
-		INFO_MSG("onBhCallFunc = %s." % (funcName, ))
+	def onBhCallFunc(self, funcName, arg):
+		INFO_MSG("onBhCallFunc = %s. " % (funcName, ))
 		func = getattr(self, funcName)
-		result = AI_RESULT.BT_INVALID
+		result = AI_RESULT.BT_FAILURE
 		if callable(func):
 			try:
-				result = func(*args)
+				result = func(arg)
 			except Exception as e:
 				print("error", e)
 				traceback.print_exc()
@@ -143,11 +115,10 @@ class AI:
 
 
 	#跑步移动到指定id的entitiy
-	def chaseTarget(self, *args):
+	def chaseTarget(self, entityId):
 		"""
 		entity移动到entity
 		"""
-		entityId = args[0]
 		INFO_MSG("moveToEntity = %s." % (entityId, ))
 
 		if self.territoryControllerID <= 0:
@@ -164,25 +135,29 @@ class AI:
 		return AI_RESULT.BT_RUNNING
 
 	#能否使用指定技能id
-	def canSkillAttack(self, *args):
-		INFO_MSG("canSkillAttack = %s" % (args, ))
-		skillId = args[0]
+	def canSkillAttack(self, skillId):
+		INFO_MSG("canSkillAttack = %s" % (skillId, ))
 		enemy = KBEngine.entities.get(self.targetID)
 		if not enemy :
 			return AI_RESULT.BT_FAILURE
 
-		if self.isBeStrikefly() or self.isUseSkill(): #被击退或正在使用技能
+		if self.isBeStrikefly() or self.isUseingSkill(): #被击退或正在使用技能
+			return AI_RESULT.BT_FAILURE
+
+		skillUseInfo = self.aiSkillUseBrain.setdefault(skillId, AiSkillUseDecision(skillId, self.id))
+		if not skillUseInfo.canUse(self.targetID):
 			return AI_RESULT.BT_FAILURE
 
 		return AI_RESULT.BT_SUCCESS
 
-	def useSkill(self, *args):
-		entityId = args[0][0]
-		skillId = args[0][1]
+	def useSkill(self, useSkillInfo):
+		entityId = useSkillInfo[0]
+		skillId = useSkillInfo[1]
 		INFO_MSG("entityId %s useSkill = %s." % (entityId, skillId))
 		self.switch2InSkill()
 		self.serverRequestUseSkill(skillId)
 		self.allClients.useSkill(entityId, skillId)
+		self.aiSkillUseBrain.setdefault(skillId, AiSkillUseDecision(skillId, self.id)).onUseSkill(entityId)
 		return AI_RESULT.BT_SUCCESS
 
 	#返回敌人的信息，行为树使用
@@ -190,14 +165,14 @@ class AI:
 		enemy = KBEngine.entities.get(self.targetID)
 		return (self.targetID, self.position.distTo(enemy.position)) 
 
-	#寻找敌人
+	#刷新攻击目标
 	def findEnemys(self, *args):
-		self.checkEnemys()
+		if len(self.enemyLog) > 1:
+			pass
 		return AI_RESULT.BT_SUCCESS
 
 	#行为树设置进入战斗状态
-	def aiSetInBattle(self, *args):
-		_inbattle = args[0]
+	def aiSetInBattle(self, _inbattle):
 		if self.inBattle != _inbattle:
 			self.inBattle = _inbattle
 			self.allClients.confirmMoveTimeStamp(self.serverTime())
@@ -207,16 +182,30 @@ class AI:
 				self.stopP3ClientMove()
 		return AI_RESULT.BT_SUCCESS 
 
-		
+	#战斗中移动走位，默认朝向敌人,moveId(表示以何种方式移动到目标点)，movePostion是位置
+	def fightMove(self, fightMoveInfo):
+		"""
+		entity在走动
+		"""
+		moveId = fightMoveInfo[0]
+		movePostion = fightMoveInfo[1]
+		INFO_MSG("fightMove = %s." % (movePostion, ))
+		self.switch2FightMove()
+		self.aiMovieToPoint = Math.Vector3(movePostion)
+		self.allClients.fightMove(moveId, self.aiMovieToPoint)
+		return AI_RESULT.BT_SUCCESS 
+
+	#ai请求计算战斗中的移动位置（moveId为移动类型，帮助获取移动位置）
+	def getFightMoveTarget(self, moveId):
+		"""
+		计算entity的移动目标点
+		"""
+		INFO_MSG("getFightMoveTarget = %s." % (moveId, ))
+		return self.aiMoveDecision.getMovePoint(moveId)
+
 
 
 	#行为树叶子节点调用函数end
-
-
-
-
-
-
 		
 	def onTargetChanged(self):
 		"""
@@ -235,70 +224,6 @@ class AI:
 		"""
 		INFO_MSG("%s::onWitnessed: %i isWitnessed=%i." % (self.getScriptName(), self.id, isWitnessed))
 		
-		if isWitnessed:
-			self.enable()
-			
-	def onThinkFree(self):
-		"""
-		virtual method.
-		闲置时think
-		"""
-		if self.territoryControllerID <= 0:
-			self.addTerritory()
-		
-		self._randomWalk(self.spawnPos, 30.0)
-
-	def onThinkFight(self):
-		"""
-		virtual method.
-		战斗时think
-		"""
-		if self.territoryControllerID > 0:
-			self.delTerritory()
-		
-		self.checkEnemys()
-		
-		if self.targetID <= 0:
-			return
-		
-		dragon = (self.modelID == 20002001)
-
-		# demo简单实现， 如果是龙的话， 攻击距离比较远, 攻击距离应该调用不同技能来判定
-		attackMaxDist = 2.0
-		if dragon:
-			attackMaxDist = 20.0
-			
-		entity = KBEngine.entities.get(self.targetID)
-
-		if entity.position.distTo(self.position) > attackMaxDist:
-			runSpeed = self.getDatas()["runSpeed"]
-			if runSpeed != self.moveSpeed:
-				self.moveSpeed = runSpeed
-			self.gotoPosition(entity.position, attackMaxDist - 0.2)
-			return
-		else:
-			self.resetSpeed()
-			
-			skillID = 1
-			if dragon:
-				skillID = 7000101
-
-			self.spellTarget(skillID, entity.id)
-			
-	def onThinkOther(self):
-		"""
-		virtual method.
-		其他时think
-		"""
-		pass
-		
-	def onForbidChanged_(self, forbid, isInc):
-		"""
-		virtual method.
-		entity禁止 条件改变
-		@param isInc		:	是否是增加
-		"""
-		pass
 
 	def onStateChanged_(self, oldstate, newstate):
 		"""
@@ -308,20 +233,6 @@ class AI:
 		if self.isState(GlobalDefine.ENTITY_STATE_DEAD):
 			if self.isMoving:
 				self.stopMotion()
-				
-	def onSubStateChanged_(self, oldSubState, newSubState):
-		"""
-		virtual method.
-		子状态改变了
-		"""
-		#INFO_MSG("%i oldSubstate=%i to newSubstate=%i" % (self.id, oldSubState, newSubState))
-		pass
-
-	def onFlagsChanged_(self, flags, isInc):
-		"""
-		virtual method.
-		"""
-		pass
 	
 	def onEnterTrap(self, entityEntering, range_xz, range_y, controllerID, userarg):
 		"""
@@ -340,7 +251,7 @@ class AI:
 						(self.getScriptName(), self.id, entityEntering.getScriptName(), entityEntering.id, \
 						range_xz, range_y, controllerID, userarg))
 		
-		self.addEnemy(entityEntering.id, 0)
+		self.addEnemy(entityEntering.id)
 
 	def onLeaveTrap(self, entityLeaving, range_xz, range_y, controllerID, userarg):
 		"""
@@ -355,6 +266,7 @@ class AI:
 			
 		INFO_MSG("%s::onLeaveTrap: %i entityLeaving=(%s)%i." % (self.getScriptName(), self.id, \
 				entityLeaving.getScriptName(), entityLeaving.id))
+		self.removeEnemy(entityLeaving.id)
 
 	def onAddEnemy(self, entityID):
 		"""
@@ -385,7 +297,8 @@ class AI:
 		self.targetID = 0
 		
 		if len(self.enemyLog) > 0:
-			self.choiceTarget()
+			self.targetID = self.enemyLog[0]
+
 
 	def onEnemyEmpty(self):
 		"""
@@ -397,12 +310,3 @@ class AI:
 		if not self.isState(GlobalDefine.ENTITY_STATE_FREE):
 			self.changeState(GlobalDefine.ENTITY_STATE_FREE)
 
-		
-	def onTimer(self, tid, userArg):
-		"""
-		KBEngine method.
-		引擎回调timer触发
-		"""
-		#DEBUG_MSG("%s::onTimer: %i, tid:%i, arg:%i" % (self.getScriptName(), self.id, tid, userArg))
-		if SCDefine.TIMER_TYPE_HEARDBEAT == userArg:
-			self.onHeardTimer()

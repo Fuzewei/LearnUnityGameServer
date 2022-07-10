@@ -91,7 +91,7 @@ class Combat(CombatPropertys):
 		
 		self.allClients.recvDamage(attackerID, skillID, damageType, damage)
 		
-	def addEnemy(self, entityID, enmity):
+	def addEnemy(self, entityID):
 		"""
 		defined.
 		添加敌人
@@ -99,8 +99,8 @@ class Combat(CombatPropertys):
 		if entityID in self.enemyLog:
 			return
 
-		DEBUG_MSG("%s::addEnemy: %i entity=%i, enmity=%i" % \
-						(self.getScriptName(), self.id, entityID, enmity))
+		DEBUG_MSG("%s::addEnemy: %i entity=%i" % \
+						(self.getScriptName(), self.id, entityID))
 		
 		self.enemyLog.append(entityID)
 		self.onAddEnemy(entityID)
@@ -118,27 +118,6 @@ class Combat(CombatPropertys):
 	
 		if len(self.enemyLog) == 0:
 			self.onEnemyEmpty()
-
-	def checkEnemyDist(self, entity):
-		"""
-		virtual method.
-		检查敌人距离
-		"""
-		dist = entity.position.distTo(self.position)
-		if dist > 50:
-			INFO_MSG("%s::checkEnemyDist: %i id=%i, dist=%f." % (self.getScriptName(), self.id, entity.id, dist))
-			return False
-		
-		return True
-		
-	def checkEnemys(self):
-		"""
-		检查敌人列表
-		"""
-		for idx in range(len(self.enemyLog) - 1, -1, -1):
-			entity = KBEngine.entities.get(self.enemyLog[idx])
-			if entity is None or entity.isDestroyed or entity.isDead() or not self.checkEnemyDist(entity):
-				self.removeEnemy(self.enemyLog[idx])
 
 
 	#--------------------------------------------------------------------------------------------

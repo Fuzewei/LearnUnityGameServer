@@ -5,7 +5,7 @@
 	<Properties>
 		<targetID>
 			<Type>			ENTITY_ID		</Type>
-			<Flags>			CELL_PRIVATE		</Flags>
+			<Flags>			ALL_CLIENTS		</Flags>
 			<Default>		0			</Default>
 		</targetID>
 
@@ -14,6 +14,23 @@
 			<Flags>			ALL_CLIENTS		</Flags>
 			<Default>		0				</Default>
 		</aiMovingType>
+
+		<aiMovieToPoint>
+			<Type>			VECTOR3		</Type>
+			<Flags>			ALL_CLIENTS		</Flags>
+		</aiMovieToPoint>
+
+		<aiMoviePath>
+			<Type>			PATH_POINTS		</Type>
+			<Flags>			ALL_CLIENTS		</Flags>
+			<Default>		[]				</Default>
+		</aiMoviePath>
+
+		<aiMoviePathIndex>
+			<Type>			UINT32		</Type>
+			<Flags>			ALL_CLIENTS		</Flags>
+			<Default>		0				</Default>
+		</aiMoviePathIndex>
 
 		<heartBeatTimerID>
 			<Type>			UINT32			</Type>
@@ -33,7 +50,6 @@
 
 	<ClientMethods>
 		<randomWalk>
-			<Arg> PATH_POINTS </Arg>
 		</randomWalk>
 
 		<chaseTarget>
@@ -47,6 +63,12 @@
 
 		<stopMotion>
 		</stopMotion>
+
+		<fightMove>
+			<Arg> INT8 </Arg>
+			<Arg> VECTOR3 </Arg>
+		</fightMove>
+
 	</ClientMethods>
 </root>
 

@@ -40,7 +40,6 @@
 
 		<addEnemy>
 			<Arg>	ENTITY_ID									</Arg>
-			<Arg>	ENMITY										</Arg>
 		</addEnemy>
 	</CellMethods>
 

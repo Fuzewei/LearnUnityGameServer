@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from ast import For
+from re import I
 import KBEngine
 import math
 import Math
@@ -12,7 +14,7 @@ import moveControllers.BaseMoveControllers as Controllers
 
 class Motion:
 	"""
-	移动相关的封装
+	移动相关的封装,主要是服务端移动相关
 	"""
 	def __init__(self):
 		self.baseTime = time.time()
@@ -22,12 +24,15 @@ class Motion:
 		self.aiMovingType = 0
 		self.switch2Idle()
 
+		self.hitFlyTimer = 0
+  
+
 	def serverTime(self):
 		self.confirmTime = time.time() - self.baseTime
 		return self.confirmTime
 		
 	def switch2Idle(self):
-		self.aiMovingType = SERVER_MOVING_STAGE.IDLE#服务端的移动类型
+		self.aiMovingType = SERVER_MOVING_STAGE.IDLE#ai的移动类型
 		self.moveType = CLIENT_MOVE_CONST.Idel #客户端用的
 		self.movingInfo = {}#移动信息
 		self.moveControllers = Controllers.NormalIdleControler(self) #移动控制器
@@ -53,14 +58,33 @@ class Motion:
 		self.movingInfo = {}
 		self.moveControllers = Controllers.NormalIdleControler(self)
 		self.allClients.confirmMoveTimeStamp(self.serverTime())
+  
+	def switch2FightMove(self):
+		self.aiMovingType = SERVER_MOVING_STAGE.FIGHT_MOVE#服务端的移动类型
+		self.moveType = CLIENT_MOVE_CONST.Walk #客户端用的
+		self.movingInfo = {}#移动信息
+		self.moveControllers = Controllers.NormalWalkControler(self) #移动控制器
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 
-	def switch2BeStrikefly(self, controlId):
+	#进入击飞状态，controlId表示击飞发起的客户端id，tid表示击飞状态定时器的id
+	def switch2BeStrikefly(self, controlId, tid):
+		if self.isUseingSkill():
+			for skillID in list(self.usingSkills):
+				self.interruptSkill(skillID)
 		self.aiMovingType = SERVER_MOVING_STAGE.BE_ATTACK
 		self.moveType = CLIENT_MOVE_CONST.beStrikefly
 		self.movingInfo = {}
 		self.moveControllers = Controllers.NormalIdleControler(self)
 		self.allClients.confirmMoveTimeStamp(self.serverTime())
-
+		if self.hitFlyTimer:
+			self.delTimerCallBack(self.hitFlyTimer)
+		self.hitFlyTimer = tid
+   
+   	#击飞状态结束
+	def strikeflyDone(self, tid):
+		assert(self.hitFlyTimer == tid)
+		self.hitFlyTimer == 0
+			
 
 	def stopMotion(self):
 		"""
@@ -100,7 +124,9 @@ class Motion:
 		
 		self.startTick()
 		self.isMoving = True
-		self.allClients.randomWalk(self.movingInfo["path"])
+		self.aiMoviePath = self.movingInfo["path"]
+		self.aiMoviePathIndex = 0
+		self.allClients.randomWalk()
 
 		return AI_RESULT.BT_RUNNING
 	

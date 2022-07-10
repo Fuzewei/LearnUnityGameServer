@@ -45,13 +45,6 @@ class Monster(KBEngine.Entity,
 		"""
 		pass
 
-	def checkInTerritory(self):
-		"""
-		virtual method.
-		检查自己是否在可活动领地中
-		"""
-		return AI.checkInTerritory(self)
-
 	def isMonster(self):
 		"""
 		virtual method.
@@ -61,6 +54,11 @@ class Monster(KBEngine.Entity,
 	#--------------------------------------------------------------------------------------------
 	#                              Callbacks
 	#--------------------------------------------------------------------------------------------
+	def onHeartTick(self, tid, *args):
+	#怪物的心跳
+		AI.onHeartTick(self, tid, *args)
+ 
+ 
 	def onTimer(self, tid, userArg):
 		"""
 		KBEngine method.
@@ -69,7 +67,6 @@ class Monster(KBEngine.Entity,
 		#DEBUG_MSG("%s::onTimer: %i, tid:%i, arg:%i" % (self.getScriptName(), self.id, tid, userArg))
 		NPCObject.onTimer(self, tid, userArg)
 		Spell.onTimer(self, tid, userArg)
-		AI.onTimer(self, tid, userArg)
 		
 	def onWitnessed(self, isWitnessed):
 		"""
@@ -88,7 +85,6 @@ class Monster(KBEngine.Entity,
 		@param isInc		:	是否是增加
 		"""
 		State.onForbidChanged_(self, forbid, isInc)
-		AI.onForbidChanged_(self, forbid, isInc)
 		
 	def onStateChanged_(self, oldstate, newstate):
 		"""
@@ -105,14 +101,12 @@ class Monster(KBEngine.Entity,
 		子状态改变了
 		"""
 		State.onSubStateChanged_(self, oldSubState, newSubState)
-		AI.onSubStateChanged_(self, oldSubState, newSubState)
 
 	def onFlagsChanged_(self, flags, isInc):
 		"""
 		virtual method.
 		"""
 		Flags.onFlagsChanged_(self, flags, isInc)
-		AI.onFlagsChanged_(self, flags, isInc)
 
 	def onEnterTrap(self, entity, range_xz, range_y, controllerID, userarg):
 		"""

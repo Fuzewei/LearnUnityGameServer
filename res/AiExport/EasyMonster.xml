@@ -51,11 +51,6 @@
         <node class="Selector" id="9">
           <node class="Sequence" id="10">
             <node class="Sequence" id="23">
-              <node class="Condition" id="21">
-                <property Operator="Less" />
-                <property Opl="Self.behaviac::Monster::getEnemyDistance()" />
-                <property Opr="const double 10" />
-              </node>
               <node class="Action" id="12">
                 <property Method="Self.behaviac::Monster::canSkillAttack(1)" />
                 <property ResultOption="BT_INVALID" />
@@ -137,9 +132,38 @@
             </node>
           </node>
           <node class="Selector" id="24">
-            <node class="Action" id="25">
-              <property Method="Self.behaviac::Monster::idle()" />
-              <property ResultOption="BT_SUCCESS" />
+            <node class="DecoratorAlwaysFailure" id="42">
+              <property DecorateWhenChildEnds="false" />
+              <node class="Action" id="25">
+                <property Method="Self.behaviac::Monster::idle()" />
+                <property ResultOption="BT_SUCCESS" />
+              </node>
+            </node>
+          </node>
+          <node class="Selector" id="43">
+            <node class="Sequence" id="44">
+              <node class="Action" id="41">
+                <property Method="Self.behaviac::Monster::getFightMoveTarget(1)" />
+                <property ResultOption="BT_SUCCESS" />
+              </node>
+              <node class="IfElse" id="46">
+                <node class="Condition" id="48">
+                  <property Operator="Less" />
+                  <property Opl="Self.behaviac::Monster::distanceTo(behaviac::Vector3 Self.behaviac::Monster::moveTargetPosition)" />
+                  <property Opr="const double 0.5" />
+                </node>
+                <node class="Action" id="50">
+                  <property Method="Self.behaviac::Monster::idle()" />
+                  <property ResultOption="BT_SUCCESS" />
+                </node>
+                <node class="Action" id="47">
+                  <property Method="Self.behaviac::Monster::fightMove(1,behaviac::Vector3 Self.behaviac::Monster::moveTargetPosition)" />
+                  <property ResultOption="BT_SUCCESS" />
+                </node>
+              </node>
+              <node class="Wait" id="45">
+                <property Time="const float 2" />
+              </node>
             </node>
           </node>
         </node>

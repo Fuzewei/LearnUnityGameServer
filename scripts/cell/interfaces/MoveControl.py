@@ -48,8 +48,8 @@ class MoveControl:
     def p3UpdatePosition(self, exposed, timeStamp, position, faceDirection, moveDirection):
         if exposed != self.controlId:
             return
-        DEBUG_MSG("confirmTime :%s p3UpdatePosition: %i controllerId =%i, userarg=%s" % \
-						(self.confirmTime, tuple(faceDirection)[0], tuple(faceDirection)[1], tuple(faceDirection)[2]))
+        # DEBUG_MSG("confirmTime :%s p3UpdatePosition: %i controllerId =%i, userarg=%s" % \
+		# 				(self.confirmTime, tuple(faceDirection)[0], tuple(faceDirection)[1], tuple(faceDirection)[2]))
         self.confirmTime = timeStamp
         self.position = position
         self.direction = faceDirection #面朝的方向
@@ -104,7 +104,7 @@ class MoveControl:
     def isBeStrikefly(self):
         return self.moveType == CLIENT_MOVE_CONST.beStrikefly
 
-    def isUseSkill(self):
+    def isUseingSkill(self):
         return self.moveType == CLIENT_MOVE_CONST.Skill
 
     

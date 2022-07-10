@@ -143,8 +143,8 @@ class NormalWalkControler(MoveControllersBase):
     @nextId.setter
     def nextId(self, value):
         self.owner.movingInfo["nextId"] = value
+        self.owner.aiMoviePathIndex = value
         
-
     def reset(self):
         MoveControllersBase.reset(self)
     
