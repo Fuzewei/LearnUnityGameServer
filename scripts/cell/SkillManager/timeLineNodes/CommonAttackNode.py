@@ -17,7 +17,7 @@ class CommonAttackNode(SkillNodeBase):
         entity = KBEngine.entities.get(entityId)
         tid = self.avatarOwner.addTimerCallBack(self.hitFlyDurationTime, 0, self.onTimeBeStrikefly, entityId)
         entity.switch2BeStrikefly(self.avatarOwner.id, tid) #进入被击飞状态
-        #entity.startP3ClientMove(self.avatarOwner.id)
+        entity.setRootMotionClip(None)
         self.owneTimeLine.callAllClient(self.nodeId, args)
         print("CommonAttackNode:clientCall", exposed, self.avatarOwner.id, args)
           
@@ -27,8 +27,4 @@ class CommonAttackNode(SkillNodeBase):
 
     def onTimeBeStrikefly(self, tid, entityId):
         entity = KBEngine.entities.get(entityId)
-        #entity.stopP3ClientMove()
         entity.strikeflyDone(tid)
-        entity.switch2Idle()
-        pass
-

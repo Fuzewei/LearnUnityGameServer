@@ -18,6 +18,7 @@ class AI:
 	def __init__(self):
 		self.aiSkillUseBrain = {}
 		self.aiMoveDecision = AiMoveDecision(self.id)
+		self.aiMovingType = SERVER_MOVING_STAGE.IDLE #设置ai的移动类型
 		self.addTimerCallBack(0.1, 0, self.initAi)
   
 	def initAi(self, tid, *args):
@@ -111,8 +112,16 @@ class AI:
 		INFO_MSG("randomWalk = %s." % (radius, ))
 		if self.territoryControllerID <= 0:
 			self.addTerritory()
-		return self._randomWalk(self.position, radius)
+		result = self._randomWalk(self.position, radius)
+		if result == AI_RESULT.BT_SUCCESS:
+			self.stopMotion()
+			self.aiMovingType = SERVER_MOVING_STAGE.IDLE#ai的移动类型
+			self.allClients.stopMotion()
+		elif result == AI_RESULT.BT_RUNNING:
+			self.aiMovingType = SERVER_MOVING_STAGE.RANDOM_MOVE#服务端的移动类型
+			self.allClients.randomWalk()
 
+		return result
 
 	#跑步移动到指定id的entitiy
 	def chaseTarget(self, entityId):
@@ -123,7 +132,15 @@ class AI:
 
 		if self.territoryControllerID <= 0:
 			self.addTerritory()
-		return self._gotoEntity(entityId, 0.5)
+		result = self._gotoEntity(entityId, 0.5)
+		if result == AI_RESULT.BT_SUCCESS:
+			self.stopMotion()
+			self.aiMovingType = SERVER_MOVING_STAGE.IDLE#ai的移动类型
+			self.allClients.stopMotion()
+		elif result == AI_RESULT.BT_RUNNING:
+			self.aiMovingType = SERVER_MOVING_STAGE.CHAST_RUN
+			self.allClients.chaseTarget(entityId)
+		return result
 
 	#原地静止
 	def idle(self, *args):
@@ -132,6 +149,9 @@ class AI:
 		"""
 		INFO_MSG("idle = ")
 		self.stopMotion()	
+		self.aiMovingType = SERVER_MOVING_STAGE.IDLE#ai的移动类型
+		self.allClients.stopMotion()
+
 		return AI_RESULT.BT_RUNNING
 
 	#能否使用指定技能id
@@ -154,7 +174,9 @@ class AI:
 		entityId = useSkillInfo[0]
 		skillId = useSkillInfo[1]
 		INFO_MSG("entityId %s useSkill = %s." % (entityId, skillId))
-		self.switch2InSkill()
+		self.aiMovingType = SERVER_MOVING_STAGE.USING_SKILL
+		self.moveType = CLIENT_MOVE_CONST.Skill
+		self.allClients.confirmMoveTimeStamp(self.serverTime())
 		self.serverRequestUseSkill(skillId)
 		self.allClients.useSkill(entityId, skillId)
 		self.aiSkillUseBrain.setdefault(skillId, AiSkillUseDecision(skillId, self.id)).onUseSkill(entityId)
@@ -177,9 +199,11 @@ class AI:
 			self.inBattle = _inbattle
 			self.allClients.confirmMoveTimeStamp(self.serverTime())
 			if	self.inBattle:
-				self.startP3ClientMove(self.getBestClient())
+				pass
+				#self.startP3ClientMove(self.getBestClient())
 			else:
-				self.stopP3ClientMove()
+				pass
+				#self.stopP3ClientMove()
 		return AI_RESULT.BT_SUCCESS 
 
 	#战斗中移动走位，默认朝向敌人,moveId(表示以何种方式移动到目标点)，movePostion是位置
@@ -190,10 +214,14 @@ class AI:
 		moveId = fightMoveInfo[0]
 		movePostion = fightMoveInfo[1]
 		INFO_MSG("fightMove = %s." % (movePostion, ))
-		self.switch2FightMove()
+
+		self._aiFightMove(moveId, self.targetID, movePostion)
+
 		self.aiMovieToPoint = Math.Vector3(movePostion)
+		self.aiMovingType = SERVER_MOVING_STAGE.FIGHT_MOVE#服务端的移动类型
 		self.allClients.fightMove(moveId, self.aiMovieToPoint)
 		return AI_RESULT.BT_SUCCESS 
+
 
 	#ai请求计算战斗中的移动位置（moveId为移动类型，帮助获取移动位置）
 	def getFightMoveTarget(self, moveId):
@@ -204,8 +232,24 @@ class AI:
 		return self.aiMoveDecision.getMovePoint(moveId)
 
 
-
 	#行为树叶子节点调用函数end
+	def onBeStrikefly(self, strikeId):
+		"""
+		virtual method.
+		自己被击飞
+		"""
+		self.aiMovingType = SERVER_MOVING_STAGE.BE_ATTACK
+
+
+	def onStrikeflyDone(self):
+		"""
+		virtual method.
+		被击飞结束
+		"""
+		self.allClients.stopMotion()
+		self.aiMovingType = SERVER_MOVING_STAGE.IDLE#ai的移动类型
+		self.allClients.stopMotion()
+
 		
 	def onTargetChanged(self):
 		"""
@@ -230,9 +274,7 @@ class AI:
 		virtual method.
 		entity状态改变了
 		"""
-		if self.isState(GlobalDefine.ENTITY_STATE_DEAD):
-			if self.isMoving:
-				self.stopMotion()
+		pass
 	
 	def onEnterTrap(self, entityEntering, range_xz, range_y, controllerID, userarg):
 		"""

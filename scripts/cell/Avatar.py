@@ -58,6 +58,20 @@ class Avatar(KBEngine.Entity,
 		"""
 		pass
 
+	def onBeStrikefly(self, strikeId):
+		"""
+		virtual method.
+		自己被击飞
+		"""
+		pass
+
+	def onStrikeflyDone(self):
+		"""
+		virtual method.
+		被击飞结束
+		"""
+		pass
+
 	#--------------------------------------------------------------------------------------------
 	#                              Callbacks
 	#--------------------------------------------------------------------------------------------

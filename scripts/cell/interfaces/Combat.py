@@ -8,6 +8,7 @@ from timeLine.TimeLineNodeBase import TimeLineNodeBase
 from interfaces.CombatPropertys import CombatPropertys
 from SkillManager.SkillFactory import SkillFactory
 from SkillManager.Skill import Skill
+import moveControllers.BaseMoveControllers as Controllers
 
 class Combat(CombatPropertys):
 	"""
@@ -200,6 +201,8 @@ class Combat(CombatPropertys):
 	def doUseSkill(self, uuid, skillId):
 		if self.usingSkills.get(skillId):
 			assert(False)
+		self.startP3ClientMove(self.getBestClient())
+		self.moveControllers = Controllers.RootMotionControler(self) #移动控制器
 		skill = Skill(skillId, self)
 		self.usingSkills[skillId] = skill
 		skill.startTimeLine(skill.initTimeLineId, uuid)
@@ -214,7 +217,8 @@ class Combat(CombatPropertys):
 	def onSkillFinish(self, skillId):
 		del self.usingSkills[skillId]
 		self.allClients.serverSkillFinish(skillId)
-
+		self.moveControllers = Controllers.NormalIdleControler(self) #移动控制器
+		self.stopP3ClientMove()
 
 	def skillNodeCallServer(self, exposed, uuid, nodeId, args):
 		print("skillNodeCallServer", exposed, self.id, uuid, nodeId, args)

@@ -45,7 +45,7 @@ class AiSMoveWalk(AiSMoveBase):
         self.beginTime = time.time()
         self.tarPoint = self.calcNewPoint()
         return self.tarPoint
-
+    
     def calcNewPoint(self):
         enemyPosition = self.enemy.position
         distance = self.avatar.position.distTo(enemyPosition)
@@ -53,8 +53,8 @@ class AiSMoveWalk(AiSMoveBase):
         enemyDirection.y = 0
         enemyDirection.normalise()
         
-        angles = [-30, -20, -10, -5, 0, 5, 10, 20, 30]
-        weights = [2,   4,    6,  8, 10, 8, 6, 4,  2]
+        angles = [-30,  -20, -10,  -5,   0,   5,  10,  20,  30]
+        weights = [2,   4,    6,   19,   22,  10,  6,  4,    2]
         angle = Utils.RandonChoice(angles, weights)
         lens =   [1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]
         weights = [1, 2 , 4 , 5,  6,  5 , 4,  2 , 1]
@@ -62,13 +62,10 @@ class AiSMoveWalk(AiSMoveBase):
         quat = Quaternion.axisAngle(Math.Vector3(0.0, 1.0, 0.0), angle)
         direction = quat.multiVec3(enemyDirection)
         desPoint = enemyPosition + direction * len
+
+        desPoint = self.avatar.getRandomPoints(desPoint, 0.5, 1, 0)[0]
         return desPoint
 
-    @property
-    def avatar(self):
-        return KBEngine.entities.get(self.srcEntityId)
-    
-    
     
 #ai战斗移动决策
 class AiMoveDecision():

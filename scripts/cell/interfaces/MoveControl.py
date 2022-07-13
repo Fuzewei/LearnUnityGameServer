@@ -48,12 +48,11 @@ class MoveControl:
     def p3UpdatePosition(self, exposed, timeStamp, position, faceDirection, moveDirection):
         if exposed != self.controlId:
             return
-        # DEBUG_MSG("confirmTime :%s p3UpdatePosition: %i controllerId =%i, userarg=%s" % \
-		# 				(self.confirmTime, tuple(faceDirection)[0], tuple(faceDirection)[1], tuple(faceDirection)[2]))
+        self.moveControllers.clientSetPDM(position, faceDirection, moveDirection)
         self.confirmTime = timeStamp
-        self.position = position
-        self.direction = faceDirection #面朝的方向
-        self.moveDirection = moveDirection  #移动方向（局部）
+        # self.position = position
+        # self.direction = faceDirection #面朝的方向
+        # self.moveDirection = moveDirection  #移动方向（局部）
         self.allClients.confirmMoveTimeStamp(self.confirmTime)
 
 
