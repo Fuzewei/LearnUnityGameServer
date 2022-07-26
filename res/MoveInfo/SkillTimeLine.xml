@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Root>
+  <commonAttack1>
+    <nodes>
+      <CommonAttackNode>
+        <beginTime>0.3</beginTime>
+        <endTime>0.6166667</endTime>
+        <params>
+          <hitFlyDurationTime>1.0</hitFlyDurationTime>
+        </params>
+      </CommonAttackNode>
+      <StartNewSkill>
+        <beginTime>1</beginTime>
+        <endTime>1.5</endTime>
+        <params>
+          <newSkillId>commonAttack2</newSkillId>
+        </params>
+      </StartNewSkill>
+      <TimeLineEndNode>
+        <beginTime>2</beginTime>
+        <endTime>2.266667</endTime>
+        <params />
+      </TimeLineEndNode>
+    </nodes>
+  </commonAttack1>
+  <commonAttack2>
+    <nodes>
+      <CommonAttackNode>
+        <beginTime>0.3</beginTime>
+        <endTime>0.55</endTime>
+        <params>
+          <hitFlyDurationTime>1.0</hitFlyDurationTime>
+        </params>
+      </CommonAttackNode>
+      <StartNewSkill>
+        <beginTime>0.8</beginTime>
+        <endTime>1.2</endTime>
+        <params>
+          <newSkillId>commonAttack3</newSkillId>
+        </params>
+      </StartNewSkill>
+      <TimeLineEndNode>
+        <beginTime>2</beginTime>
+        <endTime>2.366667</endTime>
+        <params />
+      </TimeLineEndNode>
+    </nodes>
+  </commonAttack2>
+  <commonAttack3>
+    <nodes>
+      <CommonAttackNode>
+        <beginTime>0.6</beginTime>
+        <endTime>0.8</endTime>
+        <params>
+          <hitFlyDurationTime>1.0</hitFlyDurationTime>
+        </params>
+      </CommonAttackNode>
+      <TimeLineEndNode>
+        <beginTime>1.5</beginTime>
+        <endTime>2.7</endTime>
+        <params />
+      </TimeLineEndNode>
+    </nodes>
+  </commonAttack3>
+</Root>

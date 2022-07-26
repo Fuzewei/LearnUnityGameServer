@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from telnetlib import SE
 import time
 import math
 import Math

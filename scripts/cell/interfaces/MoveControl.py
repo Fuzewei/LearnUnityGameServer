@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from ast import If
 import KBEngine
 from Const.MoveState import CLIENT_MOVE_CONST
 import math
@@ -32,6 +31,8 @@ class MoveControl:
     def startP3ClientMove(self, _controlId = None):
         if _controlId is None:
             _controlId = self.getBestClient()
+        if  _controlId is None:
+            assert(False)
         if  _controlId != self.controlId :
             self.controlId = _controlId
             self.allClients.startP3ClientMove(self.serverTime())

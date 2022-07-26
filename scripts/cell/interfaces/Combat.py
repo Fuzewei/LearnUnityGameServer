@@ -191,6 +191,7 @@ class Combat(CombatPropertys):
 
 	def serverRequestUseSkill(self, skillId):
 		uuid = self.timeLineManager.getUUid()
+		self.startP3ClientMove(self.getBestClient())
 		self.doUseSkill(uuid, skillId)
 		self.allClients.serverRequestUseSkill(uuid, skillId)
 
@@ -201,7 +202,6 @@ class Combat(CombatPropertys):
 	def doUseSkill(self, uuid, skillId):
 		if self.usingSkills.get(skillId):
 			assert(False)
-		self.startP3ClientMove(self.getBestClient())
 		self.moveControllers = Controllers.RootMotionControler(self) #移动控制器
 		skill = Skill(skillId, self)
 		self.usingSkills[skillId] = skill

@@ -1,16 +1,65 @@
-from ast import If
+import xml.etree.ElementTree as et
 from SkillManager.timeLineNodes.CommonAttackNode import CommonAttackNode
 from SkillManager.timeLineNodes.PlayerAnimationNode import PlayerAnimationNode 
 from SkillManager.timeLineNodes.StartNewSkill import StartNewSkill 
 from SkillManager.timeLineNodes.TimeLineEndNode import TimeLineEndNode
 from SkillManager.SkillTimeLine import SkillTimeLine
+import KBEngine
+
+class XmlSkillLogicName:
+    
+    def __init__(self):
+        self.name = None
+        self.beginTime = 0.0
+        self.endTime = 0.0
+        self.skillParams = {}
+        
+    def fromXmlAttr(self, node):
+        self.name = node.tag
+        self.beginTime = node.find("beginTime").text
+        self.endTime = node.find("endTime").text
+        for paramNode in node.find("params"):
+            self.skillParams[paramNode.tag] = paramNode.text
+       
+class XmlSkillTimeLine:
+    
+    def __init__(self):
+        self.name = None
+        self.node = []
+        
+    def fromXmlAttr(self, node):
+        self.name = node.tag
+        for subNode in node.find("nodes"):
+            node = XmlSkillLogicName()
+            node.fromXmlAttr(subNode)
+            self.node.append(node)
+
+
+__SkillData = {}
+def initSkillData(fileName = "MoveInfo/SkillTimeLine.xml"):
+    if __SkillData:
+        return __SkillData
+    SkillTimeLinePath = KBEngine.matchPath(fileName)
+    tree = et.parse(SkillTimeLinePath)
+    root = tree.getroot()
+    for skillNameNode in root:
+        timeLine = XmlSkillTimeLine()
+        timeLine.fromXmlAttr(skillNameNode)
+        __SkillData[skillNameNode.tag] = timeLine
+
+initSkillData()
+
 
 
 class SkillFactory:
+    
     def __init__(self):
         pass
-
-    def getSkillBeginTimeLine(self, timeLineId): 
+    
+    def getSkillBeginTimeLine(self, timeLineName): 
+        timeLineData = __SkillData[timeLineName]
+        
+        
         timeLine = SkillTimeLine()
         if  timeLineId == 1:
             node1 = PlayerAnimationNode(0, "123")
