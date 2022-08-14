@@ -205,7 +205,7 @@ class Combat(CombatPropertys):
 		self.moveControllers = Controllers.RootMotionControler(self) #移动控制器
 		skill = Skill(skillId, self)
 		self.usingSkills[skillId] = skill
-		skill.startTimeLine(skill.initTimeLineId, uuid)
+		skill.startTimeLine(skill.initTimeLineName, uuid)
 
 	#打断技能
 	def interruptSkill(self, skillId):

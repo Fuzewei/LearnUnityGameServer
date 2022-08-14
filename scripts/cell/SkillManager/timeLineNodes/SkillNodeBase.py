@@ -2,8 +2,8 @@
 from timeLine.TimeLineNodeBase import TimeLineNodeBase 
 
 class SkillNodeBase(TimeLineNodeBase):
-    def __init__(self, timeStamp):
-        TimeLineNodeBase.__init__(self, timeStamp)
+    def __init__(self, nodeInfo):
+        TimeLineNodeBase.__init__(self, nodeInfo.beginTime)
         self.nodeType = "Monster"
 
     @property

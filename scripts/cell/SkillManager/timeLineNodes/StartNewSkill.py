@@ -2,10 +2,10 @@
 from SkillManager.timeLineNodes.SkillNodeBase import SkillNodeBase 
 
 class StartNewSkill(SkillNodeBase):
-    def __init__(self, timeStamp, _durationTime, _newSkillId):
-        SkillNodeBase.__init__(self, timeStamp)
-        self.durationTime = _durationTime
-        self.newSkillId = _newSkillId
+    def __init__(self, nodeInfo):
+        SkillNodeBase.__init__(self, nodeInfo)
+        # self.durationTime = _durationTime
+        # self.newSkillId = _newSkillId
 
     
     #客户端发来的信息

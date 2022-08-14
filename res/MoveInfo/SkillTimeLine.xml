@@ -13,7 +13,7 @@
         <beginTime>1</beginTime>
         <endTime>1.5</endTime>
         <params>
-          <newSkillId>commonAttack2</newSkillId>
+          <newSkillId>2</newSkillId>
         </params>
       </StartNewSkill>
       <TimeLineEndNode>
@@ -36,7 +36,7 @@
         <beginTime>0.8</beginTime>
         <endTime>1.2</endTime>
         <params>
-          <newSkillId>commonAttack3</newSkillId>
+          <newSkillId>3</newSkillId>
         </params>
       </StartNewSkill>
       <TimeLineEndNode>

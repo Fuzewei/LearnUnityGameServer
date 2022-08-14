@@ -7,9 +7,9 @@ import KBEngine
 
 class CommonAttackNode(SkillNodeBase):
     _hitEntity = -1
-    def __init__(self, timeStamp):
-        SkillNodeBase.__init__(self, timeStamp)
-        self.hitFlyDurationTime = 1.0
+    def __init__(self, nodeInfo):
+        SkillNodeBase.__init__(self, nodeInfo)
+        self.hitFlyDurationTime = float(nodeInfo.skillParams.get("hitFlyDurationTime",1.0))
 
    #客户端发来的信息(命中信息)
     def clientCall(self, exposed, args):

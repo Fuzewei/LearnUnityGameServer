@@ -2,8 +2,8 @@
 from SkillManager.timeLineNodes.SkillNodeBase import SkillNodeBase 
 
 class TimeLineEndNode(SkillNodeBase):
-    def __init__(self, timeStamp):
-        SkillNodeBase.__init__(self, timeStamp)
+    def __init__(self, nodeInfo):
+        SkillNodeBase.__init__(self, nodeInfo)
 
     #客户端发来的信息
     def clientCall(self, exposed, args):

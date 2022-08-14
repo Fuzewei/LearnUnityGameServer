@@ -4,16 +4,22 @@ import time
 from timeLine.TimeLineBase import TimeLineBase 
 
 class Skill:
-
+    
+    skillId2StartTimeLine = {
+            1:"commonAttack1",
+            2:"commonAttack2",
+            3:"commonAttack3",
+        }
+			
     def __init__(self, _id, _avatar):
        self.timeLineUUIDs = {}
        self.skillId = _id
-       self.initTimeLineId = _id
+       self.initTimeLineName = Skill.skillId2StartTimeLine[_id]
        self.avatar = _avatar
        self.beginTime = time.time()
 
-    def startTimeLine(self, timeLineId, uuid):
-        timeline = self.avatar.skillFactory.getSkillBeginTimeLine(timeLineId)
+    def startTimeLine(self, timeLineIdName, uuid):
+        timeline = self.avatar.skillFactory.getSkillBeginTimeLine(timeLineIdName)
         timeline.setBelongSkil(self)
         self.avatar.timeLineManager.addTimeLine(uuid, timeline)
         self.timeLineUUIDs[uuid] = timeline
